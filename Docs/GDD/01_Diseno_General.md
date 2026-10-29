@@ -1,7 +1,9 @@
-# ESTANDARTES — Documento de Diseño del Juego (GDD)
+# ESTANDARTES — GDD · Volumen I: Diseño general
 
-> **Título provisional:** *Estandartes* · **Primera entrega:** *Estandartes: Edad Media*
-> **Plataforma:** PC (Windows, Steam) · **Motor:** Unity 6 LTS · **Versión del documento:** 0.1 (29-10-2026)
+> **Volúmenes del GDD** ([índice](README.md)): **I. Diseño general** (este documento) · [II. Niveles de la Edad Media](02_Niveles_Edad_Media.md) · [III. Arquitectura de la IA](03_Arquitectura_IA.md) · [IV. Guía de construcción](04_Guia_de_Construccion.md)
+>
+> **Título provisional de la saga:** *Estandartes* · **Primer juego:** *Estandartes: Edad Media*
+> **Plataforma:** PC (Windows, Steam) · **Motor:** Unity 6 LTS · **Versión del documento:** 0.2 (29-10-2026)
 > **Estado:** pre-producción. Este documento es la referencia viva del proyecto: todo cambio de diseño se refleja aquí.
 
 ---
@@ -51,8 +53,9 @@
 | Jugadores | Un jugador contra la IA. Simulación diseñada para añadir cooperativo en el futuro |
 | Motor | Unity 6 LTS con DOTS (Entities, Jobs, Burst) |
 | Estilo visual | Realista histórico (barro, metal gastado, telas teñidas, luz natural) |
-| Épocas | Lanzamiento: **Edad Media (1066–1453)**. Expansiones: Antigüedad, Renacimiento, Época napoleónica… |
+| Épocas | **Saga que recorre la historia de la guerra.** Primer juego: **Edad Media**. Después, por este orden: **Japón feudal** (samuráis), **era de la pólvora** (arcabuces, mosquetes y fusiles de chispa), **era del rifle** (siglo XIX) y, aparte, la **Antigüedad**. Posible ampliación posterior hasta la actualidad, fuera del juego base (ver [21](#21-épocas-futuras)) |
 | Modos | **Historia** (batallas reales reconstruidas) y **Libre** (batallas configurables) |
+| Modo Historia del primer juego | **5 niveles:** Hastings (1066), Château Gaillard (1203–1204), Las Navas de Tolosa (1212), Puente de Stirling (1297) y Agincourt (1415) (ver [Volumen II](02_Niveles_Edad_Media.md)) |
 | Escala objetivo | 4.000 soldados activos a 60 FPS en equipo recomendado; preset *Épico* con 10.000+ activos; ejércitos totales de hasta 20.000 con oleadas de refuerzo |
 | Clasificación prevista | PEGI 16 (violencia realista; sangre configurable) |
 | Modelo de negocio | Premium (pago único) + expansiones grandes de época |
@@ -67,6 +70,19 @@
 ### 1.1 Visión
 
 El jugador no mira la batalla desde arriba: **está dentro**. Siente el muro de escudos temblar cuando llega la carga, oye silbar las andanadas de flechas, ve a su capitán gritar órdenes y a los soldados de alrededor dudar cuando cae el estandarte. Cada soldado de la IA tiene su papel (lancero, ballestero, caballero, artillero de catapulta…) y lo ejecuta con criterio, mientras el jugador puede ser **cualquiera de ellos**, cambiando de arma y de rol según lo que pida la batalla.
+
+### 1.1.1 Una saga a lo largo de la historia
+
+*Estandartes* es una **saga** que recorre la historia de la guerra con la misma base técnica y la misma IA:
+
+1. **Edad Media** (primer juego): espadas, escudos, lanzas, arcos, ballestas, caballos, catapultas, trebuchets, balistas, troncos y arietes para derribar puertas, torres de asedio.
+2. **Japón feudal**: samuráis con katana, yari, naginata y arco yumi; ashigaru; primeros arcabuces.
+3. **Era de la pólvora**: picas y arcabuces, mosquetes y fusiles de chispa con bayoneta.
+4. **Era del rifle** (siglo XIX): rifles, artillería moderna, líneas y orden abierto.
+5. **Antigüedad** (como expansión aparte): legiones, falanges, elefantes de guerra.
+6. Más adelante, y **fuera del juego base**, la saga podría ampliarse hasta la actualidad.
+
+El objetivo a largo plazo es un **Modo Historia muy completo** que cubra todas esas épocas. Se empieza con **5 niveles medievales** y se va ampliando. Para que esto sea viable, unidades, armas e IA se diseñan **independientes de la época** (ver [7.1](#71-principios) y [7.9](#79-unidades-a-través-de-las-épocas)).
 
 ### 1.2 Pilares de diseño
 
@@ -137,36 +153,37 @@ Campañas de batallas reales, reconstruidas con su terreno, su clima, sus ejérc
 | **Objetivos** | Principales (ganar la batalla, tomar/defender un punto) y secundarios (salvar al abanderado, destruir las torres de asedio antes de que lleguen, capturar al comandante enemigo). |
 | **Epílogo** | El cronista cuenta qué pasó realmente y cómo se compara con la partida del jugador. Se desbloquean entradas del códice. |
 
-**Variante "¿Y si…?":** tras completar una batalla, se puede jugar desde el bando contrario o con alteraciones (sin lluvia en Crécy, sin el pastor guía en Las Navas…).
+**Variante "¿Y si…?":** tras completar una batalla, se puede jugar desde el bando contrario o con alteraciones (sin lluvia en Agincourt, sin el pastor guía en Las Navas…).
 
 ### 3.3 El protagonista y la muerte
 
-- Cada batalla tiene un **protagonista con nombre**, un soldado ficticio pero plausible (un huscarle sajón en Hastings, un ballestero genovés en Crécy, un caballero castellano en Las Navas…). A veces se juega desde el bando perdedor: es parte de la experiencia histórica.
+- Cada batalla tiene un **protagonista con nombre**, un soldado ficticio pero plausible (un escudero normando en Hastings, un zapador picardo en Château Gaillard, un escudero castellano en Las Navas…). Las variantes "¿Y si…?" permiten jugar también desde el bando perdedor.
 - Aunque el protagonista tiene un arma "propia" de su historia, puede **recoger y usar cualquier arma** y ejercer cualquier rol (ver [sección 6](#6-el-héroe)).
 - **Muerte — modo "Relevo" (por defecto):** al caer, el jugador toma el control de otro soldado de su escuadra o de una cercana mientras queden refuerzos. La batalla nunca se detiene y el cronista lo integra en el relato ("otro hombre recogió su espada…").
 - **Muerte — modo "Clásico":** se vuelve al último punto de control (al inicio de cada fase).
 - Dificultad *Maestro de guerra*: el relevo solo es posible si hay un aliado a menos de 30 m.
 
-### 3.4 Campaña medieval de lanzamiento
+### 3.4 Campaña del primer juego: 5 niveles medievales
 
-Un **prólogo** de aprendizaje ficticio (una escaramuza fronteriza que enseña cada rol) y diez batallas históricas en orden cronológico:
+El Modo Historia de *Estandartes: Edad Media* arranca con **cinco batallas reales**, elegidas por ser representativas y porque en cada una gana quien toma la mejor decisión estratégica. Cada nivel está diseñado en detalle (mapa, fases, objetivos, IA, eventos y notas históricas) en el **[Volumen II](02_Niveles_Edad_Media.md)**.
 
-| # | Batalla | Fecha | Bandos | Tipo | Qué la hace única en el juego |
-|---|---|---|---|---|---|
-| 1 | **Hastings** | 14-10-1066 | Anglosajones vs. normandos | Campal en colina | Muro de escudos en lo alto de la colina; la IA normanda ejecuta **retiradas fingidas** para romperlo; arqueros normandos. |
-| 2 | **Asedio de Jerusalén** | 7-6 a 15-7-1099 | Cruzados vs. fatimíes | Asedio urbano | **Torres de asedio** contra la muralla; asalto por varios frentes a la vez. |
-| 3 | **Asedio de Château Gaillard** | 1203–6-3-1204 | Francia vs. Inglaterra angevina | Asedio de castillo | Castillo de **tres recintos**: cadena de captura completa (recinto exterior → central → interior), entrada alternativa por la capilla. |
-| 4 | **Las Navas de Tolosa** | 16-7-1212 | Castilla, Aragón y Navarra vs. almohades | Campal en sierra | Cruce del paso de montaña guiado, calor extremo de julio, asalto final al **palenque** del califa. |
-| 5 | **Puente de Stirling** | 11-9-1297 | Escoceses vs. ingleses | Campal con río | El ejército inglés cruza un **puente estrecho**: la IA escocesa espera el momento justo para cargar y partirlo en dos. |
-| 6 | **Crécy** | 26-8-1346 | Inglaterra vs. Francia | Campal en pendiente | **Arco largo** contra ballesteros genoveses; tormenta previa; cargas francesas cuesta arriba. |
-| 7 | **Aljubarrota** | 14-8-1385 | Portugal y arqueros ingleses vs. Castilla | Campal defensiva | Posición defensiva con **fosos y obstáculos**; la caballería castellana debe decidir cómo atacar. |
-| 8 | **Agincourt** | 25-10-1415 | Inglaterra vs. Francia | Campal en barro | **Barro** que agota a los caballeros, estacas de los arqueros, corredor entre dos bosques. |
-| 9 | **Asedio de Orleans** | 1428–8-5-1429 | Francia vs. Inglaterra | Asedio de bastidas | Toma de las bastidas y de **Les Tourelles**; el estandarte de Juana de Arco como motor de moral. |
-| 10 | **Caída de Constantinopla** | 6-4 a 29-5-1453 | Imperio otomano vs. Imperio bizantino | Asedio de murallas | Murallas teodosianas, **primeros cañones de asedio**; cierre de la época y puente hacia la siguiente. |
+| Nivel | Batalla | Fecha | El jugador lucha con | Idea estratégica |
+|---|---|---|---|---|
+| 1 | **Hastings** | 14-10-1066 | Normandos | Romper un muro de escudos en altura con armas combinadas y **retiradas fingidas** |
+| 2 | **Asedio de Château Gaillard** | 1203–6-3-1204 | Franceses | Tomar un castillo **recinto a recinto**: zapa, brecha e infiltración por la capilla |
+| 3 | **Las Navas de Tolosa** | 16-7-1212 | Castellanos | **Flanqueo** por un paso oculto de la sierra y asalto final al palenque del califa |
+| 4 | **Puente de Stirling** | 11-9-1297 | Escoceses | **Paciencia y cuello de botella**: atacar cuando ha cruzado la vanguardia enemiga |
+| 5 | **Agincourt** | 25-10-1415 | Ingleses | **Elegir el terreno**: estacas, barro y bosques que encajonan al enemigo |
 
-Cada batalla dura de 25 a 45 minutos y puede incluir varias fases jugables (por ejemplo, en Orleans: asalto a una bastida, defensa del contraataque y toma de Les Tourelles).
+El primer nivel hace también de tutorial: enseña uno a uno todos los roles (arquero, infante, jinete) dentro de la propia batalla.
 
-### 3.5 Dificultad
+### 3.5 Un Modo Historia que crece
+
+- **Más batallas medievales** en actualizaciones (candidatas: Jerusalén 1099, Hattin 1187, Arsuf 1191, Bannockburn 1314, Crécy 1346, Aljubarrota 1385, Grunwald 1410, Orleans 1429, Constantinopla 1453; ver [Volumen II, 4](02_Niveles_Edad_Media.md#4-candidatas-para-ampliar-la-campaña-medieval)).
+- **Una campaña por cada época** nueva de la saga (ver [21](#21-épocas-futuras)).
+- A largo plazo, el Modo Historia forma una **línea temporal** navegable de la historia militar, desde la Antigüedad hasta el siglo XIX.
+
+### 3.6 Dificultad
 
 | Nivel | IA | Jugador |
 |---|---|---|
@@ -233,26 +250,34 @@ Las configuraciones se guardan como **escenarios** y se pueden compartir con un 
 
 ### 4.4 Zonas del mapa
 
-El mapa se divide en zonas con un **tipo** y un **dueño** inicial (propia, enemiga o neutral):
+El mapa se divide en **zonas**. Cada zona tiene un **tipo**, un **dueño** inicial (propio, enemigo o neutral) y, opcionalmente, **objetivos** dentro (ver [5](#5-objetivos-captura-y-asedios)). No hay distribuciones fijas: **cualquier combinación de zonas y objetivos es válida en cualquier mapa**, y el jugador puede crear las suyas en el Planificador.
 
 | Tipo de zona | Función |
 |---|---|
-| **Zona de Conquista** | Contiene un punto capturable (bandera, edificio, torre). Quien la controla gana su efecto: puntos, drenaje de refuerzos enemigos, punto de refuerzo adelantado o desbloqueo del siguiente objetivo. |
-| **Zona de Guerrero** | Frente de combate. No se captura, se **sostiene**: las escuadras con papel *Guerrero* asignadas a ella combaten para impedir el paso o empujar al enemigo. Si un bando la domina, el otro pierde el acceso a las zonas que protegía. |
-| **Zona de Despliegue** | Donde aparece cada ejército y por donde entran sus refuerzos. |
-| **Zona de Reserva** | Retaguardia donde esperan las escuadras de reserva. |
-| **Zona de Artillería** | Posiciones de catapultas, trebuchets y balistas, con munición y dotación. |
+| **Conquista** | Contiene un punto capturable (bandera, edificio, torre, puente, colina). Quien la controla gana su efecto: puntos, drenaje de refuerzos enemigos, punto de refuerzo adelantado o desbloqueo de otros objetivos. |
+| **Guerrero** | Frente de combate. No se captura, se **sostiene**: las escuadras con papel *Guerrero* combaten para impedir el paso o empujar al enemigo. Si un bando la domina, el otro pierde el acceso a lo que protegía. |
+| **Despliegue** | Donde aparece cada ejército y por donde entran sus refuerzos. |
+| **Reserva** | Retaguardia donde esperan las escuadras de reserva. |
+| **Artillería** | Posiciones de catapultas, trebuchets, balistas (o cañones en otras épocas), con munición y dotación. |
+| **Suministro** | Carros de flechas, virotes, armas de repuesto y agua. Si se pierde, se acaba la munición. |
+| **Emboscada** | Zona oculta (bosque, hondonada) donde se esconden escuadras hasta una señal. |
+| **Refuerzo** | Punto de entrada de refuerzos que se puede ganar o perder. |
+| **Retirada** | Ruta y zona segura hacia donde se repliegan las escuadras con orden. |
+| **Prohibida** | Zona intransitable o de acceso limitado (por diseño o por reglas del escenario). |
 
-**Plantillas de zonas** (se pueden editar):
+**Plantillas de zonas.** Son solo **ejemplos de partida** que se pueden editar o mezclar:
 
 | Plantilla | Distribución | Tipo de batalla |
 |---|---|---|
 | **Choque** | Dos zonas de Guerrero enfrentadas | Batalla campal pura: gana quien rompe al otro |
 | **Conquista doble** | Una zona de Conquista por bando y una zona de Guerrero en medio | Defender lo tuyo, tomar lo suyo, pelear el centro |
+| **Doble frente** | Dos zonas de Guerrero en paralelo y una de Conquista detrás de cada una | Dos batallas a la vez: decidir dónde reforzar |
 | **Línea de conquista** | 3–5 zonas de Conquista en línea con zonas de Guerrero entre ellas | Frente móvil tipo "tira y afloja" |
-| **Asalto escalonado** | Cadena de zonas de Conquista con dependencias | Asedios: puerta → patio → torres → torre del homenaje |
+| **Asalto escalonado** | Cadena de zonas de Conquista con dependencias | Asedios por fases (castillo, ciudad, campamento fortificado) |
+| **Cuello de botella** | Una zona de Conquista estrecha (puente, vado, paso de montaña) entre dos zonas de Guerrero | Controlar el paso |
 | **Rey de la colina** | Una zona de Conquista central rodeada de zonas de Guerrero | Todos contra el centro |
-| **Personalizado** | El jugador pinta zonas y enlaza dependencias | Lo que quieras |
+| **Emboscada** | Ruta de marcha con zonas de Emboscada a los lados | Atravesar o tender la trampa |
+| **Personalizado** | El jugador pinta zonas, asigna tipos y enlaza dependencias | Lo que quieras |
 
 ### 4.5 Condiciones de victoria
 
@@ -278,30 +303,70 @@ Se pueden combinar varias:
 
 ### 5.1 Grafo de objetivos
 
-Todos los objetivos de un mapa forman un **grafo con dependencias**: un objetivo está *bloqueado* hasta que se cumplen sus requisitos. Esto permite batallas por fases tanto en asedios como en campo abierto, y la IA lo usa directamente para planificar (ver [8.3](#83-nivel-1-el-general)).
+Todos los objetivos de un mapa forman un **grafo con dependencias**: un objetivo está *bloqueado* hasta que se cumplen sus requisitos. Las dependencias pueden ser **Y** (hacen falta todas) u **O** (basta con una), lo que permite **rutas alternativas** y **varias vías de victoria**. Sirve igual para asedios que para campo abierto, y la IA lo usa directamente para planificar (ver [8.3](#83-nivel-1-el-general)).
 
-Ejemplo de castillo (el caso descrito en el concepto: puerta → centro → dos torretas → torre):
+**No hay estructuras fijas:** el castillo de abajo es solo un ejemplo. Cada mapa (y cada escenario del Modo Libre) define su propio grafo con cualquier combinación de tipos de objetivo.
+
+**Tipos de objetivo:**
+
+| Tipo | Se cumple cuando… | Ejemplos |
+|---|---|---|
+| **Capturar** | Un bando controla el punto el tiempo necesario | Bandera, patio, torre, colina, pueblo |
+| **Mantener** | Se conserva una zona durante X minutos | Sostener la cresta hasta el anochecer |
+| **Destruir** | Un elemento llega a 0 de vida | Máquina de asedio, empalizada, puente, carros de suministro |
+| **Abrir / romper** | Se abre un paso | Puerta (con tronco, ariete o desde dentro), brecha en la muralla, rastrillo |
+| **Defender** | Un elemento sobrevive | El general, un estandarte, una aldea, el campamento |
+| **Escoltar** | Algo llega a su destino | Ariete, torre de asedio, convoy, mensajero |
+| **Matar o capturar al líder** | El mando enemigo cae o se rinde | General, comandante de ala, el califa en su tienda |
+| **Recuperar** | Se lleva algo a una zona propia | Estandarte caído, cadáver de un noble, cofre |
+| **Resistir** | Pasa el tiempo sin perder una condición | Aguantar hasta que lleguen refuerzos |
+| **Cruzar / romper la línea** | Un número de soldados llega al otro lado | Atravesar un puente, romper el frente |
+| **Quemar** | Se prende fuego a un elemento | Torre de asedio, tejados, mantas |
+| **Infiltrarse** | Un grupo pequeño llega sin ser descubierto | Entrar por la capilla o una poterna |
+| **Construir / minar** | Un trabajo de ingeniería termina | Rellenar el foso, minar una torre, plantar estacas |
+
+**Ejemplo 1 — castillo** (puerta → patio → dos torretas → torre del homenaje):
 
 ```mermaid
 flowchart TD
-    D["Despliegue atacante"] --> P["Puerta principal<br/>romper con ariete o abrir desde dentro"]
+    D["Despliegue atacante"] --> P["Puerta principal<br/>romper con tronco o ariete, o abrir desde dentro"]
     D --> BR["Brecha en la muralla<br/>catapultas y trebuchets"]
     D --> ES["Asalto a la muralla<br/>escalas y torre de asedio"]
-    P --> C["Patio central<br/>zona de Conquista"]
-    BR --> C
+    P -- "O" --> C["Patio central<br/>zona de Conquista"]
+    BR -- "O" --> C
     C --> T1["Torreta izquierda"]
     C --> T2["Torreta derecha"]
     ES -. "ruta alternativa por el adarve" .-> T1
     ES -. "ruta alternativa por el adarve" .-> T2
-    T1 --> K["NÚCLEO: Torre del homenaje"]
-    T2 --> K
+    T1 -- "Y" --> K["NÚCLEO: Torre del homenaje"]
+    T2 -- "Y" --> K
     K --> V["Victoria del atacante"]
 ```
 
-- Para atacar el **núcleo** (torre del homenaje) hay que controlar **las dos torretas**.
-- Las torretas se pueden tomar desde el patio o, por una ruta alternativa, subiendo a la muralla con escalas o torres de asedio.
-- El patio se alcanza por la puerta o por una brecha abierta con artillería.
+- Para atacar el **núcleo** hay que controlar **las dos torretas** (Y); el patio se alcanza por la puerta **o** por una brecha (O).
 - Varias rutas = varias decisiones para el jugador y para la IA (el general atacante puede fingir el ataque por la puerta mientras manda el asalto real por las escalas).
+
+**Ejemplo 2 — puente** (cuello de botella):
+
+```mermaid
+flowchart LR
+    A["Mantener la orilla norte"] --> B["Capturar la cabeza del puente"]
+    V1["Vado río abajo<br/>ruta alternativa"] -. "O" .-> C
+    B -- "O" --> C["Cruzar con 500 soldados"]
+    C --> D["Capturar el pueblo<br/>de la otra orilla"]
+    E["Destruir el puente<br/>(defensor)"] --> F["Victoria del defensor"]
+```
+
+**Ejemplo 3 — campo abierto** (dominación con tres puntos y decapitación):
+
+```mermaid
+flowchart LR
+    H1["Colina oeste"] --> DOM["Dominación:<br/>cada punto drena refuerzos"]
+    H2["Aldea central"] --> DOM
+    H3["Molino este"] --> DOM
+    DOM --> V["Victoria por refuerzos agotados"]
+    G["Matar al general enemigo"] --> V2["Victoria por decapitación"]
+```
 
 ### 5.2 Reglas de captura
 
@@ -329,6 +394,7 @@ flowchart TD
 
 | Elemento | Uso | Contra |
 |---|---|---|
+| **Tronco de asalto** (ariete de mano) | Un tronco cargado a mano por 6–10 hombres para derribar puertas; rápido de improvisar, pero sin protección | Ballesteros de las almenas, rocas |
 | **Ariete cubierto** | Rompe puertas; 10–16 hombres lo empujan bajo un techo de pieles | Aceite hirviendo, fuego, rocas |
 | **Torre de asedio** | Empujada por 20 hombres; al tocar la muralla baja un puente y descarga a 40 soldados en el adarve | Flechas incendiarias, trebuchets, defensores en el puente |
 | **Escalas** | Rápidas y baratas; los defensores pueden empujarlas con horquillas | Defensores en las almenas |
@@ -417,7 +483,7 @@ Todas las máquinas se pueden **operar en primera persona de rol**:
 
 - **Catapulta / trebuchet:** ajustar ángulo y carga, con una **trayectoria orientativa** que se puede desactivar en *Maestro de guerra*. El jugador hace de apuntador; la dotación de IA recarga.
 - **Balista:** apuntado directo, ideal para cazar dotaciones enemigas.
-- **Ariete y torre de asedio:** el jugador se une a los que empujan (acelera el avance) o los protege.
+- **Tronco de asalto, ariete y torre de asedio:** el jugador se une a los que cargan o empujan (acelera el avance) o los protege.
 - **Defensas:** volcar aceite, soltar rocas, empujar escalas con horquilla.
 
 ### 6.8 Mando
@@ -461,6 +527,8 @@ Ligera, para no romper el realismo:
 - **Datos, no código:** todas las unidades, armas y facciones se definen como datos editables (ver [18.4](#184-datos-del-juego)). Cambiar el balance no requiere programar.
 - **Piedra-papel-tijera histórico:** la caballería pesada arrasa a los tiradores en campo abierto; los lanceros en erizo detienen a la caballería; los tiradores castigan a la infantería lenta; la infantería pesada rompe a los lanceros en melé cerrada.
 - **Variedad visual:** cada soldado combina piezas modulares de su cultura y época, de modo que no haya dos iguales.
+- **Independiente de la época:** cada unidad pertenece a un **arquetipo** (infantería de choque, de asta, de línea, tiradores, hostigadores, caballería de choque o ligera, artillería, ingenieros, mando) y declara sus **capacidades** (escudo, formación anti-caballería, recarga, fuego por filas, humo, bayoneta, cobertura, montada…). Sus armas pertenecen a una **familia** (filo, asta, contundente, arco, ballesta, fuego de avancarga, fuego de retrocarga o repetición, artillería de torsión, de contrapeso o de pólvora). La IA razona sobre arquetipos y capacidades, así que añadir una época es sobre todo añadir datos (ver [7.9](#79-unidades-a-través-de-las-épocas) y [Volumen III, 20](03_Arquitectura_IA.md#20-extensión-a-otras-épocas)).
+- **El listado de abajo es el de la Edad Media** (primer juego). No es cerrado: se ampliará con más tipos y con las unidades de cada época nueva.
 
 ### 7.2 Infantería
 
@@ -490,7 +558,7 @@ Ligera, para no romper el realismo:
 |---|---|
 | **Caballería ligera** | Exploración, flanqueo, persecución de los que huyen, caza de tiradores |
 | **Caballería pesada (caballeros)** | Carga devastadora con lanza; necesita espacio y reagruparse tras cada carga |
-| **Arqueros a caballo** | Hostigamiento a distancia, tácticas de huir y disparar (almohades, otomanos) |
+| **Arqueros a caballo** | Hostigamiento a distancia, tácticas de huir y disparar (almohades) |
 
 ### 7.5 Mando y apoyo
 
@@ -507,7 +575,7 @@ Estas figuras son el **sistema nervioso** de la IA (ver [8.7](#87-vida-y-natural
 
 ### 7.6 Máquinas de asedio
 
-Ver la tabla de [5.4](#54-máquinas-y-elementos-de-asedio). Cada máquina tiene **dotación de IA** que la mueve, la recarga y la repara; si la dotación muere o huye, la máquina queda inutilizada hasta que otra dotación (o el jugador) la tome.
+Ver la tabla de [5.4](#54-máquinas-y-elementos-de-asedio): tronco de asalto, ariete, torre de asedio, escalas, mangonel, trebuchet y balistas. Cada máquina tiene **dotación de IA** que la mueve, la recarga y la repara; si la dotación muere o huye, la máquina queda inutilizada hasta que otra dotación (o el jugador) la tome.
 
 ### 7.7 Modelo de daño
 
@@ -522,36 +590,51 @@ daño_final = daño_base_arma
 - La armadura se mide de 0 a 1 por zona y por tipo de daño (la malla para bien el corte y mal el contundente; la placa para casi todo salvo la maza y las saetas de ballesta a corta distancia).
 - Los escudos absorben el golpe si cubren la dirección del impacto y pierden durabilidad.
 
-### 7.8 Facciones de lanzamiento
+### 7.8 Facciones del primer juego
 
-Para que la producción sea viable, las facciones se agrupan en **culturas visuales** que comparten piezas de equipo; cada facción es una variante con su heráldica, su doctrina y su mezcla de unidades.
+Para que la producción sea viable, las facciones se agrupan en **culturas visuales** que comparten piezas de equipo; cada facción es una variante con su heráldica, su doctrina y su mezcla de unidades. Las del primer juego son las de los 5 niveles:
 
-| Cultura visual | Facciones | Batallas |
+| Cultura visual | Facciones | Nivel |
 |---|---|---|
-| **Noroccidental temprana** (s. XI) | Anglosajones, normandos | Hastings |
-| **Cruzada / latina** (s. XI–XIII) | Cruzados, reino de Francia (temprano), Inglaterra angevina | Jerusalén, Château Gaillard |
-| **Ibérica cristiana** | Corona de Castilla, Corona de Aragón, reino de Navarra, reino de Portugal | Las Navas, Aljubarrota |
-| **Andalusí-magrebí** | Califato almohade | Las Navas |
-| **Levantina** | Califato fatimí | Jerusalén |
-| **Anglo-francesa tardía** (s. XIV–XV) | Inglaterra, Francia, escoceses | Stirling, Crécy, Agincourt, Orleans |
-| **Mediterráneo oriental** | Imperio bizantino, Imperio otomano | Constantinopla |
+| **Noroccidental temprana** (s. XI) | Anglosajones, normandos | 1 · Hastings |
+| **Franco-angevina** (c. 1200) | Reino de Francia, Inglaterra angevina | 2 · Château Gaillard |
+| **Ibérica cristiana** (s. XIII) | Corona de Castilla, Corona de Aragón, reino de Navarra (y órdenes militares) | 3 · Las Navas de Tolosa |
+| **Andalusí-magrebí** (s. XIII) | Califato almohade | 3 · Las Navas de Tolosa |
+| **Escocesa e inglesa** (finales del s. XIII) | Escoceses, Inglaterra | 4 · Puente de Stirling |
+| **Anglo-francesa tardía** (s. XV) | Inglaterra, Francia | 5 · Agincourt |
+
+Las facciones de las batallas candidatas (cruzados, fatimíes, portugueses, bizantinos, otomanos…) se añadirán con esas batallas.
 
 **Doctrinas** (resumen; usadas por el algoritmo de reparto y por el general de IA):
 
 | Facción | Rasgos de doctrina |
 |---|---|
+| Anglosajones | Muro de escudos de huscarles y milicias, hachas danesas, posiciones en altura, poca caballería |
+| Normandos | Armas combinadas: arqueros, infantería y caballería pesada; retiradas fingidas |
+| Francia (c. 1200) | Ingeniería de asedio, caballería pesada, ballesteros |
+| Castilla, Aragón y Navarra | Caballería pesada de la nobleza y las órdenes, jinetes ligeros, milicias concejiles, ballesteros |
+| Almohades | Caballería ligera, arqueros, fintas y envolvimientos, infantería de élite en torno al califa |
+| Escoceses | Lanceros en *schiltron*, terreno favorable, poca caballería |
 | Inglaterra (s. XIV–XV) | Mucho arco largo, hombres de armas desmontados, posiciones defensivas con estacas |
-| Francia | Caballería pesada abundante y agresiva, ballesteros mercenarios |
-| Castilla | Caballería pesada y ligera (jinetes), ballesteros |
-| Almohades | Caballería ligera, arqueros a caballo, infantería de élite en torno al general |
-| Escoceses | Piqueros en *schiltron*, terreno favorable |
-| Otomanos | Jenízaros (infantería de élite), caballería ligera, artillería |
+| Francia (s. XV) | Caballería pesada abundante y agresiva, hombres de armas desmontados, ballesteros; mando fragmentado |
+
+### 7.9 Unidades a través de las épocas
+
+Cada época añade unidades nuevas sobre los mismos arquetipos. Resumen orientativo (se detallará en el GDD de cada expansión):
+
+| Época | Unidades y armas representativas | Máquinas y artillería | Conductas nuevas de IA |
+|---|---|---|---|
+| **Edad Media** (primer juego) | Espada y escudo, lanza, pica, hacha danesa, arco, arco largo, ballesta, jabalina; caballería ligera y pesada | Tronco de asalto, ariete, torre de asedio, mangonel, trebuchet, balista | La base de todo el sistema |
+| **Japón feudal** | Samuráis con katana, yari, naginata y arco yumi; ashigaru con yari y arcabuz (*teppō*); caballería samurái | Arietes y torres de asedio, primeros cañones | Desafíos singulares entre samuráis, moral por honor, descargas de arcabuces |
+| **Era de la pólvora** | Piqueros, arcabuceros, mosqueteros, fusileros con bayoneta, coraceros, dragones | Cañones de asedio y de campaña | Formaciones mixtas de pica y fuego (tercios), contramarcha, humo que reduce la visión, recarga coordinada |
+| **Era del rifle** (s. XIX) | Infantería de línea con rifle, cazadores y tiradores en orden abierto, húsares, lanceros, coraceros | Artillería de campaña con bala y metralla | Línea, columna y cuadro, cobertura, contra-batería |
+| **Antigüedad** (expansión aparte) | Legionarios con *pilum* y *scutum*, hoplitas y falangitas con sarisa, honderos, arqueros, caballería, carros | Escorpiones, balistas, onagros, elefantes de guerra | Testudo, lanzamiento de *pila* antes de la carga, empuje de falange, pánico por elefantes |
 
 ---
 
 ## 8. Inteligencia artificial
 
-> La IA es el corazón del juego. Esta sección describe **qué hace** y **cómo piensa**; la [sección 9](#9-optimización-y-rendimiento) describe **cómo se consigue que funcione con miles de soldados**.
+> La IA es el corazón del juego. Esta sección describe **qué hace** y **cómo piensa** desde el punto de vista del jugador; la [sección 9](#9-optimización-y-rendimiento) describe **cómo se consigue que funcione con miles de soldados**. La arquitectura completa (datos, sistemas, algoritmos, fórmulas, hilos y orden de implementación) está en el **[Volumen III](03_Arquitectura_IA.md)**.
 
 ### 8.1 Qué debe sentir el jugador
 
@@ -905,12 +988,12 @@ El objetivo de todo lo anterior no es solo ir rápido: es **liberar cálculo par
 
 | Tipo | Tamaño jugable orientativo | Ejemplos |
 |---|---|---|
-| Campo abierto / colinas | 2 × 2 km | Hastings, Crécy, Aljubarrota |
-| Río con puente o vado | 2 × 2 km | Stirling Bridge |
+| Campo abierto / colinas | 2 × 2 km | Hastings |
+| Río con puente o vado | 2 × 2 km | Puente de Stirling |
 | Corredor entre bosques | 1,5 × 2 km | Agincourt |
 | Sierra y desfiladero | 3 × 3 km (con zona jugable principal de 2 × 2 km) | Las Navas de Tolosa |
 | Castillo | 1 × 1 km | Château Gaillard |
-| Ciudad o muralla urbana | 1,5 × 1,5 km (tramo de muralla) | Jerusalén, Constantinopla, Orleans |
+| Ciudad o muralla urbana | 1,5 × 1,5 km (tramo de muralla) | Batallas futuras (Jerusalén, Orleans, Constantinopla) y mapas del Modo Libre |
 
 Más allá del área jugable hay un **fondo** de terreno de baja densidad hasta el horizonte para que la escena nunca parezca un plató.
 
@@ -1239,7 +1322,7 @@ flowchart LR
 
 ## 20. Hoja de ruta
 
-Duraciones **orientativas** para un equipo muy pequeño apoyado por herramientas de IA. Cada fase tiene criterios de salida; no se pasa a la siguiente sin cumplirlos.
+Duraciones **orientativas** para un equipo muy pequeño apoyado por herramientas de IA. Cada fase tiene criterios de salida; no se pasa a la siguiente sin cumplirlos. **Las instrucciones paso a paso de cada fase están en el [Volumen IV](04_Guia_de_Construccion.md).**
 
 | Fase | Duración orientativa | Contenido | Criterio de salida |
 |---|---|---|---|
@@ -1247,24 +1330,28 @@ Duraciones **orientativas** para un equipo muy pequeño apoyado por herramientas
 | **1 · Prototipo técnico de escala** ⚠️ | 2–3 meses | Simulación ECS, hash espacial, flow fields, LOD de IA, animación por GPU con personajes provisionales, proyectiles; URP vs HDRP | **5.000 soldados luchando a ≥ 60 FPS** en equipo recomendado, simulación ≤ 8 ms por tick. Si no se cumple, se revisa el alcance antes de seguir |
 | **2 · Prototipo de combate del héroe** | 2 meses | Melé direccional, arco, ballesta, escudo, cámara 3ª/1ª persona, contra una escuadra de IA | El combate es divertido contra 1 y contra 10 enemigos (*playtest*) |
 | **3 · IA jerárquica y objetivos** | 3 meses | General, comandantes, escuadras, moral y contagio, grafo de objetivos y captura, Modo Libre rápido en un mapa de llanura | Batallas de IA contra IA creíbles; métricas de atascos y ociosidad dentro de umbral |
-| **4 · Vertical slice** | 3 meses | **Hastings** (campal, muro de escudos, retirada fingida) + **un asedio de castillo** con la cadena completa puerta → patio → torretas → torre del homenaje, con calidad final | Una batalla y un asedio que representan el juego final |
-| **5 · Producción** | 8–12 meses | Resto de batallas, facciones y culturas, máquinas de asedio, Planificador del Modo Libre, códice, audio, UI final | Contenido completo |
+| **4 · Vertical slice** | 3 meses | **Nivel 1: Hastings** (campal, muro de escudos, retirada fingida) + **Nivel 2: Château Gaillard** (asedio por recintos con la cadena completa de objetivos), con calidad final | Una batalla y un asedio que representan el juego final |
+| **5 · Producción** | 8–12 meses | **Niveles 3–5** (Las Navas, Stirling, Agincourt), facciones y culturas restantes, Modo Libre detallado y Planificador, códice, audio, UI final | Contenido completo |
 | **6 · Alpha y Beta** | 3–4 meses | Pulido, optimización final, balance con batallas *headless*, *playtests* externos, localización | Sin errores críticos; objetivos de rendimiento cumplidos en todos los presets |
 | **7 · Lanzamiento** | — | Steam (opción de Acceso Anticipado tras la fase 4–5) | — |
-| **Post-lanzamiento** | — | Parches, Workshop, primera **expansión de época** | — |
+| **Post-lanzamiento** | — | Parches, Workshop, nuevas batallas medievales y primera **expansión de época** (Japón feudal) | — |
 
 ---
 
 ## 21. Épocas futuras
 
-| Época | Novedades | Batallas candidatas |
-|---|---|---|
-| **Antigüedad** | Legiones, testudo, pilum, falanges, elefantes de guerra, carros, escorpiones romanos | Gaugamela (331 a. C.), Cannas (216 a. C.), Zama (202 a. C.), Alesia (52 a. C.) |
-| **Renacimiento (pica y arcabuz)** | Tercios, arcabuces y mosquetes, artillería de campaña, humo de pólvora que reduce la visibilidad | Ceriñola (1503), Pavía (1525), Rocroi (1643) |
-| **Época napoleónica** | Línea, columna y cuadro, artillería, caballería pesada, cadena de mando con edecanes | Austerlitz (1805), Bailén (1808), Waterloo (1815) |
-| **Más adelante** | Siglo XIX y conflictos modernos (a valorar) | — |
+La saga avanza por la historia en este orden. El **alcance principal llega hasta el siglo XIX**; la Antigüedad se añade como expansión aparte.
 
-**Qué se reutiliza:** toda la simulación ECS, las cuatro capas de IA, el LOD de IA, los flow fields, el grafo de objetivos, el Modo Libre y las herramientas. **Qué se añade por época:** unidades, armas (con sus reglas, por ejemplo recarga de pólvora), doctrinas, culturas visuales, mapas y campaña. El humo de la pólvora se integra en la capa de visibilidad del mapa de influencia, de modo que la IA "ve" peor igual que el jugador.
+| Orden | Época | Novedades | Batallas candidatas |
+|---|---|---|---|
+| 1 | **Edad Media** (primer juego) | Ver [7](#7-unidades-armas-y-facciones) | Los 5 niveles del [Volumen II](02_Niveles_Edad_Media.md) y sus candidatas |
+| 2 | **Japón feudal** (periodo Sengoku) | Samuráis con katana, yari, naginata y arco yumi; ashigaru; arcabuces *teppō*; castillos japoneses; desafíos singulares | Okehazama (1560), cuarta batalla de Kawanakajima (1561), Nagashino (1575), Sekigahara (1600), asedio de Osaka (1614–1615) |
+| 3 | **Era de la pólvora** (s. XVI – 1815) | Picas y arcabuces (tercios), mosquetes, fusiles de chispa con bayoneta, cañones; humo que reduce la visibilidad; línea, columna y cuadro | Ceriñola (1503), Pavía (1525), Rocroi (1643), Fontenoy (1745), Bailén (1808), Waterloo (1815) |
+| 4 | **Era del rifle** (s. XIX) | Rifles de avancarga estriados y de retrocarga, artillería moderna, orden abierto y cobertura | Alma (1854), Balaclava (1854), Solferino (1859), Gettysburg (1863), Isandlwana (1879) |
+| — | **Antigüedad** (expansión aparte) | Legiones, testudo, *pilum*, falanges, elefantes de guerra, carros, escorpiones | Gaugamela (331 a. C.), Cannas (216 a. C.), Zama (202 a. C.), Alesia (52 a. C.) |
+| — | **Posible ampliación** (fuera del juego base) | Siglo XX y actualidad: exigiría IA de cobertura avanzada y vehículos | A valorar en el futuro |
+
+**Qué se reutiliza:** toda la simulación ECS, las cuatro capas de IA, el LOD de IA, los flow fields, el grafo de objetivos, el Modo Libre y las herramientas. **Qué se añade por época:** unidades y armas (con sus reglas, por ejemplo la recarga de pólvora), sus capacidades de IA, doctrinas, culturas visuales, mapas y campaña. El humo de la pólvora se integra en la capa de visibilidad del mapa de influencia, de modo que la IA "ve" peor igual que el jugador. El proceso para añadir una época está en el [Volumen IV](04_Guia_de_Construccion.md#después-del-lanzamiento-añadir-una-época).
 
 ---
 
@@ -1280,6 +1367,7 @@ Duraciones **orientativas** para un equipo muy pequeño apoyado por herramientas
 | Licencias de modelos y assets | Medio | Registro de origen y licencia de cada asset; cumplimiento de la política de IA de Steam |
 | Rigor histórico | Medio | Documentación por batalla, licencias explicadas en el códice, consulta de fuentes académicas |
 | Determinismo insuficiente para co-op futuro | Medio | Tick fijo y semillas desde el principio; co-op planteado con anfitrión autoritativo, no *lockstep* puro |
+| La arquitectura no escala a las armas de fuego de épocas posteriores | Alto | IA basada en arquetipos y capacidades desde el primer día; prototipo temprano de una unidad de fuego (recarga, descarga por filas, humo) durante la fase 3 para validar el diseño |
 
 ---
 
@@ -1321,6 +1409,10 @@ La **CPU** es el componente más importante para el tamaño de los ejércitos (l
 | **Ticket** | Unidad del fondo de refuerzos de un ejército |
 | **Slot** | Puesto de un soldado dentro de su formación |
 | **Bark** | Frase corta contextual de un personaje |
+| **Arquetipo** | Papel táctico de una unidad independiente de la época (infantería de asta, tiradores, caballería de choque…) |
+| **Capacidad** | Rasgo de una unidad que activa conductas de IA concretas (escudo, recarga, fuego por filas, humo…) |
+| **HFSM** | Máquina de estados jerárquica: estados con subestados, usada por las escuadras |
+| **Monte Carlo** | Evaluar una decisión simulándola muchas veces con variaciones aleatorias y promediando los resultados |
 
 ---
 
@@ -1519,4 +1611,4 @@ El **general** y los **comandantes** piensan de forma asíncrona en hilos de baj
 
 ---
 
-*Fin del documento. Próximo paso tras la aprobación del GDD: fase 0 (proyecto de Unity, repositorio con Git LFS, CI) y arranque de la fase 1 (prototipo técnico de escala).*
+*Fin del Volumen I. Los niveles están en el [Volumen II](02_Niveles_Edad_Media.md), la arquitectura de la IA en el [Volumen III](03_Arquitectura_IA.md) y la construcción paso a paso en el [Volumen IV](04_Guia_de_Construccion.md).*
