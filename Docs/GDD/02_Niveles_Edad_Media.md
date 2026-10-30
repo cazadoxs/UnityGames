@@ -1,6 +1,6 @@
 # ESTANDARTES — GDD · Volumen II: Niveles del Modo Historia (Edad Media)
 
-> Parte del [GDD de Estandartes](README.md). Versión 0.2 (29-10-2026).
+> Parte del [GDD de Estandartes](README.md). Versión 0.3 (30-10-2026).
 > Este volumen define los **5 niveles** con los que arranca el Modo Historia del primer juego, *Estandartes: Edad Media*.
 
 ---

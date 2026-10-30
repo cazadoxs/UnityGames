@@ -1,6 +1,6 @@
 # ESTANDARTES — GDD · Volumen III: Arquitectura de la IA
 
-> Parte del [GDD de Estandartes](README.md). Versión 0.2 (29-10-2026).
+> Parte del [GDD de Estandartes](README.md). Versión 0.3 (30-10-2026).
 > El [Volumen I, sección 8](01_Diseno_General.md#8-inteligencia-artificial) explica **qué** hace la IA desde el punto de vista del jugador. Este volumen explica **cómo está construida**: datos, sistemas, algoritmos, fórmulas, hilos y orden de implementación. Es la referencia para programarla.
 
 ---
@@ -996,7 +996,22 @@ moral       dM_B/dt = −μ · (bajas_B por segundo / N_B) + fuentes de moral de
 | `ObjectiveGraph` | Nodos, tipos, dependencias Y/O, efectos al capturar |
 | `BattleScenario` | Ejércitos, mandos y personalidades, eventos guionizados, condiciones de victoria |
 
-Todos se convierten en *BlobAssets* al cargar la batalla mediante *bakers*. Las tablas de balance se pueden exportar e importar en CSV.
+Todos se convierten en *BlobAssets* al cargar la batalla mediante *bakers*. Las tablas de balance se pueden exportar e importar en CSV. Cada asset tiene además una forma JSON equivalente y un ID estable en el registro de contenido, para que los mods puedan añadirlos o modificarlos (ver [Volumen V](05_Mapas_y_Mods.md)).
+
+### 18.1 IA modificable por mods
+
+| Se puede modificar por datos | Validación al cargar |
+|---|---|
+| Doctrinas (composición, despliegue, planes preferidos) | Los tipos de unidad y los planes referenciados existen |
+| Personalidades de general y de comandante | Parámetros dentro de sus rangos (tabla 6.7) |
+| Dominios HTN: métodos y tareas compuestas nuevas | Sin ciclos; solo **tareas primitivas existentes**; precondiciones con predicados conocidos; profundidad máxima limitada |
+| Curvas de utilidad | Salida acotada entre 0 y 1; 64 muestras |
+| Formaciones | Solo generadores de slots existentes, con parámetros dentro de rango |
+| Tablas de moral | Magnitudes acotadas por evento |
+| Unidades | Solo arquetipos y capacidades existentes |
+| Pistas de IA de mapas | Generadas por el análisis automático del terreno o colocadas por el autor (ver [Volumen V, 3.6](05_Mapas_y_Mods.md#36-pistas-de-ia-y-análisis-automático-del-terreno)) |
+
+**No se puede modificar:** los sistemas (código), el orden de ejecución, los presupuestos de rendimiento, los cupos de LOD ni las reglas de combate. Un mod con datos de IA inválidos se desactiva con un informe del error.
 
 ---
 

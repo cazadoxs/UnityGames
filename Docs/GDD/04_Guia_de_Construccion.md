@@ -1,6 +1,6 @@
 # ESTANDARTES — GDD · Volumen IV: Guía de construcción paso a paso
 
-> Parte del [GDD de Estandartes](README.md). Versión 0.2 (29-10-2026).
+> Parte del [GDD de Estandartes](README.md). Versión 0.3 (30-10-2026).
 > Cómo construir el juego desde un repositorio vacío hasta el lanzamiento en Steam. Está escrita para que la pueda seguir **una persona** o **Claude con control del PC de desarrollo** (con los MCP de Unity y Blender). Cada paso dice qué hacer, con qué herramientas, qué archivos se crean y cómo se comprueba que está terminado.
 
 ---
@@ -16,6 +16,7 @@
 - [Fase 5. Producción: niveles 3 a 5 y Modo Libre completo](#fase-5-producción-niveles-3-a-5-y-modo-libre-completo)
 - [Fase 6. Alpha, Beta y optimización final](#fase-6-alpha-beta-y-optimización-final)
 - [Fase 7. Lanzamiento](#fase-7-lanzamiento)
+- [Fase 8. Constructor de mapas y mods](#fase-8-constructor-de-mapas-y-mods)
 - [Después del lanzamiento: añadir una época](#después-del-lanzamiento-añadir-una-época)
 - [Anexo. Convenciones del proyecto](#anexo-convenciones-del-proyecto)
 
@@ -192,6 +193,15 @@ Duración orientativa: 1 mes (junto con la pre-producción). **Aceptación de la
 - **Archivos:** `.github/workflows/tests.yml`, `Assets/_Project/Code/Tests/EditMode/SmokeTests.cs` (una prueba vacía).
 - **Aceptación:** la prueba vacía pasa en GitHub Actions.
 
+### Paso 0.10 — Preparar el soporte de mods
+
+- **Objetivo:** que el juego quede preparado desde el primer día para el constructor de mapas y los mods de la fase 8 (Vol. V §2).
+- **Instrucciones:**
+  1. Fijar la convención de IDs `espacio:tipo/nombre`; todo el contenido base usa el espacio `estandartes`.
+  2. Regla de código: ningún sistema hace referencia directa a una unidad, arma o mapa concretos; todo se busca en el registro de contenido por ID.
+  3. Documentarlo en `Docs/Decisiones.md` y en la lista de revisión de código.
+- **Aceptación:** la convención está documentada y forma parte de la revisión de código.
+
 ---
 
 ## Fase 1. Prototipo técnico de escala
@@ -210,7 +220,8 @@ Duración orientativa: 2–3 meses. **Es la fase más importante:** demuestra qu
 - **Objetivo:** primeras definiciones de unidades y armas como datos.
 - **Instrucciones:** crear `UnitDefinition` y `WeaponDefinition` (ScriptableObject) con los campos de Vol. III §3.5 y §18; sus *bakers* a `UnitBlob` y `WeaponBlob`. Crear tres assets de prueba: `Lancero_Prueba`, `Espadachin_Prueba`, `Arquero_Prueba` con valores del Vol. I, Anexo A.
 - **Archivos:** `Code/Sim/Data/UnitDefinition.cs`, `WeaponDefinition.cs`, `Code/Authoring/UnitDefinitionBaker.cs`, `Data/Units/*.asset`.
-- **Aceptación:** prueba EditMode que hornea un `UnitDefinition` y lee sus valores desde el blob.
+- **Preparación para mods (Vol. V §2):** crear `ContentRegistry` (IDs estables → definiciones) y cargar el contenido base a través de él; cada definición se puede exportar e importar en JSON; los *blobs* se pueden construir también en tiempo de ejecución con `BlobBuilder`.
+- **Aceptación:** prueba EditMode que hornea un `UnitDefinition` y lee sus valores desde el blob; prueba de ida y vuelta a JSON (exportar, importar y comparar) y de construcción del blob desde JSON en tiempo de ejecución.
 
 ### Paso 1.3 — Componentes y generación de ejércitos
 
@@ -368,7 +379,7 @@ Duración orientativa: 3 meses. **Puerta:** batallas IA contra IA creíbles en u
   ```
   El método recorre los pares de arquetipos, simula en L1 con varias semillas, ajusta los coeficientes y guarda `CombatCalibration.asset`.
 - **3.10 General:** el cerebro vive en un hilo propio (`Thread` con prioridad baja) iniciado por `StrategicHostSystem`; las simulaciones Monte Carlo son métodos estáticos `[BurstCompile]` llamados directamente; los resultados vuelven por una cola concurrente y se aplican en `StrategicSyncSystem`.
-- **3.11 Objetivos genéricos:** el grafo admite cualquier combinación de tipos de zona y de objetivo (Vol. I §5.1); prueba con al menos cuatro mapas de prueba distintos (llanura con 3 puntos, puente, castillo de 3 recintos, colina).
+- **3.11 Objetivos genéricos:** el grafo admite cualquier combinación de tipos de zona y de objetivo (Vol. I §5.1); prueba con al menos cuatro mapas de prueba distintos (llanura con 3 puntos, puente, castillo de 3 recintos, colina). Zonas, grafo, pistas de IA y eventos se guardan y cargan en JSON con la estructura del formato `.estmap` (Vol. V §3.12).
 - **3.13 Modo Libre rápido:** implementar el algoritmo del Anexo B como función pura con pruebas EditMode (incluido el ejemplo resuelto del anexo); pantalla con UI Toolkit: mapa, dos cantidades, facciones y botón de batalla.
 
 ---
@@ -452,7 +463,7 @@ Duración orientativa: 8–12 meses.
 | **5.3** | Nivel 4: Puente de Stirling | Puente con capacidad limitada (enlace de navegación), calzada, terreno blando, espera oculta con impaciencia, cálculo del momento del ataque |
 | **5.4** | Nivel 5: Agincourt | Mecánica de estacas, barro progresivo, ajuste fino de la presión de masa y la aglomeración, andanadas de arco largo, ataque al campamento |
 | **5.5** | Modo Libre detallado (cantidad por tipo, puntos) | Vol. I §4.3 nivel 2 |
-| **5.6** | Planificador del Modo Libre | Colocar escuadras en zonas, papeles y órdenes iniciales, plantillas de zonas y zonas personalizadas, guardar y compartir escenarios |
+| **5.6** | Planificador del Modo Libre | Colocar escuadras en zonas, papeles y órdenes iniciales, plantillas de zonas y zonas personalizadas, guardar y compartir escenarios en el formato de escenario del Vol. V §3.12 |
 | **5.7** | Mapas genéricos para el Modo Libre | Llanura, colinas, río con puente, bosque, pueblo, castillo |
 | **5.8** | Códice, progresión, desbloqueos y estrellas | Vol. I §16–§17 |
 | **5.9** | Guardado, opciones, accesibilidad, localización ES/EN | Vol. I §12.3, §18.5 |
@@ -486,6 +497,27 @@ Duración orientativa: 3–4 meses.
 - Cuestionario de contenido de Steam con la **declaración de contenido generado con IA**.
 - Lista de comprobación de lanzamiento: requisitos de sistema publicados (Vol. I §23), idiomas, logros, guardado en la nube, accesibilidad.
 - Opción de **Acceso Anticipado** tras la fase 4 o 5 si se decide así.
+
+---
+
+## Fase 8. Constructor de mapas y mods
+
+Duración orientativa: 4–6 meses después del lanzamiento, como **actualización gratuita**. Diseño completo en el [Volumen V](05_Mapas_y_Mods.md). **Aceptación de la fase:** un mapa creado con el constructor y un mod de unidades de la beta con modders se publican en Workshop, se instalan y se juegan de principio a fin sin errores ni pérdida de rendimiento.
+
+| Paso | Contenido | Instrucciones clave |
+|---|---|---|
+| **8.1** | Cargador de mods y registro externo | Descubrimiento en `Mods/` y Workshop, validación de `mod.json`, dependencias y orden topológico, validación contra esquemas JSON, añadir / reemplazar / parchear, informe de errores y desactivación automática (Vol. V §4.2–§4.5) |
+| **8.2** | Importadores de assets | glTF en tiempo de ejecución con el paquete glTFast; texturas PNG y KTX2; audio OGG y WAV; personajes sobre el esqueleto oficial con las animaciones por GPU existentes; generación de LOD e impostores si faltan; caché local (Vol. V §4.6) |
+| **8.3** | Gestor de mods | Pantalla con activar/desactivar, orden, conflictos, perfiles, modo desarrollador con consola y recarga en caliente de JSON (Vol. V §4.9) |
+| **8.4** | Steam Workshop | API de contenido de usuario de Steamworks (con Steamworks.NET): crear y actualizar elementos, suscripciones, descarga, valoraciones y denuncias |
+| **8.5** | Constructor: terreno y vegetación | Edición de alturas y texturas del Terrain en tiempo de ejecución por zonas, importación de mapas de alturas, agua, caminos, pinceles de vegetación (Vol. V §3.2–§3.3) |
+| **8.6** | Constructor: objetos y fortificaciones | Biblioteca filtrada por época, kit modular con encaje y enlaces de navegación automáticos, destructibles (Vol. V §3.4) |
+| **8.7** | Constructor: capa de juego y eventos | Zonas, editor de nodos del grafo de objetivos, condiciones de victoria, editor visual de eventos, ejércitos y escenarios (Vol. V §3.5, §3.8–§3.9) |
+| **8.8** | Análisis automático del terreno | Alturas dominantes, cuellos de botella, rutas de flanqueo, líneas defensivas, emboscadas, artillería y retirada a partir de la rejilla de navegación y la visibilidad (Vol. V §3.6); probarlo primero sobre los 5 mapas oficiales y comparar con sus pistas manuales |
+| **8.9** | Horneado, validación, probar y publicar | Vol. V §3.10–§3.11 y presupuestos del §6 |
+| **8.10** | Documentación y mod de ejemplo | Wiki, esquemas JSON, esqueleto oficial de referencia, mod de ejemplo (Vol. V §9) |
+| **8.11** | Beta cerrada con modders | Grupo pequeño de creadores durante 4–6 semanas; corregir formatos antes de congelarlos |
+| **8.12** | Lanzamiento | Actualización gratuita; formatos con versión 1.0 y registro de cambios |
 
 ---
 
@@ -530,5 +562,6 @@ Lista de comprobación para cada expansión (Japón feudal, era de la pólvora, 
 - ¿Usa RNG con semilla por entidad?
 - ¿Tiene pruebas y marcadores de perfilado?
 - ¿Respeta el presupuesto del sistema (Vol. I, Anexo D)?
+- ¿Busca el contenido por ID en el registro, sin referencias directas a unidades, armas o mapas concretos (Vol. V §2)?
 EOF
 wc -l Docs/GDD/04_Guia_de_Construccion.md

@@ -1,9 +1,9 @@
 # ESTANDARTES — GDD · Volumen I: Diseño general
 
-> **Volúmenes del GDD** ([índice](README.md)): **I. Diseño general** (este documento) · [II. Niveles de la Edad Media](02_Niveles_Edad_Media.md) · [III. Arquitectura de la IA](03_Arquitectura_IA.md) · [IV. Guía de construcción](04_Guia_de_Construccion.md)
+> **Volúmenes del GDD** ([índice](README.md)): **I. Diseño general** (este documento) · [II. Niveles de la Edad Media](02_Niveles_Edad_Media.md) · [III. Arquitectura de la IA](03_Arquitectura_IA.md) · [IV. Guía de construcción](04_Guia_de_Construccion.md) · [V. Constructor de mapas y mods](05_Mapas_y_Mods.md)
 >
 > **Título provisional de la saga:** *Estandartes* · **Primer juego:** *Estandartes: Edad Media*
-> **Plataforma:** PC (Windows, Steam) · **Motor:** Unity 6 LTS · **Versión del documento:** 0.2 (29-10-2026)
+> **Plataforma:** PC (Windows, Steam) · **Motor:** Unity 6 LTS · **Versión del documento:** 0.3 (30-10-2026)
 > **Estado:** pre-producción. Este documento es la referencia viva del proyecto: todo cambio de diseño se refleja aquí.
 
 ---
@@ -55,6 +55,7 @@
 | Estilo visual | Realista histórico (barro, metal gastado, telas teñidas, luz natural) |
 | Épocas | **Saga que recorre la historia de la guerra.** Primer juego: **Edad Media**. Después, por este orden: **Japón feudal** (samuráis), **era de la pólvora** (arcabuces, mosquetes y fusiles de chispa), **era del rifle** (siglo XIX) y, aparte, la **Antigüedad**. Posible ampliación posterior hasta la actualidad, fuera del juego base (ver [21](#21-épocas-futuras)) |
 | Modos | **Historia** (batallas reales reconstruidas) y **Libre** (batallas configurables) |
+| Comunidad | Después del lanzamiento: **constructor de mapas** dentro del juego y **soporte de mods** con Steam Workshop (ver [Volumen V](05_Mapas_y_Mods.md)) |
 | Modo Historia del primer juego | **5 niveles:** Hastings (1066), Château Gaillard (1203–1204), Las Navas de Tolosa (1212), Puente de Stirling (1297) y Agincourt (1415) (ver [Volumen II](02_Niveles_Edad_Media.md)) |
 | Escala objetivo | 4.000 soldados activos a 60 FPS en equipo recomendado; preset *Épico* con 10.000+ activos; ejércitos totales de hasta 20.000 con oleadas de refuerzo |
 | Clasificación prevista | PEGI 16 (violencia realista; sangre configurable) |
@@ -1039,7 +1040,8 @@ Editor interno en Unity para:
 - Pintar **zonas** (Conquista, Guerrero, Despliegue, Reserva, Artillería) y enlazar el **grafo de objetivos**.
 - Colocar **pistas para la IA:** líneas defensivas, rutas de flanqueo, puntos de emboscada, posiciones de artillería, rutas de retirada.
 - Definir **eventos guionizados** del Modo Historia (condición → acción).
-- Las mismas zonas alimentan el **Planificador** del Modo Libre, y en el futuro podrán exponerse a la comunidad (mods de mapas y escenarios).
+- Las mismas zonas alimentan el **Planificador** del Modo Libre.
+- **Constructor de mapas para la comunidad** (después del lanzamiento): versión de estas herramientas dentro del juego para que cualquier jugador cree mapas y escenarios (terreno, vegetación, fortificaciones, zonas, grafo de objetivos, eventos), con **análisis automático del terreno** para que la IA juegue bien en ellos, y los publique en Steam Workshop. Diseño completo en el [Volumen V](05_Mapas_y_Mods.md).
 
 ---
 
@@ -1188,7 +1190,7 @@ Middleware: **FMOD** (o el sistema de audio de Unity si basta) con mezcla dinám
 - **Premium**, pago único (precio orientativo 29,99–39,99 €). Valorar **Acceso Anticipado** en Steam con el Modo Libre y las primeras batallas.
 - **Expansiones de época** (grandes, con campaña, unidades, armas y mapas).
 - **Sin micropagos de ventaja** ni cajas de botín.
-- **Futuro:** soporte de mods (mapas, escenarios, unidades) vía Steam Workshop.
+- **Comunidad (después del lanzamiento):** constructor de mapas dentro del juego y **soporte de mods** (datos, modelos, texturas, audio, mapas, escenarios y campañas) desde una carpeta local y Steam Workshop. Mods gratuitos, sin mods de pago (ver [Volumen V](05_Mapas_y_Mods.md)).
 
 ---
 
@@ -1254,6 +1256,7 @@ UnityGames/
 - Todo el contenido se define en **ScriptableObjects** editables: `UnitDefinition`, `WeaponDefinition`, `ArmorDefinition`, `FactionDefinition`, `DoctrineDefinition`, `SiegeEngineDefinition`, `MapDefinition`, `BattleScenario`, `ObjectiveGraph`.
 - Al cargar una batalla se convierten (*bake*) a estructuras compactas e inmutables (**BlobAssets**) que la simulación lee sin coste.
 - Las tablas de balance pueden exportarse e importarse en CSV para trabajar en hoja de cálculo.
+- **Preparado para mods desde el principio:** todo el contenido se registra en un **registro de contenido** con IDs estables (`estandartes:unit/lancero_castellano`), tiene una forma serializable a JSON y sus *BlobAssets* se pueden construir también en tiempo de ejecución. El juego base se carga por el mismo sistema que los mods ("el juego base es un mod más", ver [Volumen V, 2](05_Mapas_y_Mods.md#2-principio-el-juego-base-es-un-mod-más)).
 
 ### 18.5 Guardado y configuración
 
@@ -1334,7 +1337,8 @@ Duraciones **orientativas** para un equipo muy pequeño apoyado por herramientas
 | **5 · Producción** | 8–12 meses | **Niveles 3–5** (Las Navas, Stirling, Agincourt), facciones y culturas restantes, Modo Libre detallado y Planificador, códice, audio, UI final | Contenido completo |
 | **6 · Alpha y Beta** | 3–4 meses | Pulido, optimización final, balance con batallas *headless*, *playtests* externos, localización | Sin errores críticos; objetivos de rendimiento cumplidos en todos los presets |
 | **7 · Lanzamiento** | — | Steam (opción de Acceso Anticipado tras la fase 4–5) | — |
-| **Post-lanzamiento** | — | Parches, Workshop, nuevas batallas medievales y primera **expansión de época** (Japón feudal) | — |
+| **8 · Constructor de mapas y mods** | 4–6 meses tras el lanzamiento | Cargador de mods, importadores, gestor de mods, Steam Workshop, constructor de mapas, análisis automático del terreno, documentación para modders (ver [Volumen V](05_Mapas_y_Mods.md)) | Actualización gratuita; un mapa y un mod de la beta con modders funcionan de principio a fin |
+| **Post-lanzamiento** | — | Parches, nuevas batallas medievales y primera **expansión de época** (Japón feudal) | — |
 
 ---
 
@@ -1367,6 +1371,7 @@ La saga avanza por la historia en este orden. El **alcance principal llega hasta
 | Licencias de modelos y assets | Medio | Registro de origen y licencia de cada asset; cumplimiento de la política de IA de Steam |
 | Rigor histórico | Medio | Documentación por batalla, licencias explicadas en el códice, consulta de fuentes académicas |
 | Determinismo insuficiente para co-op futuro | Medio | Tick fijo y semillas desde el principio; co-op planteado con anfitrión autoritativo, no *lockstep* puro |
+| Contenido de la comunidad que hunde el rendimiento o deja de funcionar con las actualizaciones | Alto | Presupuestos validados al importar, formatos versionados con migraciones, parches por campo (ver [Volumen V, 11](05_Mapas_y_Mods.md#11-riesgos)) |
 | La arquitectura no escala a las armas de fuego de épocas posteriores | Alto | IA basada en arquetipos y capacidades desde el primer día; prototipo temprano de una unidad de fuego (recarga, descarga por filas, humo) durante la fase 3 para validar el diseño |
 
 ---
@@ -1413,6 +1418,11 @@ La **CPU** es el componente más importante para el tamaño de los ejércitos (l
 | **Capacidad** | Rasgo de una unidad que activa conductas de IA concretas (escudo, recarga, fuego por filas, humo…) |
 | **HFSM** | Máquina de estados jerárquica: estados con subestados, usada por las escuadras |
 | **Monte Carlo** | Evaluar una decisión simulándola muchas veces con variaciones aleatorias y promediando los resultados |
+| **Mod** | Contenido creado por la comunidad que el juego carga e integra (datos, modelos, mapas, escenarios…) |
+| **Steam Workshop** | Servicio de Steam para publicar, buscar e instalar contenido de la comunidad |
+| **glTF** | Formato abierto de modelos 3D que el juego puede importar en tiempo de ejecución |
+| **Manifiesto** | Archivo `mod.json` que describe un mod: identidad, versión, dependencias y contenido |
+| **Registro de contenido** | Catálogo de todo el contenido cargado (del juego y de los mods), identificado por IDs estables |
 
 ---
 
@@ -1611,4 +1621,4 @@ El **general** y los **comandantes** piensan de forma asíncrona en hilos de baj
 
 ---
 
-*Fin del Volumen I. Los niveles están en el [Volumen II](02_Niveles_Edad_Media.md), la arquitectura de la IA en el [Volumen III](03_Arquitectura_IA.md) y la construcción paso a paso en el [Volumen IV](04_Guia_de_Construccion.md).*
+*Fin del Volumen I. Los niveles están en el [Volumen II](02_Niveles_Edad_Media.md), la arquitectura de la IA en el [Volumen III](03_Arquitectura_IA.md), la construcción paso a paso en el [Volumen IV](04_Guia_de_Construccion.md) y el constructor de mapas y los mods en el [Volumen V](05_Mapas_y_Mods.md).*
