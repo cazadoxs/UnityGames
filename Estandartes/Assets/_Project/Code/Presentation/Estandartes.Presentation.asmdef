@@ -1,0 +1,25 @@
+{
+  "name": "Estandartes.Presentation",
+  "rootNamespace": "Estandartes.Presentation",
+  "references": [
+    "Estandartes.Core",
+    "Estandartes.Sim",
+    "Estandartes.Sim.AI",
+    "Unity.Entities.Graphics",
+    "Unity.RenderPipelines.Universal.Runtime",
+    "Unity.Entities",
+    "Unity.Transforms",
+    "Unity.Collections",
+    "Unity.Mathematics",
+    "Unity.Burst"
+  ],
+  "includePlatforms": [],
+  "excludePlatforms": [],
+  "allowUnsafeCode": true,
+  "overrideReferences": false,
+  "precompiledReferences": [],
+  "autoReferenced": false,
+  "defineConstraints": [],
+  "versionDefines": [],
+  "noEngineReferences": false
+}

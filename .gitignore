@@ -1,0 +1,44 @@
+# Unity
+/Estandartes/[Ll]ibrary/
+/Estandartes/[Tt]emp/
+/Estandartes/[Oo]bj/
+/Estandartes/[Bb]uild/
+/Estandartes/[Bb]uilds/
+/Estandartes/[Ll]ogs/
+/Estandartes/[Uu]ser[Ss]ettings/
+/Estandartes/[Mm]emoryCaptures/
+/Estandartes/[Rr]ecordings/
+/Estandartes/*.csproj
+/Estandartes/*.sln
+/Estandartes/*.user
+/Estandartes/*.pidb
+/Estandartes/*.booproj
+/Estandartes/*.svd
+/Estandartes/*.pdb
+/Estandartes/*.mdb
+/Estandartes/*.opendb
+/Estandartes/*.VC.db
+/Estandartes/Assets/AssetStoreTools*
+/Estandartes/Assets/StreamingAssets/aa*
+crashlytics-build.properties
+*.apk
+*.aab
+
+# .NET (pruebas del núcleo fuera de Unity)
+bin/
+obj/
+TestResults/
+*.trx
+
+# IDE y sistema
+.vs/
+.idea/
+.vscode/*
+!.vscode/extensions.json
+*.swp
+.DS_Store
+Thumbs.db
+
+# ComfyUI / Blender temporales
+*.blend1
+*.blend2

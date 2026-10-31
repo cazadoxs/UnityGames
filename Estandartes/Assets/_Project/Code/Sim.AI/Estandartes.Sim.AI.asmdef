@@ -1,0 +1,22 @@
+{
+  "name": "Estandartes.Sim.AI",
+  "rootNamespace": "Estandartes.Sim.AI",
+  "references": [
+    "Estandartes.Core",
+    "Estandartes.Sim",
+    "Unity.Entities",
+    "Unity.Transforms",
+    "Unity.Collections",
+    "Unity.Mathematics",
+    "Unity.Burst"
+  ],
+  "includePlatforms": [],
+  "excludePlatforms": [],
+  "allowUnsafeCode": true,
+  "overrideReferences": false,
+  "precompiledReferences": [],
+  "autoReferenced": false,
+  "defineConstraints": [],
+  "versionDefines": [],
+  "noEngineReferences": false
+}

@@ -1,0 +1,27 @@
+{
+  "name": "Estandartes.Tools",
+  "rootNamespace": "Estandartes.Tools",
+  "references": [
+    "Estandartes.Core",
+    "Estandartes.Sim",
+    "Estandartes.Sim.AI",
+    "Estandartes.Authoring",
+    "Estandartes.Game",
+    "Unity.Entities",
+    "Unity.Transforms",
+    "Unity.Collections",
+    "Unity.Mathematics",
+    "Unity.Burst"
+  ],
+  "includePlatforms": [
+    "Editor"
+  ],
+  "excludePlatforms": [],
+  "allowUnsafeCode": true,
+  "overrideReferences": false,
+  "precompiledReferences": [],
+  "autoReferenced": false,
+  "defineConstraints": [],
+  "versionDefines": [],
+  "noEngineReferences": false
+}

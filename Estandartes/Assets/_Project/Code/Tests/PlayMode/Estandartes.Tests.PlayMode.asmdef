@@ -1,0 +1,29 @@
+{
+  "name": "Estandartes.Tests.PlayMode",
+  "rootNamespace": "Estandartes.Tests.PlayMode",
+  "references": [
+    "Estandartes.Core",
+    "Estandartes.Sim",
+    "Estandartes.Sim.AI",
+    "UnityEngine.TestRunner",
+    "Unity.Entities",
+    "Unity.Transforms",
+    "Unity.Collections",
+    "Unity.Mathematics",
+    "Unity.Burst"
+  ],
+  "includePlatforms": [],
+  "excludePlatforms": [],
+  "allowUnsafeCode": true,
+  "overrideReferences": true,
+  "precompiledReferences": [
+    "nunit.framework.dll"
+  ],
+  "autoReferenced": false,
+  "defineConstraints": [
+    "UNITY_INCLUDE_TESTS"
+  ],
+  "versionDefines": [],
+  "noEngineReferences": false,
+  "optionalUnityReferences": []
+}
