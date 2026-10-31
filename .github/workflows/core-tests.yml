@@ -1,0 +1,27 @@
+# Pruebas del núcleo sin Unity: compila Estandartes.Core (netstandard2.1, C# 9), ejecuta sus pruebas,
+# valida el contenido base contra los esquemas JSON y comprueba la sintaxis de todo el código de Unity.
+name: Núcleo y contenido
+
+on:
+  push:
+    branches: [ main, "claude/**", "feature/**" ]
+  pull_request:
+
+jobs:
+  core:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: "8.0.x"
+      - name: Pruebas del núcleo
+        run: dotnet test Tools/DotNet/Tests/Estandartes.Core.Tests.csproj --nologo
+      - name: Esquemas al día
+        run: |
+          dotnet run --project Tools/DotNet/SchemaGen -- Docs/Modding/schemas
+          git diff --exit-code Docs/Modding/schemas
+      - name: Contenido base contra los esquemas
+        run: dotnet run --project Tools/DotNet/SchemaGen -- validate Docs/Modding/schemas Estandartes/Assets/StreamingAssets/Mods/estandartes
+      - name: Sintaxis del código de Unity
+        run: dotnet run --project Tools/DotNet/SyntaxCheck -- Estandartes/Assets/_Project/Code

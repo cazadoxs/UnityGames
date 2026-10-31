@@ -83,6 +83,17 @@ namespace Estandartes.Tests
         }
 
         [Test]
+        public void ElCampoSchemaSeIgnora()
+        {
+            var mod = new MemoryModSource("con_schema")
+                .Add("mod.json", @"{ ""$schema"": ""../schemas/mod.schema.json"", ""id"": ""con_schema"", ""name"": ""S"", ""version"": ""1.0.0"" }")
+                .Add("data/weapons/w.json", @"{ ""$schema"": ""../../schemas/weapon.schema.json"", ""id"": ""con_schema:weapon/w"", ""family"": ""Bow"", ""damageType"": ""Pierce"", ""baseDamage"": 10 }");
+            var r = GameContent.CreateLoader().Load(new IModSource[] { Base(), mod }, GameContent.GameVersion);
+            Assert.IsFalse(r.Disabled.ContainsKey("con_schema"), string.Join("\n", r.Messages));
+            Assert.IsTrue(r.Registry.Contains("con_schema:weapon/w"));
+        }
+
+        [Test]
         public void CampoMalEscritoEsError()
         {
             var mod = new MemoryModSource("typo")

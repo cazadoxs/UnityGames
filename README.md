@@ -18,6 +18,21 @@ Saga de batallas históricas masivas para **PC**, hecha en **Unity 6**. El prime
   - [IV. Guía de construcción paso a paso](Docs/GDD/04_Guia_de_Construccion.md)
   - [V. Constructor de mapas y mods](Docs/GDD/05_Mapas_y_Mods.md)
 
+## Estructura del repositorio
+
+| Carpeta | Contenido |
+|---|---|
+| `Estandartes/` | Proyecto de Unity 6 (código en `Assets/_Project/Code`, contenido base en `Assets/StreamingAssets/Mods/estandartes`) |
+| `Docs/GDD/` | Documento de diseño en cinco volúmenes |
+| `Docs/` | Decisiones técnicas, lista de pendientes en el PC, biblia de arte, producción y modding |
+| `Tools/DotNet/` | Compilación y pruebas del núcleo fuera de Unity, generador de esquemas JSON y comprobador de sintaxis |
+
+## Probar el núcleo sin Unity
+
+```bash
+dotnet test Tools/DotNet/Tests/Estandartes.Core.Tests.csproj
+```
+
 ## Estado
 
-Pre-producción: GDD v0.3. El siguiente paso es la fase 0 (proyecto de Unity, Git LFS, integración continua) y después la fase 1, el prototipo técnico de escala.
+Fase 0 y comienzo de la fase 1. El núcleo de reglas e IA (`Estandartes.Core`) está escrito y probado; el contenido base (unidades, facciones, doctrinas, IA y los 5 niveles) está en JSON; el código de Unity está escrito pero **pendiente de compilar en el PC**: ver [Docs/PendienteDeVerificar.md](Docs/PendienteDeVerificar.md).

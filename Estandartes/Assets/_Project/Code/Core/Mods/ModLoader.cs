@@ -98,7 +98,9 @@ namespace Estandartes.Core.Mods
                 try
                 {
                     if (!src.Exists("mod.json")) { Error(result, src.Origin, "mod.json", "falta el manifiesto"); continue; }
-                    m = Json.Deserialize<ModManifest>(src.ReadText("mod.json"));
+                    var obj = JObject.Parse(src.ReadText("mod.json"));
+                    obj.Remove("$schema");
+                    m = obj.ToObject<ModManifest>(Json.Serializer);
                 }
                 catch (Exception e) { Error(result, src.Origin, "mod.json", "manifiesto ilegible: " + e.Message); continue; }
 
@@ -214,8 +216,15 @@ namespace Estandartes.Core.Mods
             var settings = new JsonLoadSettings { DuplicatePropertyNameHandling = DuplicatePropertyNameHandling.Error };
             using var reader = new JsonTextReader(new System.IO.StringReader(text)) { MaxDepth = 64 };
             var token = JToken.ReadFrom(reader, settings);
-            if (token is JArray arr) { foreach (var t in arr) yield return t; }
-            else yield return token;
+            if (token is JArray arr) { foreach (var t in arr) yield return StripSchema(t); }
+            else yield return StripSchema(token);
+        }
+
+        /// <summary>El campo <c>$schema</c> solo sirve al editor de texto: se ignora al cargar.</summary>
+        private static JToken StripSchema(JToken t)
+        {
+            if (t is JObject o) o.Remove("$schema");
+            return t;
         }
 
         private static bool CheckId(Definition def, string modId, string file, LoadResult result)
