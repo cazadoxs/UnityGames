@@ -1,0 +1,51 @@
+{
+  "id": "estandartes:unit/hombres_de_armas",
+  "name": "Hombres de armas",
+  "archetype": "ShockInfantry",
+  "capabilities": [
+    "Shield",
+    "ShieldWall"
+  ],
+  "weapons": [
+    "estandartes:weapon/espada",
+    "estandartes:weapon/maza"
+  ],
+  "armor": {
+    "cut": 0.6,
+    "pierce": 0.45,
+    "blunt": 0.3
+  },
+  "stats": {
+    "health": 100,
+    "mountHealth": 0,
+    "morale": 70,
+    "discipline": 70,
+    "walk": 1.3,
+    "run": 5.0
+  },
+  "personality": {
+    "courage": [
+      0.5,
+      0.9
+    ],
+    "aggression": [
+      0.4,
+      0.8
+    ],
+    "skill": [
+      0.5,
+      0.9
+    ],
+    "discipline": [
+      0.5,
+      0.9
+    ],
+    "experience": [
+      0.4,
+      0.9
+    ]
+  },
+  "squadSize": 60,
+  "cost": 12,
+  "era": "medieval"
+}

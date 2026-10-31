@@ -1,0 +1,24 @@
+{
+  "id": "estandartes:doctrine/aragonesa",
+  "name": "Doctrina aragonesa",
+  "weights": {
+    "estandartes:unit/caballeria_pesada": 0.25,
+    "estandartes:unit/lanceros": 0.25,
+    "estandartes:unit/ballesteros": 0.15,
+    "estandartes:unit/hostigadores": 0.15,
+    "estandartes:unit/levas": 0.2
+  },
+  "preferredPlans": {
+    "anvil_hammer": 0.2
+  },
+  "deployment": {
+    "ShockInfantry": "Center",
+    "PolearmInfantry": "Center",
+    "Ranged": "Front",
+    "Skirmisher": "Front",
+    "ShockCavalry": "Wings",
+    "LightCavalry": "Wings",
+    "Engineer": "Reserve",
+    "Command": "Escort"
+  }
+}

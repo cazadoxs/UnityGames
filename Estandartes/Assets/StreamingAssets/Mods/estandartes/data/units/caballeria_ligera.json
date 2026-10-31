@@ -1,0 +1,51 @@
+{
+  "id": "estandartes:unit/caballeria_ligera",
+  "name": "Caballería ligera",
+  "archetype": "LightCavalry",
+  "capabilities": [
+    "Mounted",
+    "Shield"
+  ],
+  "weapons": [
+    "estandartes:weapon/lanza_ligera",
+    "estandartes:weapon/espada"
+  ],
+  "armor": {
+    "cut": 0.25,
+    "pierce": 0.15,
+    "blunt": 0.15
+  },
+  "stats": {
+    "health": 100,
+    "mountHealth": 200,
+    "morale": 55,
+    "discipline": 50,
+    "walk": 3.5,
+    "run": 12
+  },
+  "personality": {
+    "courage": [
+      0.4,
+      0.8
+    ],
+    "aggression": [
+      0.5,
+      0.9
+    ],
+    "skill": [
+      0.4,
+      0.8
+    ],
+    "discipline": [
+      0.3,
+      0.7
+    ],
+    "experience": [
+      0.3,
+      0.7
+    ]
+  },
+  "squadSize": 30,
+  "cost": 15,
+  "era": "medieval"
+}

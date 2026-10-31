@@ -1,0 +1,17 @@
+{
+  "id": "estandartes:weapon/arco_largo",
+  "name": "Arco largo",
+  "family": "Bow",
+  "damageType": "Pierce",
+  "baseDamage": 55,
+  "penetration": 0.35,
+  "range": 250,
+  "effectiveRange": 150,
+  "windup": 1.3,
+  "strike": 0.05,
+  "recover": 0.4,
+  "staminaCost": 10,
+  "ammo": 24,
+  "reload": 0,
+  "ranged": true
+}

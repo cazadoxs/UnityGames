@@ -1,0 +1,12 @@
+{
+  "id": "estandartes:personality/surrey",
+  "name": "Conde de Surrey",
+  "casualtyAversion": 1.0,
+  "riskAversion": 0.6,
+  "patience": 0.3,
+  "deceptionBias": 0,
+  "attackBias": 0,
+  "doctrineBias": 0.6,
+  "minReserve": 0.15,
+  "temperature": 0.12
+}

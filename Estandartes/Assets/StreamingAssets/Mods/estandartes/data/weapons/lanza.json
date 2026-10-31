@@ -1,0 +1,17 @@
+{
+  "id": "estandartes:weapon/lanza",
+  "name": "Lanza",
+  "family": "Polearm",
+  "damageType": "Pierce",
+  "baseDamage": 40,
+  "penetration": 0.25,
+  "range": 2.5,
+  "effectiveRange": 2.5,
+  "windup": 0.4,
+  "strike": 0.14,
+  "recover": 0.35,
+  "staminaCost": 8,
+  "ammo": 0,
+  "reload": 0,
+  "ranged": false
+}

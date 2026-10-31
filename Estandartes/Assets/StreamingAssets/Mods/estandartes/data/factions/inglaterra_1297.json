@@ -1,0 +1,18 @@
+{
+  "id": "estandartes:faction/inglaterra_1297",
+  "name": "Inglaterra (1297)",
+  "culture": "escocesa",
+  "era": "medieval",
+  "doctrine": "estandartes:doctrine/inglesa_1297",
+  "units": [
+    "estandartes:unit/caballeria_pesada",
+    "estandartes:unit/hombres_de_armas",
+    "estandartes:unit/arqueros",
+    "estandartes:unit/lanceros",
+    "estandartes:unit/levas"
+  ],
+  "colors": [
+    "#B3261E",
+    "#E8C547"
+  ]
+}

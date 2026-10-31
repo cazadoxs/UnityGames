@@ -1,0 +1,12 @@
+{
+  "id": "estandartes:personality/astuto",
+  "name": "Astuto",
+  "casualtyAversion": 1.0,
+  "riskAversion": 0.5,
+  "patience": 0.12,
+  "deceptionBias": 0.3,
+  "attackBias": 0,
+  "doctrineBias": 0,
+  "minReserve": 0.15,
+  "temperature": 0.15
+}

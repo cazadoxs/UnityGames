@@ -1,0 +1,17 @@
+{
+  "id": "estandartes:weapon/honda",
+  "name": "Honda",
+  "family": "Thrown",
+  "damageType": "Blunt",
+  "baseDamage": 25,
+  "penetration": 0.1,
+  "range": 60,
+  "effectiveRange": 40,
+  "windup": 0.8,
+  "strike": 0.05,
+  "recover": 0.3,
+  "staminaCost": 5,
+  "ammo": 20,
+  "reload": 0,
+  "ranged": true
+}

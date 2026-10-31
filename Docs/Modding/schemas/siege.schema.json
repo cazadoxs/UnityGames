@@ -1,0 +1,45 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "title": "siege",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "id": {
+      "type": "string"
+    },
+    "name": {
+      "type": "string"
+    },
+    "crewMin": {
+      "type": "integer",
+      "format": "int32"
+    },
+    "crewMax": {
+      "type": "integer",
+      "format": "int32"
+    },
+    "carried": {
+      "type": "integer",
+      "format": "int32"
+    },
+    "health": {
+      "type": "number",
+      "format": "float"
+    },
+    "rangeMin": {
+      "type": "number",
+      "format": "float"
+    },
+    "rangeMax": {
+      "type": "number",
+      "format": "float"
+    },
+    "reload": {
+      "type": "number",
+      "format": "float"
+    },
+    "targets": {
+      "type": "string"
+    }
+  }
+}

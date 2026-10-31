@@ -1,0 +1,12 @@
+{
+  "id": "estandartes:personality/albret",
+  "name": "Charles d'Albret y los señores de Francia",
+  "casualtyAversion": 0.5,
+  "riskAversion": 0.2,
+  "patience": 0.05,
+  "deceptionBias": 0,
+  "attackBias": 0.35,
+  "doctrineBias": 0.1,
+  "minReserve": 0.05,
+  "temperature": 0.25
+}

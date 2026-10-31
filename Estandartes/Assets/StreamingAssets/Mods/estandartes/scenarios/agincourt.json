@@ -1,0 +1,497 @@
+{
+  "id": "estandartes:scenario/agincourt",
+  "name": "Agincourt",
+  "map": "agincourt",
+  "date": "1415-10-25",
+  "protagonist": "Tom Hale, arquero de Cheshire",
+  "description": "Avanzar, replantar las estacas y obligar a los franceses a atacar por un corredor embarrado entre dos bosques.",
+  "armies": [
+    {
+      "team": 0,
+      "faction": "estandartes:faction/inglaterra_1415",
+      "generalName": "Enrique V",
+      "generalPersonality": "estandartes:personality/enrique_v",
+      "htnDomain": "estandartes:htn/campal_defensor",
+      "total": 7000,
+      "compositionMode": "Quick",
+      "commanders": [
+        {
+          "name": "Camoys",
+          "wing": "Left",
+          "personality": "estandartes:personality/prudente",
+          "coordination": 0.85
+        },
+        {
+          "name": "Enrique V",
+          "wing": "Center",
+          "personality": "estandartes:personality/enrique_v",
+          "coordination": 0.9
+        },
+        {
+          "name": "York",
+          "wing": "Right",
+          "personality": "estandartes:personality/prudente",
+          "coordination": 0.85
+        }
+      ],
+      "reinforcements": 0,
+      "playerSide": true
+    },
+    {
+      "team": 1,
+      "faction": "estandartes:faction/francia_1415",
+      "generalName": "Charles d'Albret",
+      "generalPersonality": "estandartes:personality/albret",
+      "htnDomain": "estandartes:htn/campal_atacante",
+      "total": 14000,
+      "compositionMode": "Quick",
+      "commanders": [
+        {
+          "name": "Caballería del ala izquierda",
+          "wing": "Left",
+          "personality": "estandartes:personality/agresivo",
+          "coordination": 0.4
+        },
+        {
+          "name": "Primera línea",
+          "wing": "Front",
+          "personality": "estandartes:personality/albret",
+          "coordination": 0.45
+        },
+        {
+          "name": "Segunda línea",
+          "wing": "Center",
+          "personality": "estandartes:personality/agresivo",
+          "coordination": 0.4
+        },
+        {
+          "name": "Caballería del ala derecha",
+          "wing": "Right",
+          "personality": "estandartes:personality/agresivo",
+          "coordination": 0.4
+        },
+        {
+          "name": "Tercera línea",
+          "wing": "Reserve",
+          "personality": "estandartes:personality/prudente",
+          "coordination": 0.3
+        }
+      ],
+      "reinforcements": 0,
+      "playerSide": false
+    }
+  ],
+  "zones": [
+    {
+      "id": "posicion_inglesa",
+      "name": "Posición inglesa",
+      "type": "Deployment",
+      "owner": 0,
+      "polygon": [
+        {
+          "x": 700,
+          "y": 200
+        },
+        {
+          "x": 1350,
+          "y": 200
+        },
+        {
+          "x": 1350,
+          "y": 400
+        },
+        {
+          "x": 700,
+          "y": 400
+        }
+      ]
+    },
+    {
+      "id": "linea_avance",
+      "name": "Línea de avance",
+      "type": "Warrior",
+      "owner": 0,
+      "polygon": [
+        {
+          "x": 650,
+          "y": 500
+        },
+        {
+          "x": 1400,
+          "y": 500
+        },
+        {
+          "x": 1400,
+          "y": 600
+        },
+        {
+          "x": 650,
+          "y": 600
+        }
+      ]
+    },
+    {
+      "id": "corredor",
+      "name": "Corredor embarrado",
+      "type": "Warrior",
+      "owner": -1,
+      "polygon": [
+        {
+          "x": 600,
+          "y": 600
+        },
+        {
+          "x": 1450,
+          "y": 600
+        },
+        {
+          "x": 1450,
+          "y": 1300
+        },
+        {
+          "x": 600,
+          "y": 1300
+        }
+      ]
+    },
+    {
+      "id": "bosque_azincourt",
+      "name": "Bosque de Azincourt",
+      "type": "Forbidden",
+      "owner": -1,
+      "polygon": [
+        {
+          "x": 0,
+          "y": 300
+        },
+        {
+          "x": 600,
+          "y": 300
+        },
+        {
+          "x": 600,
+          "y": 1800
+        },
+        {
+          "x": 0,
+          "y": 1800
+        }
+      ]
+    },
+    {
+      "id": "bosque_tramecourt",
+      "name": "Bosque de Tramecourt",
+      "type": "Forbidden",
+      "owner": -1,
+      "polygon": [
+        {
+          "x": 1450,
+          "y": 300
+        },
+        {
+          "x": 2050,
+          "y": 300
+        },
+        {
+          "x": 2050,
+          "y": 1800
+        },
+        {
+          "x": 1450,
+          "y": 1800
+        }
+      ]
+    },
+    {
+      "id": "posicion_francesa",
+      "name": "Posición francesa",
+      "type": "Deployment",
+      "owner": 1,
+      "polygon": [
+        {
+          "x": 600,
+          "y": 1300
+        },
+        {
+          "x": 1450,
+          "y": 1300
+        },
+        {
+          "x": 1450,
+          "y": 1700
+        },
+        {
+          "x": 600,
+          "y": 1700
+        }
+      ]
+    },
+    {
+      "id": "campamento",
+      "name": "Campamento y bagajes",
+      "type": "Supply",
+      "owner": 0,
+      "polygon": [
+        {
+          "x": 800,
+          "y": 0
+        },
+        {
+          "x": 1200,
+          "y": 0
+        },
+        {
+          "x": 1200,
+          "y": 150
+        },
+        {
+          "x": 800,
+          "y": 150
+        }
+      ]
+    }
+  ],
+  "objectives": {
+    "nodes": [
+      {
+        "id": "espera",
+        "name": "La espera",
+        "type": "Resist",
+        "requires": [],
+        "requireMode": "And",
+        "team": 0,
+        "initialOwner": -1,
+        "final": false,
+        "pointOfNoReturn": false,
+        "captureTime": 180,
+        "x": 0,
+        "y": 0
+      },
+      {
+        "id": "estacas",
+        "name": "Avanzar y replantar las estacas",
+        "type": "Build",
+        "requires": [
+          "espera"
+        ],
+        "requireMode": "And",
+        "team": 0,
+        "initialOwner": -1,
+        "final": false,
+        "pointOfNoReturn": false,
+        "captureTime": 90,
+        "x": 0,
+        "y": 0
+      },
+      {
+        "id": "cargas",
+        "name": "Rechazar las cargas de caballería",
+        "type": "Resist",
+        "requires": [
+          "estacas"
+        ],
+        "requireMode": "And",
+        "team": 0,
+        "initialOwner": -1,
+        "final": false,
+        "pointOfNoReturn": false,
+        "captureTime": 180,
+        "x": 0,
+        "y": 0
+      },
+      {
+        "id": "barro",
+        "name": "Desgastar a la primera línea",
+        "type": "Hold",
+        "requires": [
+          "cargas"
+        ],
+        "requireMode": "And",
+        "team": 0,
+        "initialOwner": -1,
+        "final": false,
+        "pointOfNoReturn": false,
+        "captureTime": 240,
+        "x": 0,
+        "y": 0
+      },
+      {
+        "id": "mele",
+        "name": "Atacar los flancos",
+        "type": "Hold",
+        "requires": [
+          "barro"
+        ],
+        "requireMode": "And",
+        "team": 0,
+        "initialOwner": -1,
+        "final": false,
+        "pointOfNoReturn": false,
+        "captureTime": 180,
+        "x": 0,
+        "y": 0
+      },
+      {
+        "id": "bagajes",
+        "name": "Defender el campamento",
+        "type": "Defend",
+        "requires": [
+          "mele"
+        ],
+        "requireMode": "And",
+        "team": 0,
+        "initialOwner": -1,
+        "final": false,
+        "pointOfNoReturn": false,
+        "captureTime": 120,
+        "x": 0,
+        "y": 0
+      },
+      {
+        "id": "segunda_linea",
+        "name": "Rechazar a la segunda línea",
+        "type": "Resist",
+        "requires": [
+          "mele"
+        ],
+        "requireMode": "And",
+        "team": 0,
+        "initialOwner": -1,
+        "final": true,
+        "pointOfNoReturn": false,
+        "captureTime": 240,
+        "x": 0,
+        "y": 0
+      }
+    ]
+  },
+  "events": [
+    {
+      "id": "avance",
+      "mode": "And",
+      "conditions": [
+        {
+          "type": "ObjectiveAchieved",
+          "team": 0,
+          "value": 0,
+          "target": "espera"
+        }
+      ],
+      "actions": [
+        {
+          "type": "Signal",
+          "team": 0,
+          "value": 0,
+          "target": "erpingham",
+          "text": "Sir Thomas Erpingham lanza su bastón: ¡adelante!"
+        }
+      ]
+    },
+    {
+      "id": "carga_francesa",
+      "mode": "And",
+      "conditions": [
+        {
+          "type": "ObjectiveAchieved",
+          "team": 0,
+          "value": 0,
+          "target": "estacas"
+        }
+      ],
+      "actions": [
+        {
+          "type": "SetPlan",
+          "team": 1,
+          "value": 0,
+          "target": "Left",
+          "text": "Assault"
+        },
+        {
+          "type": "SetPlan",
+          "team": 1,
+          "value": 0,
+          "target": "Right",
+          "text": "Assault"
+        }
+      ]
+    },
+    {
+      "id": "ataque_bagajes",
+      "mode": "And",
+      "conditions": [
+        {
+          "type": "ObjectiveAchieved",
+          "team": 0,
+          "value": 0,
+          "target": "mele"
+        }
+      ],
+      "actions": [
+        {
+          "type": "Reinforcements",
+          "team": 1,
+          "value": 300,
+          "target": "campamento",
+          "text": "¡Atacan los bagajes!"
+        }
+      ]
+    },
+    {
+      "id": "retirada_tercera",
+      "mode": "And",
+      "conditions": [
+        {
+          "type": "ObjectiveAchieved",
+          "team": 0,
+          "value": 0,
+          "target": "segunda_linea"
+        }
+      ],
+      "actions": [
+        {
+          "type": "SetPlan",
+          "team": 1,
+          "value": 0,
+          "target": "Reserve",
+          "text": "Retreat"
+        },
+        {
+          "type": "Narration",
+          "team": -1,
+          "value": 0,
+          "text": "La tercera línea francesa se retira"
+        }
+      ]
+    }
+  ],
+  "rules": {
+    "victory": [
+      {
+        "type": "Core",
+        "team": 0,
+        "value": 0
+      },
+      {
+        "type": "Annihilation",
+        "team": -1,
+        "value": 0
+      }
+    ],
+    "weather": "Rain",
+    "timeOfDay": "Morning",
+    "temperature": 8
+  },
+  "phases": [
+    "La espera",
+    "El avance",
+    "Las cargas",
+    "El barro",
+    "La melé",
+    "La segunda línea"
+  ],
+  "secondaryObjectives": [
+    "Replantar las estacas en menos de 45 s",
+    "Defender el campamento",
+    "Capturar a un gran señor francés"
+  ]
+}

@@ -1,0 +1,50 @@
+{
+  "id": "estandartes:unit/piqueros",
+  "name": "Piqueros",
+  "archetype": "PolearmInfantry",
+  "capabilities": [
+    "AntiCavalryFormation"
+  ],
+  "weapons": [
+    "estandartes:weapon/pica",
+    "estandartes:weapon/espada_corta"
+  ],
+  "armor": {
+    "cut": 0.3,
+    "pierce": 0.2,
+    "blunt": 0.15
+  },
+  "stats": {
+    "health": 100,
+    "mountHealth": 0,
+    "morale": 60,
+    "discipline": 75,
+    "walk": 1.2,
+    "run": 4.0
+  },
+  "personality": {
+    "courage": [
+      0.5,
+      0.8
+    ],
+    "aggression": [
+      0.3,
+      0.6
+    ],
+    "skill": [
+      0.3,
+      0.7
+    ],
+    "discipline": [
+      0.6,
+      0.9
+    ],
+    "experience": [
+      0.3,
+      0.7
+    ]
+  },
+  "squadSize": 100,
+  "cost": 9,
+  "era": "medieval"
+}

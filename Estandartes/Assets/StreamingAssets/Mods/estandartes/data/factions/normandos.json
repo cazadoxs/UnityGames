@@ -1,0 +1,18 @@
+{
+  "id": "estandartes:faction/normandos",
+  "name": "Normandos",
+  "culture": "noroccidental_temprana",
+  "era": "medieval",
+  "doctrine": "estandartes:doctrine/normanda",
+  "units": [
+    "estandartes:unit/hombres_de_armas",
+    "estandartes:unit/arqueros",
+    "estandartes:unit/ballesteros",
+    "estandartes:unit/caballeros_normandos",
+    "estandartes:unit/levas"
+  ],
+  "colors": [
+    "#C8102E",
+    "#F2D16B"
+  ]
+}

@@ -1,0 +1,23 @@
+{
+  "id": "estandartes:doctrine/navarra",
+  "name": "Doctrina navarra",
+  "weights": {
+    "estandartes:unit/caballeria_pesada": 0.3,
+    "estandartes:unit/lanceros": 0.25,
+    "estandartes:unit/hostigadores": 0.15,
+    "estandartes:unit/levas": 0.3
+  },
+  "preferredPlans": {
+    "frontal": 0.3
+  },
+  "deployment": {
+    "ShockInfantry": "Center",
+    "PolearmInfantry": "Center",
+    "Ranged": "Front",
+    "Skirmisher": "Front",
+    "ShockCavalry": "Wings",
+    "LightCavalry": "Wings",
+    "Engineer": "Reserve",
+    "Command": "Escort"
+  }
+}

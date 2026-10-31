@@ -1,0 +1,52 @@
+{
+  "id": "estandartes:unit/caballeros_normandos",
+  "name": "Caballeros normandos",
+  "archetype": "ShockCavalry",
+  "capabilities": [
+    "Mounted",
+    "Shield"
+  ],
+  "weapons": [
+    "estandartes:weapon/lanza_caballeria",
+    "estandartes:weapon/espada"
+  ],
+  "armor": {
+    "cut": 0.55,
+    "pierce": 0.45,
+    "blunt": 0.3
+  },
+  "stats": {
+    "health": 100,
+    "mountHealth": 250,
+    "morale": 75,
+    "discipline": 60,
+    "walk": 3.0,
+    "run": 11
+  },
+  "personality": {
+    "courage": [
+      0.6,
+      0.9
+    ],
+    "aggression": [
+      0.6,
+      0.9
+    ],
+    "skill": [
+      0.5,
+      0.9
+    ],
+    "discipline": [
+      0.5,
+      0.8
+    ],
+    "experience": [
+      0.5,
+      0.9
+    ]
+  },
+  "squadSize": 25,
+  "cost": 25,
+  "era": "medieval",
+  "culture": "noroccidental_temprana"
+}

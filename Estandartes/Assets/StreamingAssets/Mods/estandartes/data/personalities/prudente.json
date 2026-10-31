@@ -1,0 +1,12 @@
+{
+  "id": "estandartes:personality/prudente",
+  "name": "Prudente",
+  "casualtyAversion": 1.5,
+  "riskAversion": 1.0,
+  "patience": 0.25,
+  "deceptionBias": 0,
+  "attackBias": -0.2,
+  "doctrineBias": 0,
+  "minReserve": 0.25,
+  "temperature": 0.15
+}

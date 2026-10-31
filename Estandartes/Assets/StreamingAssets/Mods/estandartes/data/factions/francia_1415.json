@@ -1,0 +1,18 @@
+{
+  "id": "estandartes:faction/francia_1415",
+  "name": "Reino de Francia (1415)",
+  "culture": "anglo_francesa_tardia",
+  "era": "medieval",
+  "doctrine": "estandartes:doctrine/francesa_1415",
+  "units": [
+    "estandartes:unit/hombres_de_armas",
+    "estandartes:unit/caballeria_pesada",
+    "estandartes:unit/ballesteros",
+    "estandartes:unit/arqueros",
+    "estandartes:unit/levas"
+  ],
+  "colors": [
+    "#1F3A93",
+    "#E8C547"
+  ]
+}

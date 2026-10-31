@@ -1,0 +1,13 @@
+{
+  "id": "estandartes:formation/cuna",
+  "name": "Cuña",
+  "generator": "Wedge",
+  "spacingX": 1.2,
+  "spacingY": 1.2,
+  "desiredRanks": 0,
+  "width": 0,
+  "shieldsOverlap": false,
+  "facesOutward": false,
+  "jitter": 0,
+  "requiresCapability": []
+}

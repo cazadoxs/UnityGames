@@ -1,0 +1,17 @@
+{
+  "id": "estandartes:weapon/ballesta",
+  "name": "Ballesta",
+  "family": "Crossbow",
+  "damageType": "Pierce",
+  "baseDamage": 70,
+  "penetration": 0.5,
+  "range": 200,
+  "effectiveRange": 100,
+  "windup": 0.3,
+  "strike": 0.05,
+  "recover": 0.3,
+  "staminaCost": 4,
+  "ammo": 20,
+  "reload": 5.0,
+  "ranged": true
+}

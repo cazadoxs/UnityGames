@@ -1,0 +1,41 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "title": "map-manifest",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "id": {
+      "type": "string"
+    },
+    "name": {
+      "type": "string"
+    },
+    "version": {
+      "type": "string"
+    },
+    "formatVersion": {
+      "type": "integer",
+      "format": "int32"
+    },
+    "era": {
+      "type": "string"
+    },
+    "sizeX": {
+      "type": "number",
+      "format": "float"
+    },
+    "sizeY": {
+      "type": "number",
+      "format": "float"
+    },
+    "author": {
+      "type": "string"
+    },
+    "dependencies": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  }
+}

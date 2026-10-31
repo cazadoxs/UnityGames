@@ -1,0 +1,15 @@
+{
+  "id": "estandartes:formation/erizo",
+  "name": "Erizo / schiltron",
+  "generator": "Schiltron",
+  "spacingX": 0.9,
+  "spacingY": 1.1,
+  "desiredRanks": 0,
+  "width": 0,
+  "shieldsOverlap": false,
+  "facesOutward": true,
+  "jitter": 0,
+  "requiresCapability": [
+    "AntiCavalryFormation"
+  ]
+}

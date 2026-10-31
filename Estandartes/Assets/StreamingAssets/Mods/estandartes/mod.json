@@ -1,0 +1,29 @@
+{
+  "id": "estandartes",
+  "name": "Estandartes: Edad Media (juego base)",
+  "version": "0.1.0",
+  "gameVersion": "*",
+  "authors": [
+    "Equipo de Estandartes"
+  ],
+  "description": "Contenido base del primer juego. Se carga con el mismo sistema que los mods (Vol. V §2).",
+  "content": [
+    "units",
+    "weapons",
+    "siege",
+    "factions",
+    "doctrines",
+    "personalities",
+    "formations",
+    "morale",
+    "curves",
+    "htn",
+    "scenarios",
+    "localization"
+  ],
+  "era": "medieval",
+  "tags": [
+    "base"
+  ],
+  "changesRules": false
+}

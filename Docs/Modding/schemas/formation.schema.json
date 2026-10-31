@@ -1,0 +1,73 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "title": "formation",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "id": {
+      "type": "string"
+    },
+    "name": {
+      "type": "string"
+    },
+    "generator": {
+      "$ref": "#/definitions/FormationGenerator"
+    },
+    "spacingX": {
+      "type": "number",
+      "format": "float"
+    },
+    "spacingY": {
+      "type": "number",
+      "format": "float"
+    },
+    "desiredRanks": {
+      "type": "integer",
+      "format": "int32"
+    },
+    "width": {
+      "type": "integer",
+      "format": "int32"
+    },
+    "shieldsOverlap": {
+      "type": "boolean"
+    },
+    "facesOutward": {
+      "type": "boolean"
+    },
+    "jitter": {
+      "type": "number",
+      "format": "float"
+    },
+    "requiresCapability": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  },
+  "definitions": {
+    "FormationGenerator": {
+      "type": "string",
+      "description": "",
+      "x-enumNames": [
+        "Line",
+        "ShieldWall",
+        "Column",
+        "Wedge",
+        "Schiltron",
+        "Open",
+        "Circle"
+      ],
+      "enum": [
+        "Line",
+        "ShieldWall",
+        "Column",
+        "Wedge",
+        "Schiltron",
+        "Open",
+        "Circle"
+      ]
+    }
+  }
+}

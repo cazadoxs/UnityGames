@@ -1,0 +1,19 @@
+{
+  "id": "estandartes:faction/almohades",
+  "name": "Califato almohade",
+  "culture": "andalusi_magrebi",
+  "era": "medieval",
+  "doctrine": "estandartes:doctrine/almohade",
+  "units": [
+    "estandartes:unit/voluntarios",
+    "estandartes:unit/caballeria_ligera",
+    "estandartes:unit/arqueros_a_caballo",
+    "estandartes:unit/arqueros",
+    "estandartes:unit/guardia_del_califa",
+    "estandartes:unit/lanceros"
+  ],
+  "colors": [
+    "#F5F5F0",
+    "#1B1B1B"
+  ]
+}

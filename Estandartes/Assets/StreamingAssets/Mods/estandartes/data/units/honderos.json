@@ -1,0 +1,48 @@
+{
+  "id": "estandartes:unit/honderos",
+  "name": "Honderos",
+  "archetype": "Skirmisher",
+  "capabilities": [],
+  "weapons": [
+    "estandartes:weapon/honda",
+    "estandartes:weapon/daga"
+  ],
+  "armor": {
+    "cut": 0.05,
+    "pierce": 0.0,
+    "blunt": 0.0
+  },
+  "stats": {
+    "health": 100,
+    "mountHealth": 0,
+    "morale": 40,
+    "discipline": 35,
+    "walk": 1.6,
+    "run": 6.5
+  },
+  "personality": {
+    "courage": [
+      0.3,
+      0.7
+    ],
+    "aggression": [
+      0.3,
+      0.6
+    ],
+    "skill": [
+      0.3,
+      0.7
+    ],
+    "discipline": [
+      0.2,
+      0.5
+    ],
+    "experience": [
+      0.2,
+      0.5
+    ]
+  },
+  "squadSize": 40,
+  "cost": 5,
+  "era": "medieval"
+}

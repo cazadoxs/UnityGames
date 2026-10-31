@@ -1,0 +1,12 @@
+{
+  "id": "estandartes:personality/enrique_v",
+  "name": "Enrique V",
+  "casualtyAversion": 1.2,
+  "riskAversion": 0.8,
+  "patience": 0.25,
+  "deceptionBias": 0.2,
+  "attackBias": 0,
+  "doctrineBias": 0.2,
+  "minReserve": 0.1,
+  "temperature": 0.1
+}

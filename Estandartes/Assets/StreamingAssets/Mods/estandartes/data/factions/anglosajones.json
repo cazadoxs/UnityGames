@@ -1,0 +1,17 @@
+{
+  "id": "estandartes:faction/anglosajones",
+  "name": "Anglosajones",
+  "culture": "noroccidental_temprana",
+  "era": "medieval",
+  "doctrine": "estandartes:doctrine/anglosajona",
+  "units": [
+    "estandartes:unit/huscarles",
+    "estandartes:unit/fyrd",
+    "estandartes:unit/arqueros",
+    "estandartes:unit/hostigadores"
+  ],
+  "colors": [
+    "#B3261E",
+    "#E8C547"
+  ]
+}

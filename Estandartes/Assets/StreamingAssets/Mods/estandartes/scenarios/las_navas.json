@@ -1,0 +1,537 @@
+{
+  "id": "estandartes:scenario/las_navas",
+  "name": "Las Navas de Tolosa",
+  "map": "las_navas",
+  "date": "1212-07-16",
+  "protagonist": "Rodrigo, escudero de la mesnada de Diego López de Haro",
+  "description": "Cruzar la sierra por la senda del pastor, aguantar las fintas almohades y asaltar el palenque del califa.",
+  "armies": [
+    {
+      "team": 0,
+      "faction": "estandartes:faction/castilla",
+      "generalName": "Alfonso VIII",
+      "generalPersonality": "estandartes:personality/alfonso_viii",
+      "htnDomain": "estandartes:htn/campal_atacante",
+      "total": 12000,
+      "compositionMode": "Quick",
+      "commanders": [
+        {
+          "name": "Aragón",
+          "wing": "Left",
+          "personality": "estandartes:personality/pedro_ii",
+          "coordination": 0.75
+        },
+        {
+          "name": "Castilla",
+          "wing": "Center",
+          "personality": "estandartes:personality/alfonso_viii",
+          "coordination": 0.85
+        },
+        {
+          "name": "Navarra",
+          "wing": "Right",
+          "personality": "estandartes:personality/sancho_vii",
+          "coordination": 0.7
+        },
+        {
+          "name": "Retaguardia de los reyes",
+          "wing": "Reserve",
+          "personality": "estandartes:personality/alfonso_viii",
+          "coordination": 0.9
+        }
+      ],
+      "reinforcements": 0,
+      "playerSide": true
+    },
+    {
+      "team": 1,
+      "faction": "estandartes:faction/almohades",
+      "generalName": "Muhammad al-Nasir",
+      "generalPersonality": "estandartes:personality/al_nasir",
+      "htnDomain": "estandartes:htn/campal_defensor",
+      "total": 20000,
+      "compositionMode": "Quick",
+      "commanders": [
+        {
+          "name": "Vanguardia de voluntarios",
+          "wing": "Front",
+          "personality": "estandartes:personality/agresivo",
+          "coordination": 0.5
+        },
+        {
+          "name": "Ala izquierda",
+          "wing": "Left",
+          "personality": "estandartes:personality/astuto",
+          "coordination": 0.8
+        },
+        {
+          "name": "Cuerpo almohade",
+          "wing": "Center",
+          "personality": "estandartes:personality/al_nasir",
+          "coordination": 0.85
+        },
+        {
+          "name": "Ala derecha",
+          "wing": "Right",
+          "personality": "estandartes:personality/astuto",
+          "coordination": 0.8
+        },
+        {
+          "name": "Palenque",
+          "wing": "Reserve",
+          "personality": "estandartes:personality/prudente",
+          "coordination": 0.9
+        }
+      ],
+      "reinforcements": 0,
+      "playerSide": false
+    }
+  ],
+  "zones": [
+    {
+      "id": "senda",
+      "name": "Senda del pastor",
+      "type": "Retreat",
+      "owner": 0,
+      "polygon": [
+        {
+          "x": 1500,
+          "y": 1700
+        },
+        {
+          "x": 1800,
+          "y": 1700
+        },
+        {
+          "x": 1800,
+          "y": 2000
+        },
+        {
+          "x": 1500,
+          "y": 2000
+        }
+      ]
+    },
+    {
+      "id": "mesa_del_rey",
+      "name": "Mesa del Rey",
+      "type": "Deployment",
+      "owner": 0,
+      "polygon": [
+        {
+          "x": 300,
+          "y": 1300
+        },
+        {
+          "x": 1700,
+          "y": 1300
+        },
+        {
+          "x": 1700,
+          "y": 1600
+        },
+        {
+          "x": 300,
+          "y": 1600
+        }
+      ]
+    },
+    {
+      "id": "ladera",
+      "name": "Ladera central",
+      "type": "Warrior",
+      "owner": -1,
+      "polygon": [
+        {
+          "x": 500,
+          "y": 800
+        },
+        {
+          "x": 1500,
+          "y": 800
+        },
+        {
+          "x": 1500,
+          "y": 1300
+        },
+        {
+          "x": 500,
+          "y": 1300
+        }
+      ]
+    },
+    {
+      "id": "ala_izq",
+      "name": "Ala izquierda",
+      "type": "Warrior",
+      "owner": -1,
+      "polygon": [
+        {
+          "x": 100,
+          "y": 800
+        },
+        {
+          "x": 500,
+          "y": 800
+        },
+        {
+          "x": 500,
+          "y": 1300
+        },
+        {
+          "x": 100,
+          "y": 1300
+        }
+      ]
+    },
+    {
+      "id": "ala_der",
+      "name": "Ala derecha",
+      "type": "Warrior",
+      "owner": -1,
+      "polygon": [
+        {
+          "x": 1500,
+          "y": 800
+        },
+        {
+          "x": 1900,
+          "y": 800
+        },
+        {
+          "x": 1900,
+          "y": 1300
+        },
+        {
+          "x": 1500,
+          "y": 1300
+        }
+      ]
+    },
+    {
+      "id": "despliegue_almohade",
+      "name": "Despliegue almohade",
+      "type": "Deployment",
+      "owner": 1,
+      "polygon": [
+        {
+          "x": 300,
+          "y": 300
+        },
+        {
+          "x": 1700,
+          "y": 300
+        },
+        {
+          "x": 1700,
+          "y": 700
+        },
+        {
+          "x": 300,
+          "y": 700
+        }
+      ]
+    },
+    {
+      "id": "palenque",
+      "name": "Palenque del califa",
+      "type": "Conquest",
+      "owner": 1,
+      "polygon": [
+        {
+          "x": 850,
+          "y": 100
+        },
+        {
+          "x": 1150,
+          "y": 100
+        },
+        {
+          "x": 1150,
+          "y": 300
+        },
+        {
+          "x": 850,
+          "y": 300
+        }
+      ]
+    }
+  ],
+  "objectives": {
+    "nodes": [
+      {
+        "id": "senda",
+        "name": "Cruzar la sierra",
+        "type": "Cross",
+        "requires": [],
+        "requireMode": "And",
+        "team": 0,
+        "initialOwner": -1,
+        "final": false,
+        "pointOfNoReturn": false,
+        "captureTime": 300,
+        "x": 0,
+        "y": 0
+      },
+      {
+        "id": "mesa",
+        "name": "Asegurar la Mesa del Rey",
+        "type": "Capture",
+        "requires": [
+          "senda"
+        ],
+        "requireMode": "And",
+        "team": 0,
+        "initialOwner": -1,
+        "final": false,
+        "pointOfNoReturn": false,
+        "captureTime": 60,
+        "x": 0,
+        "y": 0,
+        "zone": "mesa_del_rey"
+      },
+      {
+        "id": "vanguardia",
+        "name": "Romper la vanguardia de voluntarios",
+        "type": "Hold",
+        "requires": [
+          "mesa"
+        ],
+        "requireMode": "And",
+        "team": 0,
+        "initialOwner": -1,
+        "final": false,
+        "pointOfNoReturn": false,
+        "captureTime": 120,
+        "x": 0,
+        "y": 0
+      },
+      {
+        "id": "aguantar",
+        "name": "Aguantar los contraataques",
+        "type": "Resist",
+        "requires": [
+          "vanguardia"
+        ],
+        "requireMode": "And",
+        "team": 0,
+        "initialOwner": -1,
+        "final": false,
+        "pointOfNoReturn": false,
+        "captureTime": 300,
+        "x": 0,
+        "y": 0
+      },
+      {
+        "id": "centro",
+        "name": "Romper el centro almohade",
+        "type": "Hold",
+        "requires": [
+          "aguantar"
+        ],
+        "requireMode": "And",
+        "team": 0,
+        "initialOwner": -1,
+        "final": false,
+        "pointOfNoReturn": false,
+        "captureTime": 180,
+        "x": 0,
+        "y": 0
+      },
+      {
+        "id": "brecha_navarra",
+        "name": "Brecha por el flanco navarro",
+        "type": "Open",
+        "requires": [
+          "centro"
+        ],
+        "requireMode": "And",
+        "team": 0,
+        "initialOwner": 1,
+        "final": false,
+        "pointOfNoReturn": true,
+        "captureTime": 60,
+        "x": 0,
+        "y": 0
+      },
+      {
+        "id": "brecha_castellana",
+        "name": "Brecha por el frente castellano",
+        "type": "Open",
+        "requires": [
+          "centro"
+        ],
+        "requireMode": "And",
+        "team": 0,
+        "initialOwner": 1,
+        "final": false,
+        "pointOfNoReturn": true,
+        "captureTime": 60,
+        "x": 0,
+        "y": 0
+      },
+      {
+        "id": "palenque",
+        "name": "Tomar el palenque",
+        "type": "Capture",
+        "requires": [
+          "brecha_navarra",
+          "brecha_castellana"
+        ],
+        "requireMode": "Or",
+        "team": 0,
+        "initialOwner": 1,
+        "final": true,
+        "pointOfNoReturn": false,
+        "captureTime": 90,
+        "x": 0,
+        "y": 0,
+        "zone": "palenque"
+      },
+      {
+        "id": "tienda",
+        "name": "Capturar el estandarte del califa",
+        "type": "Recover",
+        "requires": [
+          "palenque"
+        ],
+        "requireMode": "And",
+        "team": 0,
+        "initialOwner": -1,
+        "final": false,
+        "pointOfNoReturn": false,
+        "captureTime": 30,
+        "x": 0,
+        "y": 0
+      }
+    ]
+  },
+  "events": [
+    {
+      "id": "patrulla_huye",
+      "mode": "And",
+      "conditions": [
+        {
+          "type": "EventFired",
+          "team": -1,
+          "value": 0,
+          "target": "patrulla_escapa"
+        }
+      ],
+      "actions": [
+        {
+          "type": "Reinforcements",
+          "team": 1,
+          "value": 800,
+          "target": "mesa_del_rey",
+          "text": "Los almohades refuerzan los bordes de la meseta"
+        }
+      ]
+    },
+    {
+      "id": "patrulla_escapa",
+      "mode": "And",
+      "conditions": [
+        {
+          "type": "Casualties",
+          "team": 1,
+          "value": -1,
+          "target": "patrulla"
+        }
+      ],
+      "actions": [
+        {
+          "type": "Message",
+          "team": -1,
+          "value": 0,
+          "text": "Una patrulla ha escapado"
+        }
+      ]
+    },
+    {
+      "id": "tres_reyes",
+      "mode": "Or",
+      "conditions": [
+        {
+          "type": "MoraleBelow",
+          "team": 0,
+          "value": 45
+        },
+        {
+          "type": "Time",
+          "team": -1,
+          "value": 1800
+        }
+      ],
+      "actions": [
+        {
+          "type": "SetPlan",
+          "team": 0,
+          "value": 0,
+          "target": "Reserve",
+          "text": "Counterattack"
+        },
+        {
+          "type": "MoraleEvent",
+          "team": 0,
+          "value": 15,
+          "target": "Army"
+        },
+        {
+          "type": "Narration",
+          "team": -1,
+          "value": 0,
+          "text": "¡Los tres reyes cargan!"
+        }
+      ]
+    },
+    {
+      "id": "calor",
+      "mode": "And",
+      "conditions": [
+        {
+          "type": "Time",
+          "team": -1,
+          "value": 600
+        }
+      ],
+      "actions": [
+        {
+          "type": "Weather",
+          "team": -1,
+          "value": 38,
+          "text": "El sol de julio aprieta"
+        }
+      ]
+    }
+  ],
+  "rules": {
+    "victory": [
+      {
+        "type": "Core",
+        "team": 0,
+        "value": 0
+      },
+      {
+        "type": "Annihilation",
+        "team": -1,
+        "value": 0
+      }
+    ],
+    "weather": "Clear",
+    "timeOfDay": "Dawn",
+    "temperature": 36
+  },
+  "phases": [
+    "La senda del pastor",
+    "La Mesa del Rey",
+    "La vanguardia",
+    "Las fintas",
+    "Los tres reyes y el palenque"
+  ],
+  "secondaryObjectives": [
+    "Que no escape ninguna patrulla",
+    "No perder el estandarte del ala que ayudas",
+    "Capturar el estandarte del califa"
+  ]
+}

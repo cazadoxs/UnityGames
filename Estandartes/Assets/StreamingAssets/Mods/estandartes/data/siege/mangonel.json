@@ -1,0 +1,12 @@
+{
+  "id": "estandartes:siege/mangonel",
+  "name": "Mangonel",
+  "crewMin": 6,
+  "crewMax": 6,
+  "carried": 0,
+  "health": 600,
+  "rangeMin": 40,
+  "rangeMax": 200,
+  "reload": 20,
+  "targets": "Almenas y tropas"
+}

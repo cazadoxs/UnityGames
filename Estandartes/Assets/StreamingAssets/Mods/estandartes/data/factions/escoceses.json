@@ -1,0 +1,17 @@
+{
+  "id": "estandartes:faction/escoceses",
+  "name": "Escoceses",
+  "culture": "escocesa",
+  "era": "medieval",
+  "doctrine": "estandartes:doctrine/escocesa",
+  "units": [
+    "estandartes:unit/lanceros_escoceses",
+    "estandartes:unit/arqueros",
+    "estandartes:unit/caballeria_ligera",
+    "estandartes:unit/hostigadores"
+  ],
+  "colors": [
+    "#1F4E9B",
+    "#F5F5F0"
+  ]
+}

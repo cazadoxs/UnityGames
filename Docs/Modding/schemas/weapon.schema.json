@@ -1,0 +1,109 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "title": "weapon",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "id": {
+      "type": "string"
+    },
+    "name": {
+      "type": "string"
+    },
+    "family": {
+      "$ref": "#/definitions/WeaponFamily"
+    },
+    "damageType": {
+      "$ref": "#/definitions/DamageType"
+    },
+    "baseDamage": {
+      "type": "number",
+      "format": "float"
+    },
+    "penetration": {
+      "type": "number",
+      "format": "float"
+    },
+    "range": {
+      "type": "number",
+      "format": "float"
+    },
+    "effectiveRange": {
+      "type": "number",
+      "format": "float"
+    },
+    "windup": {
+      "type": "number",
+      "format": "float"
+    },
+    "strike": {
+      "type": "number",
+      "format": "float"
+    },
+    "recover": {
+      "type": "number",
+      "format": "float"
+    },
+    "staminaCost": {
+      "type": "number",
+      "format": "float"
+    },
+    "ammo": {
+      "type": "integer",
+      "format": "int32"
+    },
+    "reload": {
+      "type": "number",
+      "format": "float"
+    },
+    "ranged": {
+      "type": "boolean"
+    }
+  },
+  "definitions": {
+    "WeaponFamily": {
+      "type": "string",
+      "description": "",
+      "x-enumNames": [
+        "Blade",
+        "Polearm",
+        "Blunt",
+        "Bow",
+        "Crossbow",
+        "Thrown",
+        "MuzzleLoader",
+        "BreechLoader",
+        "TorsionArtillery",
+        "CounterweightArtillery",
+        "GunpowderArtillery"
+      ],
+      "enum": [
+        "Blade",
+        "Polearm",
+        "Blunt",
+        "Bow",
+        "Crossbow",
+        "Thrown",
+        "MuzzleLoader",
+        "BreechLoader",
+        "TorsionArtillery",
+        "CounterweightArtillery",
+        "GunpowderArtillery"
+      ]
+    },
+    "DamageType": {
+      "type": "string",
+      "description": "",
+      "x-enumNames": [
+        "Cut",
+        "Pierce",
+        "Blunt"
+      ],
+      "enum": [
+        "Cut",
+        "Pierce",
+        "Blunt"
+      ]
+    }
+  }
+}

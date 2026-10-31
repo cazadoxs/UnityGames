@@ -1,0 +1,165 @@
+{
+  "id": "estandartes:htn/campal_atacante",
+  "name": "Batalla campal — atacante",
+  "root": "WinBattle",
+  "compound": {
+    "WinBattle": [
+      {
+        "name": "anvil_hammer",
+        "tags": [
+          "attack"
+        ],
+        "pre": [
+          "cavalryRatio >= 0.15",
+          "flankRoute == 1"
+        ],
+        "subtasks": [
+          {
+            "task": "FixCenter",
+            "role": "infantry",
+            "target": "enemyCenter"
+          },
+          {
+            "task": "Harass",
+            "role": "ranged",
+            "target": "enemyCenter"
+          },
+          {
+            "task": "Flank",
+            "role": "cavalry",
+            "target": "enemyWeakFlank",
+            "delay": 20
+          }
+        ]
+      },
+      {
+        "name": "feigned_retreat",
+        "tags": [
+          "deception"
+        ],
+        "pre": [
+          "enemyOnHighGround == 1",
+          "enemyDiscipline < 0.5",
+          "cavalryRatio >= 0.15"
+        ],
+        "subtasks": [
+          {
+            "task": "Harass",
+            "role": "ranged",
+            "target": "enemyCenter"
+          },
+          {
+            "task": "FeignedRetreat",
+            "role": "cavalry",
+            "target": "enemyCenter",
+            "repeat": 3
+          },
+          {
+            "task": "Assault",
+            "role": "all",
+            "target": "enemyCenter",
+            "delay": 30
+          }
+        ]
+      },
+      {
+        "name": "frontal",
+        "tags": [
+          "attack"
+        ],
+        "pre": [
+          "forceRatio >= 1.5"
+        ],
+        "subtasks": [
+          {
+            "task": "Harass",
+            "role": "ranged",
+            "target": "enemyCenter"
+          },
+          {
+            "task": "Assault",
+            "role": "infantry",
+            "target": "enemyCenter",
+            "delay": 10
+          },
+          {
+            "task": "Assault",
+            "role": "cavalry",
+            "target": "enemyWeakFlank",
+            "delay": 20
+          }
+        ]
+      },
+      {
+        "name": "attrition_envelop",
+        "tags": [
+          "deception"
+        ],
+        "pre": [
+          "lightCavalryRatio >= 0.2",
+          "openTerrain == 1"
+        ],
+        "subtasks": [
+          {
+            "task": "Sacrifice",
+            "role": "infantry",
+            "target": "enemyCenter"
+          },
+          {
+            "task": "Envelop",
+            "role": "lightCavalry",
+            "target": "enemyWeakFlank",
+            "delay": 15
+          },
+          {
+            "task": "Counterattack",
+            "role": "elite",
+            "target": "enemyCenter",
+            "delay": 60
+          }
+        ]
+      },
+      {
+        "name": "wait",
+        "tags": [],
+        "pre": [
+          "timeFavorsUs >= 1"
+        ],
+        "subtasks": [
+          {
+            "task": "Hold",
+            "role": "all",
+            "target": "holdPosition"
+          },
+          {
+            "task": "Harass",
+            "role": "ranged",
+            "target": "enemyNearest"
+          }
+        ]
+      },
+      {
+        "name": "cautious_advance",
+        "tags": [],
+        "pre": [],
+        "subtasks": [
+          {
+            "task": "Harass",
+            "role": "ranged",
+            "target": "enemyCenter"
+          },
+          {
+            "task": "Hold",
+            "role": "infantry",
+            "target": "holdPosition"
+          },
+          {
+            "task": "Reserve",
+            "role": "cavalry",
+            "target": "holdPosition"
+          }
+        ]
+      }
+    ]
+  }
+}

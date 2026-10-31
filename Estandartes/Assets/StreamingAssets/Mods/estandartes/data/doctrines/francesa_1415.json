@@ -1,0 +1,24 @@
+{
+  "id": "estandartes:doctrine/francesa_1415",
+  "name": "Doctrina francesa (s. XV)",
+  "weights": {
+    "estandartes:unit/hombres_de_armas": 0.45,
+    "estandartes:unit/caballeria_pesada": 0.2,
+    "estandartes:unit/ballesteros": 0.15,
+    "estandartes:unit/arqueros": 0.1,
+    "estandartes:unit/levas": 0.1
+  },
+  "preferredPlans": {
+    "frontal": 0.4
+  },
+  "deployment": {
+    "ShockInfantry": "Center",
+    "PolearmInfantry": "Center",
+    "Ranged": "Front",
+    "Skirmisher": "Front",
+    "ShockCavalry": "Wings",
+    "LightCavalry": "Wings",
+    "Engineer": "Reserve",
+    "Command": "Escort"
+  }
+}

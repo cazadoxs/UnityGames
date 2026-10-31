@@ -1,0 +1,17 @@
+{
+  "id": "estandartes:weapon/arco_compuesto",
+  "name": "Arco compuesto",
+  "family": "Bow",
+  "damageType": "Pierce",
+  "baseDamage": 40,
+  "penetration": 0.2,
+  "range": 150,
+  "effectiveRange": 100,
+  "windup": 0.9,
+  "strike": 0.05,
+  "recover": 0.3,
+  "staminaCost": 6,
+  "ammo": 24,
+  "reload": 0,
+  "ranged": true
+}

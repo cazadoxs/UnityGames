@@ -1,0 +1,17 @@
+{
+  "id": "estandartes:faction/navarra",
+  "name": "Reino de Navarra",
+  "culture": "iberica_cristiana",
+  "era": "medieval",
+  "doctrine": "estandartes:doctrine/navarra",
+  "units": [
+    "estandartes:unit/caballeria_pesada",
+    "estandartes:unit/lanceros",
+    "estandartes:unit/hostigadores",
+    "estandartes:unit/levas"
+  ],
+  "colors": [
+    "#B3261E",
+    "#E8C547"
+  ]
+}

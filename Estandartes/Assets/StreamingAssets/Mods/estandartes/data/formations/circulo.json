@@ -1,0 +1,13 @@
+{
+  "id": "estandartes:formation/circulo",
+  "name": "Círculo defensivo",
+  "generator": "Circle",
+  "spacingX": 1.0,
+  "spacingY": 1.0,
+  "desiredRanks": 0,
+  "width": 0,
+  "shieldsOverlap": false,
+  "facesOutward": true,
+  "jitter": 0,
+  "requiresCapability": []
+}

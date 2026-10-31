@@ -1,0 +1,112 @@
+{
+  "id": "estandartes:htn/campal_defensor",
+  "name": "Batalla campal — defensor",
+  "root": "HoldField",
+  "compound": {
+    "HoldField": [
+      {
+        "name": "defend_high_ground",
+        "tags": [],
+        "pre": [
+          "isDefender == 1"
+        ],
+        "subtasks": [
+          {
+            "task": "Hold",
+            "role": "infantry",
+            "target": "holdPosition"
+          },
+          {
+            "task": "Harass",
+            "role": "ranged",
+            "target": "enemyNearest"
+          },
+          {
+            "task": "Reserve",
+            "role": "cavalry",
+            "target": "holdPosition"
+          }
+        ]
+      },
+      {
+        "name": "wait_and_strike",
+        "tags": [
+          "deception"
+        ],
+        "pre": [
+          "enemyMustAttack == 1"
+        ],
+        "subtasks": [
+          {
+            "task": "Hold",
+            "role": "all",
+            "target": "holdPosition"
+          },
+          {
+            "task": "Counterattack",
+            "role": "infantry",
+            "target": "enemyNearest",
+            "delay": 60
+          }
+        ]
+      },
+      {
+        "name": "provoke_defend",
+        "tags": [
+          "deception"
+        ],
+        "pre": [
+          "rangedRatio >= 0.5"
+        ],
+        "subtasks": [
+          {
+            "task": "Harass",
+            "role": "ranged",
+            "target": "enemyCenter"
+          },
+          {
+            "task": "Hold",
+            "role": "infantry",
+            "target": "holdPosition"
+          },
+          {
+            "task": "Counterattack",
+            "role": "all",
+            "target": "enemyNearest",
+            "delay": 90
+          }
+        ]
+      },
+      {
+        "name": "counterattack_tired",
+        "tags": [
+          "attack"
+        ],
+        "pre": [
+          "enemyFatigue >= 0.5"
+        ],
+        "subtasks": [
+          {
+            "task": "Counterattack",
+            "role": "all",
+            "target": "enemyCenter"
+          }
+        ]
+      },
+      {
+        "name": "withdraw",
+        "tags": [],
+        "pre": [
+          "ownMorale < 35"
+        ],
+        "subtasks": [
+          {
+            "task": "Retreat",
+            "role": "all",
+            "target": "rear"
+          }
+        ]
+      }
+    ]
+  }
+}

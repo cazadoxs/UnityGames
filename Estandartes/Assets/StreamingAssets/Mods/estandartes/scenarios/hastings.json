@@ -1,0 +1,440 @@
+{
+  "id": "estandartes:scenario/hastings",
+  "name": "Hastings",
+  "map": "hastings",
+  "date": "1066-10-14",
+  "protagonist": "Gautier, escudero normando",
+  "description": "Romper el muro de escudos anglosajón en la cresta de Senlac con armas combinadas y retiradas fingidas.",
+  "armies": [
+    {
+      "team": 0,
+      "faction": "estandartes:faction/normandos",
+      "generalName": "Guillermo de Normandía",
+      "generalPersonality": "estandartes:personality/guillermo",
+      "htnDomain": "estandartes:htn/campal_atacante",
+      "total": 7500,
+      "compositionMode": "Quick",
+      "commanders": [
+        {
+          "name": "Bretones",
+          "wing": "Left",
+          "personality": "estandartes:personality/astuto",
+          "coordination": 0.7
+        },
+        {
+          "name": "Normandos",
+          "wing": "Center",
+          "personality": "estandartes:personality/guillermo",
+          "coordination": 0.9
+        },
+        {
+          "name": "Franco-flamencos",
+          "wing": "Right",
+          "personality": "estandartes:personality/tradicionalista",
+          "coordination": 0.8
+        }
+      ],
+      "reinforcements": 0,
+      "playerSide": true
+    },
+    {
+      "team": 1,
+      "faction": "estandartes:faction/anglosajones",
+      "generalName": "Harold II",
+      "generalPersonality": "estandartes:personality/harold",
+      "htnDomain": "estandartes:htn/campal_defensor",
+      "total": 7500,
+      "compositionMode": "Quick",
+      "commanders": [
+        {
+          "name": "Gyrth",
+          "wing": "Left",
+          "personality": "estandartes:personality/prudente",
+          "coordination": 0.8
+        },
+        {
+          "name": "Harold",
+          "wing": "Center",
+          "personality": "estandartes:personality/harold",
+          "coordination": 0.9
+        },
+        {
+          "name": "Leofwine",
+          "wing": "Right",
+          "personality": "estandartes:personality/prudente",
+          "coordination": 0.8
+        }
+      ],
+      "reinforcements": 0,
+      "playerSide": false
+    }
+  ],
+  "zones": [
+    {
+      "id": "despliegue_normando",
+      "name": "Despliegue normando",
+      "type": "Deployment",
+      "owner": 0,
+      "polygon": [
+        {
+          "x": 300,
+          "y": 100
+        },
+        {
+          "x": 1700,
+          "y": 100
+        },
+        {
+          "x": 1700,
+          "y": 350
+        },
+        {
+          "x": 300,
+          "y": 350
+        }
+      ]
+    },
+    {
+      "id": "campamento",
+      "name": "Campamento normando",
+      "type": "Reinforcement",
+      "owner": 0,
+      "polygon": [
+        {
+          "x": 700,
+          "y": 0
+        },
+        {
+          "x": 1300,
+          "y": 0
+        },
+        {
+          "x": 1300,
+          "y": 100
+        },
+        {
+          "x": 700,
+          "y": 100
+        }
+      ]
+    },
+    {
+      "id": "ladera",
+      "name": "Ladera",
+      "type": "Warrior",
+      "owner": -1,
+      "polygon": [
+        {
+          "x": 300,
+          "y": 500
+        },
+        {
+          "x": 1700,
+          "y": 500
+        },
+        {
+          "x": 1700,
+          "y": 800
+        },
+        {
+          "x": 300,
+          "y": 800
+        }
+      ]
+    },
+    {
+      "id": "cresta",
+      "name": "Cresta de Senlac",
+      "type": "Warrior",
+      "owner": 1,
+      "polygon": [
+        {
+          "x": 300,
+          "y": 800
+        },
+        {
+          "x": 1700,
+          "y": 800
+        },
+        {
+          "x": 1700,
+          "y": 1000
+        },
+        {
+          "x": 300,
+          "y": 1000
+        }
+      ]
+    },
+    {
+      "id": "cerrillo",
+      "name": "Cerrillo",
+      "type": "Ambush",
+      "owner": -1,
+      "polygon": [
+        {
+          "x": 300,
+          "y": 450
+        },
+        {
+          "x": 500,
+          "y": 450
+        },
+        {
+          "x": 500,
+          "y": 600
+        },
+        {
+          "x": 300,
+          "y": 600
+        }
+      ]
+    },
+    {
+      "id": "estandartes",
+      "name": "Estandartes de Harold",
+      "type": "Conquest",
+      "owner": 1,
+      "polygon": [
+        {
+          "x": 900,
+          "y": 900
+        },
+        {
+          "x": 1050,
+          "y": 900
+        },
+        {
+          "x": 1050,
+          "y": 1000
+        },
+        {
+          "x": 900,
+          "y": 1000
+        }
+      ]
+    }
+  ],
+  "objectives": {
+    "nodes": [
+      {
+        "id": "hostigar",
+        "name": "Hostigar con arqueros",
+        "type": "Hold",
+        "requires": [],
+        "requireMode": "And",
+        "team": 0,
+        "initialOwner": -1,
+        "final": false,
+        "pointOfNoReturn": false,
+        "captureTime": 120,
+        "x": 0,
+        "y": 0
+      },
+      {
+        "id": "asalto_infanteria",
+        "name": "Asalto de infantería",
+        "type": "Hold",
+        "requires": [
+          "hostigar"
+        ],
+        "requireMode": "And",
+        "team": 0,
+        "initialOwner": -1,
+        "final": false,
+        "pointOfNoReturn": false,
+        "captureTime": 90,
+        "x": 0,
+        "y": 0
+      },
+      {
+        "id": "carga",
+        "name": "Carga de caballería",
+        "type": "Hold",
+        "requires": [
+          "asalto_infanteria"
+        ],
+        "requireMode": "And",
+        "team": 0,
+        "initialOwner": -1,
+        "final": false,
+        "pointOfNoReturn": false,
+        "captureTime": 60,
+        "x": 0,
+        "y": 0
+      },
+      {
+        "id": "reagrupar",
+        "name": "Reagrupar junto a Guillermo",
+        "type": "Defend",
+        "requires": [
+          "carga"
+        ],
+        "requireMode": "And",
+        "team": 0,
+        "initialOwner": -1,
+        "final": false,
+        "pointOfNoReturn": false,
+        "captureTime": 60,
+        "x": 0,
+        "y": 0
+      },
+      {
+        "id": "retiradas",
+        "name": "Retiradas fingidas",
+        "type": "Hold",
+        "requires": [
+          "reagrupar"
+        ],
+        "requireMode": "And",
+        "team": 0,
+        "initialOwner": -1,
+        "final": false,
+        "pointOfNoReturn": false,
+        "captureTime": 240,
+        "x": 0,
+        "y": 0
+      },
+      {
+        "id": "estandartes_harold",
+        "name": "Estandartes de Harold",
+        "type": "Capture",
+        "requires": [
+          "retiradas"
+        ],
+        "requireMode": "And",
+        "team": 0,
+        "initialOwner": 1,
+        "final": true,
+        "pointOfNoReturn": false,
+        "captureTime": 90,
+        "x": 975,
+        "y": 950,
+        "zone": "estandartes"
+      }
+    ]
+  },
+  "events": [
+    {
+      "id": "huida_bretona",
+      "mode": "And",
+      "conditions": [
+        {
+          "type": "ObjectiveAchieved",
+          "team": 0,
+          "value": 0,
+          "target": "carga"
+        }
+      ],
+      "actions": [
+        {
+          "type": "MoraleEvent",
+          "team": 0,
+          "value": -20,
+          "target": "Left",
+          "text": "Los bretones ceden"
+        },
+        {
+          "type": "Narration",
+          "team": -1,
+          "value": 0,
+          "text": "¡Dicen que el duque ha caído!"
+        },
+        {
+          "type": "MoraleEvent",
+          "team": 0,
+          "value": -15,
+          "target": "Army"
+        }
+      ]
+    },
+    {
+      "id": "perseguidores",
+      "mode": "And",
+      "conditions": [
+        {
+          "type": "EventFired",
+          "team": -1,
+          "value": 0,
+          "target": "huida_bretona"
+        }
+      ],
+      "actions": [
+        {
+          "type": "SetPlan",
+          "team": 1,
+          "value": 0,
+          "target": "Left",
+          "text": "pursue"
+        },
+        {
+          "type": "Message",
+          "team": -1,
+          "value": 0,
+          "text": "El fyrd baja a perseguir a los bretones"
+        }
+      ]
+    },
+    {
+      "id": "anochecer",
+      "mode": "And",
+      "conditions": [
+        {
+          "type": "Time",
+          "team": -1,
+          "value": 2400
+        }
+      ],
+      "actions": [
+        {
+          "type": "TimeOfDay",
+          "team": -1,
+          "value": 18,
+          "text": "Cae la tarde"
+        },
+        {
+          "type": "Narration",
+          "team": -1,
+          "value": 0,
+          "text": "El sol se pone sobre Senlac"
+        }
+      ]
+    }
+  ],
+  "rules": {
+    "victory": [
+      {
+        "type": "Core",
+        "team": 0,
+        "value": 0
+      },
+      {
+        "type": "Annihilation",
+        "team": -1,
+        "value": 0
+      },
+      {
+        "type": "Resist",
+        "team": 1,
+        "value": 2700
+      }
+    ],
+    "timeLimit": 2700,
+    "weather": "Clear",
+    "timeOfDay": "Morning",
+    "temperature": 12
+  },
+  "phases": [
+    "Hostigar",
+    "Asalto de infantería",
+    "Carga de caballería",
+    "Pánico y reagrupación",
+    "Retiradas fingidas",
+    "Asalto final"
+  ],
+  "secondaryObjectives": [
+    "Tres retiradas fingidas con éxito",
+    "Llegar hasta Guillermo en menos de 60 s",
+    "Abatir a Gyrth y Leofwine"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "id": "estandartes:siege/balista_torre",
+  "name": "Balista de torre",
+  "crewMin": 2,
+  "crewMax": 2,
+  "carried": 0,
+  "health": 0,
+  "rangeMin": 10,
+  "rangeMax": 300,
+  "reload": 10,
+  "targets": "Arietes y torres de asedio"
+}

@@ -1,0 +1,51 @@
+{
+  "id": "estandartes:unit/zapadores",
+  "name": "Zapadores",
+  "archetype": "Engineer",
+  "capabilities": [
+    "Engineer",
+    "SiegeCrew"
+  ],
+  "weapons": [
+    "estandartes:weapon/maza",
+    "estandartes:weapon/daga"
+  ],
+  "armor": {
+    "cut": 0.2,
+    "pierce": 0.15,
+    "blunt": 0.1
+  },
+  "stats": {
+    "health": 100,
+    "mountHealth": 0,
+    "morale": 45,
+    "discipline": 55,
+    "walk": 1.3,
+    "run": 5.0
+  },
+  "personality": {
+    "courage": [
+      0.3,
+      0.6
+    ],
+    "aggression": [
+      0.1,
+      0.4
+    ],
+    "skill": [
+      0.3,
+      0.7
+    ],
+    "discipline": [
+      0.4,
+      0.8
+    ],
+    "experience": [
+      0.3,
+      0.7
+    ]
+  },
+  "squadSize": 30,
+  "cost": 6,
+  "era": "medieval"
+}

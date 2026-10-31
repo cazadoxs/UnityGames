@@ -1,0 +1,48 @@
+{
+  "id": "estandartes:unit/arqueros",
+  "name": "Arqueros",
+  "archetype": "Ranged",
+  "capabilities": [],
+  "weapons": [
+    "estandartes:weapon/arco_corto",
+    "estandartes:weapon/daga"
+  ],
+  "armor": {
+    "cut": 0.15,
+    "pierce": 0.1,
+    "blunt": 0.1
+  },
+  "stats": {
+    "health": 100,
+    "mountHealth": 0,
+    "morale": 45,
+    "discipline": 45,
+    "walk": 1.5,
+    "run": 6.0
+  },
+  "personality": {
+    "courage": [
+      0.3,
+      0.6
+    ],
+    "aggression": [
+      0.2,
+      0.5
+    ],
+    "skill": [
+      0.3,
+      0.7
+    ],
+    "discipline": [
+      0.3,
+      0.6
+    ],
+    "experience": [
+      0.2,
+      0.6
+    ]
+  },
+  "squadSize": 60,
+  "cost": 6,
+  "era": "medieval"
+}

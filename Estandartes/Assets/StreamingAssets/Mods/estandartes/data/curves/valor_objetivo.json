@@ -1,0 +1,11 @@
+{
+  "id": "estandartes:curve/valor_objetivo",
+  "name": "Valor del objetivo",
+  "type": "SmoothStep",
+  "slope": 1,
+  "exponent": 1,
+  "x0": 0.5,
+  "inputMin": 0,
+  "inputMax": 1,
+  "invert": false
+}

@@ -1,0 +1,17 @@
+{
+  "id": "estandartes:weapon/jabalina",
+  "name": "Jabalina",
+  "family": "Thrown",
+  "damageType": "Pierce",
+  "baseDamage": 45,
+  "penetration": 0.25,
+  "range": 30,
+  "effectiveRange": 25,
+  "windup": 0.6,
+  "strike": 0.1,
+  "recover": 0.4,
+  "staminaCost": 8,
+  "ammo": 4,
+  "reload": 0,
+  "ranged": true
+}

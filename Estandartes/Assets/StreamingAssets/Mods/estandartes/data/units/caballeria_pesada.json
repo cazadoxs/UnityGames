@@ -1,0 +1,51 @@
+{
+  "id": "estandartes:unit/caballeria_pesada",
+  "name": "Caballería pesada",
+  "archetype": "ShockCavalry",
+  "capabilities": [
+    "Mounted",
+    "Shield"
+  ],
+  "weapons": [
+    "estandartes:weapon/lanza_caballeria",
+    "estandartes:weapon/espada"
+  ],
+  "armor": {
+    "cut": 0.7,
+    "pierce": 0.55,
+    "blunt": 0.35
+  },
+  "stats": {
+    "health": 100,
+    "mountHealth": 280,
+    "morale": 85,
+    "discipline": 60,
+    "walk": 3.0,
+    "run": 11
+  },
+  "personality": {
+    "courage": [
+      0.7,
+      0.95
+    ],
+    "aggression": [
+      0.6,
+      0.95
+    ],
+    "skill": [
+      0.6,
+      0.9
+    ],
+    "discipline": [
+      0.4,
+      0.8
+    ],
+    "experience": [
+      0.6,
+      0.9
+    ]
+  },
+  "squadSize": 25,
+  "cost": 30,
+  "era": "medieval"
+}

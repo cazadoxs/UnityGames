@@ -1,0 +1,16 @@
+{
+  "id": "estandartes:faction/inglaterra_angevina",
+  "name": "Inglaterra angevina",
+  "culture": "franco_angevina",
+  "era": "medieval",
+  "doctrine": "estandartes:doctrine/angevina",
+  "units": [
+    "estandartes:unit/hombres_de_armas",
+    "estandartes:unit/ballesteros",
+    "estandartes:unit/lanceros"
+  ],
+  "colors": [
+    "#B3261E",
+    "#E8C547"
+  ]
+}

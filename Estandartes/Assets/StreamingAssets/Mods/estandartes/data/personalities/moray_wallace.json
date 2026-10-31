@@ -1,0 +1,12 @@
+{
+  "id": "estandartes:personality/moray_wallace",
+  "name": "Andrew Moray y William Wallace",
+  "casualtyAversion": 1.2,
+  "riskAversion": 0.9,
+  "patience": 0.35,
+  "deceptionBias": 0.1,
+  "attackBias": 0.2,
+  "doctrineBias": 0,
+  "minReserve": 0.1,
+  "temperature": 0.1
+}

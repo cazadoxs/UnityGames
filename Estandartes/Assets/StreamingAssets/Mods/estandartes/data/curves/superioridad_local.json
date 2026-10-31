@@ -1,0 +1,11 @@
+{
+  "id": "estandartes:curve/superioridad_local",
+  "name": "Superioridad local",
+  "type": "Logistic",
+  "slope": 8,
+  "exponent": 1,
+  "x0": 0.2667,
+  "inputMin": 0,
+  "inputMax": 3,
+  "invert": false
+}

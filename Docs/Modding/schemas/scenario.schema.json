@@ -1,0 +1,539 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "title": "scenario",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "id": {
+      "type": "string"
+    },
+    "name": {
+      "type": "string"
+    },
+    "map": {
+      "type": "string"
+    },
+    "era": {
+      "type": "string"
+    },
+    "description": {
+      "type": "string"
+    },
+    "date": {
+      "type": "string"
+    },
+    "protagonist": {
+      "type": "string"
+    },
+    "preferredPreset": {
+      "type": "string"
+    },
+    "armies": {
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/ArmySetup"
+      }
+    },
+    "zones": {
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/ZoneData"
+      }
+    },
+    "objectives": {
+      "$ref": "#/definitions/ObjectiveGraph"
+    },
+    "events": {
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/ScenarioEvent"
+      }
+    },
+    "aiHints": {
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/AiHint"
+      }
+    },
+    "rules": {
+      "$ref": "#/definitions/ScenarioRules"
+    },
+    "phases": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "secondaryObjectives": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  },
+  "definitions": {
+    "ArmySetup": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "team": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "faction": {
+          "type": "string"
+        },
+        "generalName": {
+          "type": "string"
+        },
+        "generalPersonality": {
+          "type": "string"
+        },
+        "htnDomain": {
+          "type": "string"
+        },
+        "total": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "compositionMode": {
+          "type": "string"
+        },
+        "squads": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/SquadSetup"
+          }
+        },
+        "commanders": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/CommanderSetup"
+          }
+        },
+        "reinforcements": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "playerSide": {
+          "type": "boolean"
+        }
+      }
+    },
+    "SquadSetup": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "unit": {
+          "type": "string"
+        },
+        "count": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "wing": {
+          "type": "string"
+        },
+        "zone": {
+          "type": "string"
+        },
+        "role": {
+          "type": "string"
+        },
+        "initialOrder": {
+          "type": "string"
+        }
+      }
+    },
+    "CommanderSetup": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "wing": {
+          "type": "string"
+        },
+        "personality": {
+          "type": "string"
+        },
+        "coordination": {
+          "type": "number",
+          "format": "float"
+        }
+      }
+    },
+    "ZoneData": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "type": {
+          "$ref": "#/definitions/ZoneType"
+        },
+        "owner": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "polygon": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Vec2"
+          }
+        }
+      }
+    },
+    "ZoneType": {
+      "type": "string",
+      "description": "",
+      "x-enumNames": [
+        "Conquest",
+        "Warrior",
+        "Deployment",
+        "Reserve",
+        "Artillery",
+        "Supply",
+        "Ambush",
+        "Reinforcement",
+        "Retreat",
+        "Forbidden"
+      ],
+      "enum": [
+        "Conquest",
+        "Warrior",
+        "Deployment",
+        "Reserve",
+        "Artillery",
+        "Supply",
+        "Ambush",
+        "Reinforcement",
+        "Retreat",
+        "Forbidden"
+      ]
+    },
+    "Vec2": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "x": {
+          "type": "number",
+          "format": "float"
+        },
+        "y": {
+          "type": "number",
+          "format": "float"
+        }
+      }
+    },
+    "ObjectiveGraph": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "nodes": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/ObjectiveNode"
+          }
+        }
+      }
+    },
+    "ObjectiveNode": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "type": {
+          "$ref": "#/definitions/ObjectiveType"
+        },
+        "requires": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "requireMode": {
+          "$ref": "#/definitions/RequireMode"
+        },
+        "team": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "initialOwner": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "pointOfNoReturn": {
+          "type": "boolean"
+        },
+        "final": {
+          "type": "boolean"
+        },
+        "captureTime": {
+          "type": "number",
+          "format": "float"
+        },
+        "radius": {
+          "type": "number",
+          "format": "float"
+        },
+        "holdTime": {
+          "type": "number",
+          "format": "float"
+        },
+        "zone": {
+          "type": "string"
+        },
+        "x": {
+          "type": "number",
+          "format": "float"
+        },
+        "y": {
+          "type": "number",
+          "format": "float"
+        },
+        "effects": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/ObjectiveEffect"
+          }
+        }
+      }
+    },
+    "ObjectiveType": {
+      "type": "string",
+      "description": "",
+      "x-enumNames": [
+        "Capture",
+        "Hold",
+        "Destroy",
+        "Open",
+        "Defend",
+        "Escort",
+        "KillLeader",
+        "Recover",
+        "Resist",
+        "Cross",
+        "Burn",
+        "Infiltrate",
+        "Build"
+      ],
+      "enum": [
+        "Capture",
+        "Hold",
+        "Destroy",
+        "Open",
+        "Defend",
+        "Escort",
+        "KillLeader",
+        "Recover",
+        "Resist",
+        "Cross",
+        "Burn",
+        "Infiltrate",
+        "Build"
+      ]
+    },
+    "RequireMode": {
+      "type": "string",
+      "description": "",
+      "x-enumNames": [
+        "And",
+        "Or"
+      ],
+      "enum": [
+        "And",
+        "Or"
+      ]
+    },
+    "ObjectiveEffect": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "type": {
+          "type": "string"
+        },
+        "target": {
+          "type": "string"
+        },
+        "value": {
+          "type": "number",
+          "format": "float"
+        }
+      }
+    },
+    "ScenarioEvent": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "mode": {
+          "$ref": "#/definitions/RequireMode"
+        },
+        "conditions": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/EventCondition"
+          }
+        },
+        "actions": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/EventAction"
+          }
+        },
+        "once": {
+          "type": "boolean"
+        }
+      }
+    },
+    "EventCondition": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "type": {
+          "type": "string"
+        },
+        "target": {
+          "type": "string"
+        },
+        "team": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "value": {
+          "type": "number",
+          "format": "float"
+        }
+      }
+    },
+    "EventAction": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "type": {
+          "type": "string"
+        },
+        "target": {
+          "type": "string"
+        },
+        "team": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "value": {
+          "type": "number",
+          "format": "float"
+        },
+        "text": {
+          "type": "string"
+        }
+      }
+    },
+    "AiHint": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "type": {
+          "type": "string"
+        },
+        "points": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Vec2"
+          }
+        },
+        "team": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "source": {
+          "type": "string"
+        },
+        "value": {
+          "type": "number",
+          "format": "float"
+        }
+      }
+    },
+    "ScenarioRules": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "victory": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/VictoryCondition"
+          }
+        },
+        "timeLimit": {
+          "type": "number",
+          "format": "float"
+        },
+        "friendlyFire": {
+          "type": "boolean"
+        },
+        "limitedAmmo": {
+          "type": "boolean"
+        },
+        "weather": {
+          "type": "string"
+        },
+        "timeOfDay": {
+          "type": "string"
+        },
+        "temperature": {
+          "type": "number",
+          "format": "float"
+        }
+      }
+    },
+    "VictoryCondition": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "type": {
+          "$ref": "#/definitions/VictoryType"
+        },
+        "team": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "value": {
+          "type": "number",
+          "format": "float"
+        }
+      }
+    },
+    "VictoryType": {
+      "type": "string",
+      "description": "",
+      "x-enumNames": [
+        "Annihilation",
+        "Domination",
+        "Core",
+        "Resist",
+        "Decapitation"
+      ],
+      "enum": [
+        "Annihilation",
+        "Domination",
+        "Core",
+        "Resist",
+        "Decapitation"
+      ]
+    }
+  }
+}

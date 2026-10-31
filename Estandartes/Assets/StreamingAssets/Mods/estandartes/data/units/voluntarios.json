@@ -1,0 +1,52 @@
+{
+  "id": "estandartes:unit/voluntarios",
+  "name": "Voluntarios de la fe",
+  "archetype": "Skirmisher",
+  "capabilities": [
+    "Javelins"
+  ],
+  "weapons": [
+    "estandartes:weapon/jabalina",
+    "estandartes:weapon/lanza",
+    "estandartes:weapon/daga"
+  ],
+  "armor": {
+    "cut": 0.05,
+    "pierce": 0.0,
+    "blunt": 0.0
+  },
+  "stats": {
+    "health": 100,
+    "mountHealth": 0,
+    "morale": 65,
+    "discipline": 25,
+    "walk": 1.6,
+    "run": 6.5
+  },
+  "personality": {
+    "courage": [
+      0.6,
+      0.95
+    ],
+    "aggression": [
+      0.6,
+      0.95
+    ],
+    "skill": [
+      0.1,
+      0.4
+    ],
+    "discipline": [
+      0.1,
+      0.3
+    ],
+    "experience": [
+      0.0,
+      0.3
+    ]
+  },
+  "squadSize": 60,
+  "cost": 4,
+  "era": "medieval",
+  "culture": "andalusi_magrebi"
+}

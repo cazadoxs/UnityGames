@@ -1,0 +1,52 @@
+{
+  "id": "estandartes:unit/lanceros",
+  "name": "Lanceros",
+  "archetype": "PolearmInfantry",
+  "capabilities": [
+    "Shield",
+    "AntiCavalryFormation",
+    "ShieldWall"
+  ],
+  "weapons": [
+    "estandartes:weapon/lanza_larga",
+    "estandartes:weapon/espada_corta"
+  ],
+  "armor": {
+    "cut": 0.35,
+    "pierce": 0.25,
+    "blunt": 0.2
+  },
+  "stats": {
+    "health": 100,
+    "mountHealth": 0,
+    "morale": 60,
+    "discipline": 60,
+    "walk": 1.3,
+    "run": 5.0
+  },
+  "personality": {
+    "courage": [
+      0.4,
+      0.8
+    ],
+    "aggression": [
+      0.3,
+      0.6
+    ],
+    "skill": [
+      0.3,
+      0.7
+    ],
+    "discipline": [
+      0.4,
+      0.8
+    ],
+    "experience": [
+      0.2,
+      0.6
+    ]
+  },
+  "squadSize": 80,
+  "cost": 8,
+  "era": "medieval"
+}

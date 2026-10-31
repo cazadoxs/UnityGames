@@ -1,0 +1,12 @@
+{
+  "id": "estandartes:personality/harold",
+  "name": "Harold Godwinson",
+  "casualtyAversion": 1.3,
+  "riskAversion": 0.9,
+  "patience": 0.3,
+  "deceptionBias": 0,
+  "attackBias": -0.1,
+  "doctrineBias": 0.4,
+  "minReserve": 0.2,
+  "temperature": 0.12
+}

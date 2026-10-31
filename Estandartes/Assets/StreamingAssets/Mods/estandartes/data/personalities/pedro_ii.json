@@ -1,0 +1,12 @@
+{
+  "id": "estandartes:personality/pedro_ii",
+  "name": "Pedro II",
+  "casualtyAversion": 1.2,
+  "riskAversion": 0.8,
+  "patience": 0.2,
+  "deceptionBias": 0,
+  "attackBias": 0,
+  "doctrineBias": 0.2,
+  "minReserve": 0.2,
+  "temperature": 0.12
+}

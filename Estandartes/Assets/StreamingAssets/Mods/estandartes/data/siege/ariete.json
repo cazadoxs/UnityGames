@@ -1,0 +1,12 @@
+{
+  "id": "estandartes:siege/ariete",
+  "name": "Ariete cubierto",
+  "crewMin": 10,
+  "crewMax": 16,
+  "carried": 0,
+  "health": 2000,
+  "rangeMin": 0,
+  "rangeMax": 0,
+  "reload": 3,
+  "targets": "Puertas"
+}

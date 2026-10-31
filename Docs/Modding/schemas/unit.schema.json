@@ -1,0 +1,174 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "title": "unit",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "id": {
+      "type": "string"
+    },
+    "name": {
+      "type": "string"
+    },
+    "archetype": {
+      "$ref": "#/definitions/Archetype"
+    },
+    "capabilities": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "weapons": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "armor": {
+      "$ref": "#/definitions/ArmorValues"
+    },
+    "stats": {
+      "$ref": "#/definitions/UnitStats"
+    },
+    "personality": {
+      "$ref": "#/definitions/PersonalityRanges"
+    },
+    "squadSize": {
+      "type": "integer",
+      "format": "int32"
+    },
+    "cost": {
+      "type": "integer",
+      "format": "int32"
+    },
+    "era": {
+      "type": "string"
+    },
+    "culture": {
+      "type": "string"
+    },
+    "voices": {
+      "type": "string"
+    }
+  },
+  "definitions": {
+    "Archetype": {
+      "type": "string",
+      "description": "",
+      "x-enumNames": [
+        "ShockInfantry",
+        "PolearmInfantry",
+        "LineInfantry",
+        "Ranged",
+        "Skirmisher",
+        "ShockCavalry",
+        "LightCavalry",
+        "Artillery",
+        "Engineer",
+        "Command"
+      ],
+      "enum": [
+        "ShockInfantry",
+        "PolearmInfantry",
+        "LineInfantry",
+        "Ranged",
+        "Skirmisher",
+        "ShockCavalry",
+        "LightCavalry",
+        "Artillery",
+        "Engineer",
+        "Command"
+      ]
+    },
+    "ArmorValues": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "cut": {
+          "type": "number",
+          "format": "float"
+        },
+        "pierce": {
+          "type": "number",
+          "format": "float"
+        },
+        "blunt": {
+          "type": "number",
+          "format": "float"
+        }
+      }
+    },
+    "UnitStats": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "health": {
+          "type": "number",
+          "format": "float"
+        },
+        "mountHealth": {
+          "type": "number",
+          "format": "float"
+        },
+        "morale": {
+          "type": "number",
+          "format": "float"
+        },
+        "discipline": {
+          "type": "number",
+          "format": "float"
+        },
+        "walk": {
+          "type": "number",
+          "format": "float"
+        },
+        "run": {
+          "type": "number",
+          "format": "float"
+        }
+      }
+    },
+    "PersonalityRanges": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "courage": {
+          "type": "array",
+          "items": {
+            "type": "number",
+            "format": "float"
+          }
+        },
+        "aggression": {
+          "type": "array",
+          "items": {
+            "type": "number",
+            "format": "float"
+          }
+        },
+        "skill": {
+          "type": "array",
+          "items": {
+            "type": "number",
+            "format": "float"
+          }
+        },
+        "discipline": {
+          "type": "array",
+          "items": {
+            "type": "number",
+            "format": "float"
+          }
+        },
+        "experience": {
+          "type": "array",
+          "items": {
+            "type": "number",
+            "format": "float"
+          }
+        }
+      }
+    }
+  }
+}

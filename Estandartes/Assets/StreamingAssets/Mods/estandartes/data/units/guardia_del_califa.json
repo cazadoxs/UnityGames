@@ -1,0 +1,52 @@
+{
+  "id": "estandartes:unit/guardia_del_califa",
+  "name": "Guardia del califa",
+  "archetype": "ShockInfantry",
+  "capabilities": [
+    "Shield",
+    "AntiCavalryFormation"
+  ],
+  "weapons": [
+    "estandartes:weapon/lanza_larga",
+    "estandartes:weapon/espada"
+  ],
+  "armor": {
+    "cut": 0.45,
+    "pierce": 0.35,
+    "blunt": 0.25
+  },
+  "stats": {
+    "health": 100,
+    "mountHealth": 0,
+    "morale": 90,
+    "discipline": 90,
+    "walk": 1.3,
+    "run": 5.0
+  },
+  "personality": {
+    "courage": [
+      0.8,
+      1.0
+    ],
+    "aggression": [
+      0.4,
+      0.8
+    ],
+    "skill": [
+      0.6,
+      0.9
+    ],
+    "discipline": [
+      0.8,
+      1.0
+    ],
+    "experience": [
+      0.6,
+      0.9
+    ]
+  },
+  "squadSize": 60,
+  "cost": 16,
+  "era": "medieval",
+  "culture": "andalusi_magrebi"
+}

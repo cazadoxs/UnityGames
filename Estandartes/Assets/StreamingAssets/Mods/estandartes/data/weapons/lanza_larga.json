@@ -1,0 +1,17 @@
+{
+  "id": "estandartes:weapon/lanza_larga",
+  "name": "Lanza larga",
+  "family": "Polearm",
+  "damageType": "Pierce",
+  "baseDamage": 42,
+  "penetration": 0.25,
+  "range": 3.0,
+  "effectiveRange": 3.0,
+  "windup": 0.45,
+  "strike": 0.15,
+  "recover": 0.4,
+  "staminaCost": 9,
+  "ammo": 0,
+  "reload": 0,
+  "ranged": false
+}

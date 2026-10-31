@@ -1,0 +1,72 @@
+{
+  "id": "estandartes:htn/asedio_defensor",
+  "name": "Asedio — defensor",
+  "root": "HoldFortress",
+  "compound": {
+    "HoldFortress": [
+      {
+        "name": "defense_in_depth",
+        "tags": [],
+        "pre": [],
+        "subtasks": [
+          {
+            "task": "Hold",
+            "role": "infantry",
+            "target": "objective"
+          },
+          {
+            "task": "Harass",
+            "role": "ranged",
+            "target": "enemyNearest"
+          },
+          {
+            "task": "Reserve",
+            "role": "elite",
+            "target": "objective"
+          }
+        ]
+      },
+      {
+        "name": "sally",
+        "tags": [
+          "attack"
+        ],
+        "pre": [
+          "enemyFatigue >= 0.4",
+          "cavalryRatio >= 0.05"
+        ],
+        "subtasks": [
+          {
+            "task": "Hold",
+            "role": "infantry",
+            "target": "objective"
+          },
+          {
+            "task": "Counterattack",
+            "role": "cavalry",
+            "target": "enemyNearest"
+          },
+          {
+            "task": "Harass",
+            "role": "ranged",
+            "target": "enemyNearest"
+          }
+        ]
+      },
+      {
+        "name": "last_stand",
+        "tags": [],
+        "pre": [
+          "ownMorale < 40"
+        ],
+        "subtasks": [
+          {
+            "task": "Hold",
+            "role": "all",
+            "target": "objective"
+          }
+        ]
+      }
+    ]
+  }
+}

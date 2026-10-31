@@ -1,0 +1,12 @@
+{
+  "id": "estandartes:personality/guillermo",
+  "name": "Guillermo de Normandía",
+  "casualtyAversion": 1.0,
+  "riskAversion": 0.5,
+  "patience": 0.15,
+  "deceptionBias": 0.35,
+  "attackBias": 0.1,
+  "doctrineBias": 0.1,
+  "minReserve": 0.1,
+  "temperature": 0.12
+}

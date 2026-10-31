@@ -1,0 +1,45 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "title": "morale",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "id": {
+      "type": "string"
+    },
+    "name": {
+      "type": "string"
+    },
+    "events": {
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/MoraleEventEntry"
+      }
+    },
+    "continuous": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "number",
+        "format": "float"
+      }
+    }
+  },
+  "definitions": {
+    "MoraleEventEntry": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "event": {
+          "type": "string"
+        },
+        "magnitude": {
+          "type": "number",
+          "format": "float"
+        },
+        "scope": {
+          "type": "string"
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "id": "estandartes:personality/al_nasir",
+  "name": "Muhammad al-Nasir",
+  "casualtyAversion": 1.0,
+  "riskAversion": 0.5,
+  "patience": 0.15,
+  "deceptionBias": 0.35,
+  "attackBias": 0,
+  "doctrineBias": 0.2,
+  "minReserve": 0.25,
+  "temperature": 0.12
+}

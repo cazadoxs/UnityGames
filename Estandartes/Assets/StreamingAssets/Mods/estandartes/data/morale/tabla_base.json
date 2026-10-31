@@ -1,0 +1,73 @@
+{
+  "id": "estandartes:morale/tabla_base",
+  "name": "Tabla de moral base",
+  "events": [
+    {
+      "event": "AllyDiedNearby",
+      "magnitude": -2,
+      "scope": "Individual"
+    },
+    {
+      "event": "FlankAttack",
+      "magnitude": -8,
+      "scope": "Squad"
+    },
+    {
+      "event": "RearAttack",
+      "magnitude": -15,
+      "scope": "Squad"
+    },
+    {
+      "event": "CavalryChargeIncoming",
+      "magnitude": -10,
+      "scope": "Squad"
+    },
+    {
+      "event": "StandardFallen",
+      "magnitude": -20,
+      "scope": "Squad"
+    },
+    {
+      "event": "CaptainDied",
+      "magnitude": -12,
+      "scope": "Squad"
+    },
+    {
+      "event": "GeneralDied",
+      "magnitude": -30,
+      "scope": "Army"
+    },
+    {
+      "event": "FireOrOil",
+      "magnitude": -15,
+      "scope": "Squad"
+    },
+    {
+      "event": "HeavyCasualties",
+      "magnitude": -10,
+      "scope": "Squad"
+    },
+    {
+      "event": "LocalVictory",
+      "magnitude": 10,
+      "scope": "Squad"
+    },
+    {
+      "event": "ReinforcementsArrived",
+      "magnitude": 8,
+      "scope": "Squad"
+    },
+    {
+      "event": "ObjectiveCaptured",
+      "magnitude": 10,
+      "scope": "Wing"
+    }
+  ],
+  "continuous": {
+    "MusicianPlaying": 0.5,
+    "StandardNearby": 0.3,
+    "HeroFightingNearby": 0.3,
+    "FatiguePerUnit": -0.4,
+    "SustainedFlankThreat": -0.5
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "id": "estandartes:faction/inglaterra_1415",
+  "name": "Inglaterra (1415)",
+  "culture": "anglo_francesa_tardia",
+  "era": "medieval",
+  "doctrine": "estandartes:doctrine/inglesa_1415",
+  "units": [
+    "estandartes:unit/arqueros_arco_largo",
+    "estandartes:unit/hombres_de_armas",
+    "estandartes:unit/caballeria_pesada"
+  ],
+  "colors": [
+    "#B3261E",
+    "#1F3A93"
+  ]
+}

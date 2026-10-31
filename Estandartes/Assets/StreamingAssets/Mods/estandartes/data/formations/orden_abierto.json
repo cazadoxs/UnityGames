@@ -1,0 +1,13 @@
+{
+  "id": "estandartes:formation/orden_abierto",
+  "name": "Orden abierto",
+  "generator": "Open",
+  "spacingX": 2.5,
+  "spacingY": 2.5,
+  "desiredRanks": 2,
+  "width": 0,
+  "shieldsOverlap": false,
+  "facesOutward": false,
+  "jitter": 0.4,
+  "requiresCapability": []
+}

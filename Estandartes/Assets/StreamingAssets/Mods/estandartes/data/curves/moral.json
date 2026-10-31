@@ -1,0 +1,11 @@
+{
+  "id": "estandartes:curve/moral",
+  "name": "Moral",
+  "type": "Logistic",
+  "slope": 10,
+  "exponent": 1,
+  "x0": 0.4,
+  "inputMin": 0,
+  "inputMax": 100,
+  "invert": false
+}

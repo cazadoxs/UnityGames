@@ -1,0 +1,78 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "title": "htn",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "id": {
+      "type": "string"
+    },
+    "name": {
+      "type": "string"
+    },
+    "root": {
+      "type": "string"
+    },
+    "compound": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "array",
+        "items": {
+          "$ref": "#/definitions/HtnMethod"
+        }
+      }
+    }
+  },
+  "definitions": {
+    "HtnMethod": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "tags": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "pre": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "subtasks": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/HtnSubtask"
+          }
+        }
+      }
+    },
+    "HtnSubtask": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "task": {
+          "type": "string"
+        },
+        "role": {
+          "type": "string"
+        },
+        "target": {
+          "type": "string"
+        },
+        "delay": {
+          "type": "number",
+          "format": "float"
+        },
+        "repeat": {
+          "type": "integer",
+          "format": "int32"
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "id": "estandartes:personality/sancho_vii",
+  "name": "Sancho VII",
+  "casualtyAversion": 0.7,
+  "riskAversion": 0.3,
+  "patience": 0.1,
+  "deceptionBias": 0,
+  "attackBias": 0.3,
+  "doctrineBias": 0,
+  "minReserve": 0.1,
+  "temperature": 0.15
+}

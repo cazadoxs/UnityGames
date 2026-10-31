@@ -1,0 +1,22 @@
+{
+  "id": "estandartes:doctrine/inglesa_1415",
+  "name": "Doctrina inglesa (s. XV)",
+  "weights": {
+    "estandartes:unit/arqueros_arco_largo": 0.7,
+    "estandartes:unit/hombres_de_armas": 0.25,
+    "estandartes:unit/caballeria_pesada": 0.05
+  },
+  "preferredPlans": {
+    "provoke_defend": 0.5
+  },
+  "deployment": {
+    "ShockInfantry": "Center",
+    "PolearmInfantry": "Center",
+    "Ranged": "Front",
+    "Skirmisher": "Front",
+    "ShockCavalry": "Wings",
+    "LightCavalry": "Wings",
+    "Engineer": "Reserve",
+    "Command": "Escort"
+  }
+}

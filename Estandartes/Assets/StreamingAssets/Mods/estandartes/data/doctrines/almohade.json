@@ -1,0 +1,25 @@
+{
+  "id": "estandartes:doctrine/almohade",
+  "name": "Doctrina almohade",
+  "weights": {
+    "estandartes:unit/voluntarios": 0.25,
+    "estandartes:unit/caballeria_ligera": 0.25,
+    "estandartes:unit/arqueros_a_caballo": 0.1,
+    "estandartes:unit/arqueros": 0.15,
+    "estandartes:unit/guardia_del_califa": 0.1,
+    "estandartes:unit/lanceros": 0.15
+  },
+  "preferredPlans": {
+    "attrition_envelop": 0.5
+  },
+  "deployment": {
+    "ShockInfantry": "Center",
+    "PolearmInfantry": "Center",
+    "Ranged": "Front",
+    "Skirmisher": "Front",
+    "ShockCavalry": "Wings",
+    "LightCavalry": "Wings",
+    "Engineer": "Reserve",
+    "Command": "Escort"
+  }
+}

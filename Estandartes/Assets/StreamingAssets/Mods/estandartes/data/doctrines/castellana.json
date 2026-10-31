@@ -1,0 +1,25 @@
+{
+  "id": "estandartes:doctrine/castellana",
+  "name": "Doctrina castellana",
+  "weights": {
+    "estandartes:unit/caballeria_pesada": 0.25,
+    "estandartes:unit/jinetes": 0.15,
+    "estandartes:unit/lanceros": 0.2,
+    "estandartes:unit/ballesteros": 0.15,
+    "estandartes:unit/levas": 0.25
+  },
+  "preferredPlans": {
+    "anvil_hammer": 0.2,
+    "frontal": 0.1
+  },
+  "deployment": {
+    "ShockInfantry": "Center",
+    "PolearmInfantry": "Center",
+    "Ranged": "Front",
+    "Skirmisher": "Front",
+    "ShockCavalry": "Wings",
+    "LightCavalry": "Wings",
+    "Engineer": "Reserve",
+    "Command": "Escort"
+  }
+}

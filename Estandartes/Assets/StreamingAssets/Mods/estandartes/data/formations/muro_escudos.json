@@ -1,0 +1,15 @@
+{
+  "id": "estandartes:formation/muro_escudos",
+  "name": "Muro de escudos",
+  "generator": "ShieldWall",
+  "spacingX": 0.7,
+  "spacingY": 1.0,
+  "desiredRanks": 4,
+  "width": 0,
+  "shieldsOverlap": true,
+  "facesOutward": false,
+  "jitter": 0,
+  "requiresCapability": [
+    "ShieldWall"
+  ]
+}

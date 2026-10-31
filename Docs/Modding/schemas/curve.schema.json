@@ -1,0 +1,62 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "title": "curve",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "id": {
+      "type": "string"
+    },
+    "name": {
+      "type": "string"
+    },
+    "type": {
+      "$ref": "#/definitions/CurveType"
+    },
+    "slope": {
+      "type": "number",
+      "format": "float"
+    },
+    "exponent": {
+      "type": "number",
+      "format": "float"
+    },
+    "x0": {
+      "type": "number",
+      "format": "float"
+    },
+    "inputMin": {
+      "type": "number",
+      "format": "float"
+    },
+    "inputMax": {
+      "type": "number",
+      "format": "float"
+    },
+    "invert": {
+      "type": "boolean"
+    }
+  },
+  "definitions": {
+    "CurveType": {
+      "type": "string",
+      "description": "",
+      "x-enumNames": [
+        "Linear",
+        "Polynomial",
+        "Logistic",
+        "InverseLogistic",
+        "SmoothStep",
+        "Constant"
+      ],
+      "enum": [
+        "Linear",
+        "Polynomial",
+        "Logistic",
+        "InverseLogistic",
+        "SmoothStep",
+        "Constant"
+      ]
+    }
+  }
+}

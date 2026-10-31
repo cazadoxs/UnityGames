@@ -1,0 +1,18 @@
+{
+  "id": "estandartes:faction/aragon",
+  "name": "Corona de Aragón",
+  "culture": "iberica_cristiana",
+  "era": "medieval",
+  "doctrine": "estandartes:doctrine/aragonesa",
+  "units": [
+    "estandartes:unit/caballeria_pesada",
+    "estandartes:unit/lanceros",
+    "estandartes:unit/ballesteros",
+    "estandartes:unit/hostigadores",
+    "estandartes:unit/levas"
+  ],
+  "colors": [
+    "#F2C230",
+    "#C8102E"
+  ]
+}

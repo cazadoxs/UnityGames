@@ -1,0 +1,11 @@
+{
+  "id": "estandartes:curve/fatiga",
+  "name": "Fatiga",
+  "type": "Polynomial",
+  "slope": 1,
+  "exponent": 2,
+  "x0": 0.5,
+  "inputMin": 0,
+  "inputMax": 1,
+  "invert": true
+}

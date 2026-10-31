@@ -1,0 +1,51 @@
+{
+  "id": "estandartes:unit/arqueros_arco_largo",
+  "name": "Arqueros de arco largo",
+  "archetype": "Ranged",
+  "capabilities": [
+    "Stakes"
+  ],
+  "weapons": [
+    "estandartes:weapon/arco_largo",
+    "estandartes:weapon/maza"
+  ],
+  "armor": {
+    "cut": 0.2,
+    "pierce": 0.15,
+    "blunt": 0.1
+  },
+  "stats": {
+    "health": 100,
+    "mountHealth": 0,
+    "morale": 55,
+    "discipline": 60,
+    "walk": 1.4,
+    "run": 5.8
+  },
+  "personality": {
+    "courage": [
+      0.4,
+      0.8
+    ],
+    "aggression": [
+      0.3,
+      0.6
+    ],
+    "skill": [
+      0.5,
+      0.9
+    ],
+    "discipline": [
+      0.4,
+      0.8
+    ],
+    "experience": [
+      0.4,
+      0.8
+    ]
+  },
+  "squadSize": 60,
+  "cost": 10,
+  "era": "medieval",
+  "culture": "anglo_francesa_tardia"
+}

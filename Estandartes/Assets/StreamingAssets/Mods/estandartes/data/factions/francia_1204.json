@@ -1,0 +1,19 @@
+{
+  "id": "estandartes:faction/francia_1204",
+  "name": "Reino de Francia (1204)",
+  "culture": "franco_angevina",
+  "era": "medieval",
+  "doctrine": "estandartes:doctrine/francesa_1204",
+  "units": [
+    "estandartes:unit/hombres_de_armas",
+    "estandartes:unit/ballesteros",
+    "estandartes:unit/levas",
+    "estandartes:unit/zapadores",
+    "estandartes:unit/caballeria_pesada",
+    "estandartes:unit/paveseros"
+  ],
+  "colors": [
+    "#1F3A93",
+    "#E8C547"
+  ]
+}

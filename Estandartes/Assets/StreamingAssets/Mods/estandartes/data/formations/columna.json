@@ -1,0 +1,13 @@
+{
+  "id": "estandartes:formation/columna",
+  "name": "Columna de marcha",
+  "generator": "Column",
+  "spacingX": 1.0,
+  "spacingY": 1.2,
+  "desiredRanks": 0,
+  "width": 5,
+  "shieldsOverlap": false,
+  "facesOutward": false,
+  "jitter": 0,
+  "requiresCapability": []
+}

@@ -1,0 +1,17 @@
+{
+  "id": "estandartes:weapon/maza",
+  "name": "Maza",
+  "family": "Blunt",
+  "damageType": "Blunt",
+  "baseDamage": 38,
+  "penetration": 0.35,
+  "range": 0.8,
+  "effectiveRange": 0.8,
+  "windup": 0.5,
+  "strike": 0.15,
+  "recover": 0.4,
+  "staminaCost": 10,
+  "ammo": 0,
+  "reload": 0,
+  "ranged": false
+}

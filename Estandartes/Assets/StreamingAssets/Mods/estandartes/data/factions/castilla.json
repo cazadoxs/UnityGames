@@ -1,0 +1,18 @@
+{
+  "id": "estandartes:faction/castilla",
+  "name": "Corona de Castilla",
+  "culture": "iberica_cristiana",
+  "era": "medieval",
+  "doctrine": "estandartes:doctrine/castellana",
+  "units": [
+    "estandartes:unit/caballeria_pesada",
+    "estandartes:unit/jinetes",
+    "estandartes:unit/lanceros",
+    "estandartes:unit/ballesteros",
+    "estandartes:unit/levas"
+  ],
+  "colors": [
+    "#C8102E",
+    "#E8C547"
+  ]
+}

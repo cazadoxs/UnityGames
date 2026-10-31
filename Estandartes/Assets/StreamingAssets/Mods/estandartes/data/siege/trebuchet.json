@@ -1,0 +1,12 @@
+{
+  "id": "estandartes:siege/trebuchet",
+  "name": "Trebuchet de contrapeso",
+  "crewMin": 12,
+  "crewMax": 12,
+  "carried": 0,
+  "health": 900,
+  "rangeMin": 80,
+  "rangeMax": 300,
+  "reload": 40,
+  "targets": "Muros (brechas)"
+}

@@ -1,0 +1,12 @@
+{
+  "id": "estandartes:personality/tradicionalista",
+  "name": "Tradicionalista",
+  "casualtyAversion": 1.0,
+  "riskAversion": 0.6,
+  "patience": 0.25,
+  "deceptionBias": 0,
+  "attackBias": 0,
+  "doctrineBias": 0.5,
+  "minReserve": 0.15,
+  "temperature": 0.12
+}

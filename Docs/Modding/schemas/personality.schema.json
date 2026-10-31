@@ -1,0 +1,46 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "title": "personality",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "id": {
+      "type": "string"
+    },
+    "name": {
+      "type": "string"
+    },
+    "casualtyAversion": {
+      "type": "number",
+      "format": "float"
+    },
+    "riskAversion": {
+      "type": "number",
+      "format": "float"
+    },
+    "patience": {
+      "type": "number",
+      "format": "float"
+    },
+    "deceptionBias": {
+      "type": "number",
+      "format": "float"
+    },
+    "attackBias": {
+      "type": "number",
+      "format": "float"
+    },
+    "doctrineBias": {
+      "type": "number",
+      "format": "float"
+    },
+    "minReserve": {
+      "type": "number",
+      "format": "float"
+    },
+    "temperature": {
+      "type": "number",
+      "format": "float"
+    }
+  }
+}

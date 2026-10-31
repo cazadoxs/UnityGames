@@ -1,0 +1,12 @@
+{
+  "id": "estandartes:siege/balista",
+  "name": "Balista",
+  "crewMin": 2,
+  "crewMax": 3,
+  "carried": 0,
+  "health": 300,
+  "rangeMin": 10,
+  "rangeMax": 300,
+  "reload": 10,
+  "targets": "Tropas, dotaciones y máquinas"
+}

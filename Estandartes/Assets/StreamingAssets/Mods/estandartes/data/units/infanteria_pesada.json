@@ -1,0 +1,48 @@
+{
+  "id": "estandartes:unit/infanteria_pesada",
+  "name": "Infantería pesada a dos manos",
+  "archetype": "ShockInfantry",
+  "capabilities": [],
+  "weapons": [
+    "estandartes:weapon/hacha_danesa",
+    "estandartes:weapon/espada"
+  ],
+  "armor": {
+    "cut": 0.65,
+    "pierce": 0.5,
+    "blunt": 0.35
+  },
+  "stats": {
+    "health": 100,
+    "mountHealth": 0,
+    "morale": 80,
+    "discipline": 65,
+    "walk": 1.25,
+    "run": 4.8
+  },
+  "personality": {
+    "courage": [
+      0.6,
+      0.95
+    ],
+    "aggression": [
+      0.6,
+      0.95
+    ],
+    "skill": [
+      0.6,
+      0.9
+    ],
+    "discipline": [
+      0.5,
+      0.8
+    ],
+    "experience": [
+      0.5,
+      0.9
+    ]
+  },
+  "squadSize": 40,
+  "cost": 15,
+  "era": "medieval"
+}

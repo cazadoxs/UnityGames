@@ -1,0 +1,434 @@
+{
+  "id": "estandartes:scenario/stirling",
+  "name": "Puente de Stirling",
+  "map": "stirling",
+  "date": "1297-09-11",
+  "protagonist": "Ewan, lancero de la hueste de Andrew Moray",
+  "description": "Esperar ocultos a que cruce la vanguardia inglesa y tomar la cabeza del puente en el momento justo.",
+  "armies": [
+    {
+      "team": 0,
+      "faction": "estandartes:faction/escoceses",
+      "generalName": "Andrew Moray y William Wallace",
+      "generalPersonality": "estandartes:personality/moray_wallace",
+      "htnDomain": "estandartes:htn/campal_defensor",
+      "total": 6000,
+      "compositionMode": "Quick",
+      "commanders": [
+        {
+          "name": "Moray",
+          "wing": "Left",
+          "personality": "estandartes:personality/moray_wallace",
+          "coordination": 0.85
+        },
+        {
+          "name": "Wallace",
+          "wing": "Right",
+          "personality": "estandartes:personality/moray_wallace",
+          "coordination": 0.85
+        }
+      ],
+      "reinforcements": 0,
+      "playerSide": true
+    },
+    {
+      "team": 1,
+      "faction": "estandartes:faction/inglaterra_1297",
+      "generalName": "Conde de Surrey",
+      "generalPersonality": "estandartes:personality/surrey",
+      "htnDomain": "estandartes:htn/campal_atacante",
+      "total": 9000,
+      "compositionMode": "Quick",
+      "commanders": [
+        {
+          "name": "Vanguardia (Cressingham)",
+          "wing": "Front",
+          "personality": "estandartes:personality/agresivo",
+          "coordination": 0.7
+        },
+        {
+          "name": "Cuerpo principal",
+          "wing": "Center",
+          "personality": "estandartes:personality/surrey",
+          "coordination": 0.7
+        },
+        {
+          "name": "Caballeros del vado",
+          "wing": "Right",
+          "personality": "estandartes:personality/astuto",
+          "coordination": 0.6
+        }
+      ],
+      "reinforcements": 0,
+      "playerSide": false
+    }
+  ],
+  "zones": [
+    {
+      "id": "abbey_craig",
+      "name": "Abbey Craig",
+      "type": "Deployment",
+      "owner": 0,
+      "polygon": [
+        {
+          "x": 700,
+          "y": 1500
+        },
+        {
+          "x": 1300,
+          "y": 1500
+        },
+        {
+          "x": 1300,
+          "y": 1900
+        },
+        {
+          "x": 700,
+          "y": 1900
+        }
+      ]
+    },
+    {
+      "id": "calzada",
+      "name": "Calzada",
+      "type": "Warrior",
+      "owner": -1,
+      "polygon": [
+        {
+          "x": 950,
+          "y": 1100
+        },
+        {
+          "x": 1050,
+          "y": 1100
+        },
+        {
+          "x": 1050,
+          "y": 1500
+        },
+        {
+          "x": 950,
+          "y": 1500
+        }
+      ]
+    },
+    {
+      "id": "meandro",
+      "name": "Meandro",
+      "type": "Warrior",
+      "owner": -1,
+      "polygon": [
+        {
+          "x": 500,
+          "y": 900
+        },
+        {
+          "x": 1500,
+          "y": 900
+        },
+        {
+          "x": 1500,
+          "y": 1200
+        },
+        {
+          "x": 500,
+          "y": 1200
+        }
+      ]
+    },
+    {
+      "id": "cabeza_puente",
+      "name": "Cabeza norte del puente",
+      "type": "Conquest",
+      "owner": -1,
+      "polygon": [
+        {
+          "x": 940,
+          "y": 880
+        },
+        {
+          "x": 1060,
+          "y": 880
+        },
+        {
+          "x": 1060,
+          "y": 940
+        },
+        {
+          "x": 940,
+          "y": 940
+        }
+      ]
+    },
+    {
+      "id": "orilla_sur",
+      "name": "Orilla sur",
+      "type": "Deployment",
+      "owner": 1,
+      "polygon": [
+        {
+          "x": 300,
+          "y": 200
+        },
+        {
+          "x": 1700,
+          "y": 200
+        },
+        {
+          "x": 1700,
+          "y": 700
+        },
+        {
+          "x": 300,
+          "y": 700
+        }
+      ]
+    },
+    {
+      "id": "vado",
+      "name": "Vado lejano",
+      "type": "Retreat",
+      "owner": 1,
+      "polygon": [
+        {
+          "x": 1700,
+          "y": 700
+        },
+        {
+          "x": 1900,
+          "y": 700
+        },
+        {
+          "x": 1900,
+          "y": 850
+        },
+        {
+          "x": 1700,
+          "y": 850
+        }
+      ]
+    }
+  ],
+  "objectives": {
+    "nodes": [
+      {
+        "id": "observar",
+        "name": "Observar y explorar",
+        "type": "Hold",
+        "requires": [],
+        "requireMode": "And",
+        "team": 0,
+        "initialOwner": -1,
+        "final": false,
+        "pointOfNoReturn": false,
+        "captureTime": 120,
+        "x": 0,
+        "y": 0
+      },
+      {
+        "id": "vado",
+        "name": "Interceptar a los exploradores del vado",
+        "type": "KillLeader",
+        "requires": [
+          "observar"
+        ],
+        "requireMode": "And",
+        "team": 0,
+        "initialOwner": -1,
+        "final": false,
+        "pointOfNoReturn": false,
+        "captureTime": 60,
+        "x": 0,
+        "y": 0
+      },
+      {
+        "id": "esperar",
+        "name": "Esperar oculto",
+        "type": "Resist",
+        "requires": [
+          "observar"
+        ],
+        "requireMode": "And",
+        "team": 0,
+        "initialOwner": -1,
+        "final": false,
+        "pointOfNoReturn": false,
+        "captureTime": 600,
+        "x": 0,
+        "y": 0
+      },
+      {
+        "id": "cabeza_puente",
+        "name": "Tomar la cabeza del puente",
+        "type": "Capture",
+        "requires": [
+          "esperar"
+        ],
+        "requireMode": "And",
+        "team": 0,
+        "initialOwner": -1,
+        "final": false,
+        "pointOfNoReturn": false,
+        "captureTime": 45,
+        "x": 0,
+        "y": 0,
+        "zone": "cabeza_puente"
+      },
+      {
+        "id": "meandro",
+        "name": "Destruir la vanguardia atrapada",
+        "type": "Hold",
+        "requires": [
+          "cabeza_puente"
+        ],
+        "requireMode": "And",
+        "team": 0,
+        "initialOwner": -1,
+        "final": false,
+        "pointOfNoReturn": false,
+        "captureTime": 240,
+        "x": 0,
+        "y": 0
+      },
+      {
+        "id": "sostener",
+        "name": "Sostener la cabeza del puente",
+        "type": "Resist",
+        "requires": [
+          "cabeza_puente"
+        ],
+        "requireMode": "And",
+        "team": 0,
+        "initialOwner": -1,
+        "final": true,
+        "pointOfNoReturn": false,
+        "captureTime": 300,
+        "x": 0,
+        "y": 0
+      }
+    ]
+  },
+  "events": [
+    {
+      "id": "emisarios",
+      "mode": "And",
+      "conditions": [
+        {
+          "type": "Time",
+          "team": -1,
+          "value": 60
+        }
+      ],
+      "actions": [
+        {
+          "type": "Narration",
+          "team": -1,
+          "value": 0,
+          "text": "Llegan frailes a ofrecer condiciones. «No hemos venido a hacer la paz, sino a luchar»"
+        }
+      ]
+    },
+    {
+      "id": "cruce",
+      "mode": "And",
+      "conditions": [
+        {
+          "type": "ObjectiveAchieved",
+          "team": 0,
+          "value": 0,
+          "target": "observar"
+        }
+      ],
+      "actions": [
+        {
+          "type": "SetPlan",
+          "team": 1,
+          "value": 0,
+          "text": "frontal"
+        },
+        {
+          "type": "Message",
+          "team": -1,
+          "value": 0,
+          "text": "Los ingleses empiezan a cruzar el puente"
+        }
+      ]
+    },
+    {
+      "id": "cuerno",
+      "mode": "And",
+      "conditions": [
+        {
+          "type": "EventFired",
+          "team": -1,
+          "value": 0,
+          "target": "cruce"
+        },
+        {
+          "type": "Time",
+          "team": -1,
+          "value": 900
+        }
+      ],
+      "actions": [
+        {
+          "type": "Signal",
+          "team": 0,
+          "value": 0,
+          "target": "horn",
+          "text": "¡El cuerno de Moray!"
+        }
+      ]
+    },
+    {
+      "id": "puente_destruido",
+      "mode": "And",
+      "conditions": [
+        {
+          "type": "ObjectiveAchieved",
+          "team": 0,
+          "value": 0,
+          "target": "sostener"
+        }
+      ],
+      "actions": [
+        {
+          "type": "CloseGate",
+          "team": 1,
+          "value": 0,
+          "target": "puente",
+          "text": "Surrey manda destruir el puente y se retira"
+        }
+      ]
+    }
+  ],
+  "rules": {
+    "victory": [
+      {
+        "type": "Core",
+        "team": 0,
+        "value": 0
+      },
+      {
+        "type": "Annihilation",
+        "team": -1,
+        "value": 0
+      }
+    ],
+    "weather": "Overcast",
+    "timeOfDay": "Morning",
+    "temperature": 13
+  },
+  "phases": [
+    "Observación",
+    "Paciencia",
+    "La cabeza del puente",
+    "El meandro",
+    "Sostener"
+  ],
+  "secondaryObjectives": [
+    "Interceptar a los exploradores del vado",
+    "No atacar antes del cuerno",
+    "Abatir a Hugh de Cressingham"
+  ]
+}

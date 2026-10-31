@@ -1,0 +1,12 @@
+{
+  "id": "estandartes:personality/felipe_augusto",
+  "name": "Felipe II Augusto",
+  "casualtyAversion": 1.2,
+  "riskAversion": 0.7,
+  "patience": 0.3,
+  "deceptionBias": 0.1,
+  "attackBias": 0,
+  "doctrineBias": 0.2,
+  "minReserve": 0.15,
+  "temperature": 0.12
+}

@@ -1,0 +1,50 @@
+{
+  "id": "estandartes:unit/hostigadores",
+  "name": "Hostigadores",
+  "archetype": "Skirmisher",
+  "capabilities": [
+    "Javelins"
+  ],
+  "weapons": [
+    "estandartes:weapon/jabalina",
+    "estandartes:weapon/espada_corta"
+  ],
+  "armor": {
+    "cut": 0.05,
+    "pierce": 0.0,
+    "blunt": 0.0
+  },
+  "stats": {
+    "health": 100,
+    "mountHealth": 0,
+    "morale": 40,
+    "discipline": 35,
+    "walk": 1.6,
+    "run": 6.5
+  },
+  "personality": {
+    "courage": [
+      0.3,
+      0.7
+    ],
+    "aggression": [
+      0.4,
+      0.8
+    ],
+    "skill": [
+      0.3,
+      0.6
+    ],
+    "discipline": [
+      0.2,
+      0.5
+    ],
+    "experience": [
+      0.2,
+      0.5
+    ]
+  },
+  "squadSize": 40,
+  "cost": 5,
+  "era": "medieval"
+}

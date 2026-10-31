@@ -1,0 +1,11 @@
+{
+  "id": "estandartes:curve/distancia_tarea",
+  "name": "Distancia a la tarea",
+  "type": "InverseLogistic",
+  "slope": 10,
+  "exponent": 1,
+  "x0": 0.4167,
+  "inputMin": 0,
+  "inputMax": 600,
+  "invert": false
+}

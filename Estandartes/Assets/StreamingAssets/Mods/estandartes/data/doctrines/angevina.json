@@ -1,0 +1,22 @@
+{
+  "id": "estandartes:doctrine/angevina",
+  "name": "Doctrina angevina",
+  "weights": {
+    "estandartes:unit/hombres_de_armas": 0.4,
+    "estandartes:unit/ballesteros": 0.4,
+    "estandartes:unit/lanceros": 0.2
+  },
+  "preferredPlans": {
+    "defense_in_depth": 0.4
+  },
+  "deployment": {
+    "ShockInfantry": "Center",
+    "PolearmInfantry": "Center",
+    "Ranged": "Front",
+    "Skirmisher": "Front",
+    "ShockCavalry": "Wings",
+    "LightCavalry": "Wings",
+    "Engineer": "Reserve",
+    "Command": "Escort"
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "id": "estandartes:formation/linea",
+  "name": "Línea",
+  "generator": "Line",
+  "spacingX": 1.0,
+  "spacingY": 1.2,
+  "desiredRanks": 4,
+  "width": 0,
+  "shieldsOverlap": false,
+  "facesOutward": false,
+  "jitter": 0,
+  "requiresCapability": []
+}

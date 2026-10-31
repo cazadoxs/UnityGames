@@ -1,0 +1,515 @@
+{
+  "id": "estandartes:scenario/chateau_gaillard",
+  "name": "Asedio de Château Gaillard",
+  "map": "chateau_gaillard",
+  "date": "1204-03-06",
+  "protagonist": "Aubri, zapador picardo",
+  "description": "Tomar el castillo recinto a recinto: foso y mina, recinto exterior, capilla del recinto central y torre del homenaje.",
+  "preferredPreset": "Medio",
+  "armies": [
+    {
+      "team": 0,
+      "faction": "estandartes:faction/francia_1204",
+      "generalName": "Felipe II Augusto",
+      "generalPersonality": "estandartes:personality/felipe_augusto",
+      "htnDomain": "estandartes:htn/asedio_atacante",
+      "total": 3000,
+      "compositionMode": "Quick",
+      "commanders": [
+        {
+          "name": "Asedio",
+          "wing": "Siege",
+          "personality": "estandartes:personality/felipe_augusto",
+          "coordination": 0.9
+        },
+        {
+          "name": "Asalto",
+          "wing": "Center",
+          "personality": "estandartes:personality/agresivo",
+          "coordination": 0.8
+        },
+        {
+          "name": "Reserva",
+          "wing": "Reserve",
+          "personality": "estandartes:personality/prudente",
+          "coordination": 0.8
+        }
+      ],
+      "reinforcements": 1500,
+      "playerSide": true
+    },
+    {
+      "team": 1,
+      "faction": "estandartes:faction/inglaterra_angevina",
+      "generalName": "Roger de Lacy",
+      "generalPersonality": "estandartes:personality/roger_de_lacy",
+      "htnDomain": "estandartes:htn/asedio_defensor",
+      "total": 600,
+      "compositionMode": "Quick",
+      "commanders": [
+        {
+          "name": "Guarnición",
+          "wing": "Center",
+          "personality": "estandartes:personality/roger_de_lacy",
+          "coordination": 0.9
+        }
+      ],
+      "reinforcements": 0,
+      "playerSide": false
+    }
+  ],
+  "zones": [
+    {
+      "id": "lineas_asedio",
+      "name": "Líneas de asedio",
+      "type": "Deployment",
+      "owner": 0,
+      "polygon": [
+        {
+          "x": 200,
+          "y": 0
+        },
+        {
+          "x": 1800,
+          "y": 0
+        },
+        {
+          "x": 1800,
+          "y": 250
+        },
+        {
+          "x": 200,
+          "y": 250
+        }
+      ]
+    },
+    {
+      "id": "artilleria",
+      "name": "Posiciones de artillería",
+      "type": "Artillery",
+      "owner": 0,
+      "polygon": [
+        {
+          "x": 400,
+          "y": 250
+        },
+        {
+          "x": 1600,
+          "y": 250
+        },
+        {
+          "x": 1600,
+          "y": 350
+        },
+        {
+          "x": 400,
+          "y": 350
+        }
+      ]
+    },
+    {
+      "id": "recinto_exterior",
+      "name": "Recinto exterior",
+      "type": "Conquest",
+      "owner": 1,
+      "polygon": [
+        {
+          "x": 700,
+          "y": 450
+        },
+        {
+          "x": 1300,
+          "y": 450
+        },
+        {
+          "x": 1300,
+          "y": 700
+        },
+        {
+          "x": 700,
+          "y": 700
+        }
+      ]
+    },
+    {
+      "id": "recinto_central",
+      "name": "Recinto central",
+      "type": "Conquest",
+      "owner": 1,
+      "polygon": [
+        {
+          "x": 650,
+          "y": 700
+        },
+        {
+          "x": 1350,
+          "y": 700
+        },
+        {
+          "x": 1350,
+          "y": 1000
+        },
+        {
+          "x": 650,
+          "y": 1000
+        }
+      ]
+    },
+    {
+      "id": "capilla",
+      "name": "Capilla y letrinas",
+      "type": "Ambush",
+      "owner": 1,
+      "polygon": [
+        {
+          "x": 1150,
+          "y": 750
+        },
+        {
+          "x": 1300,
+          "y": 750
+        },
+        {
+          "x": 1300,
+          "y": 870
+        },
+        {
+          "x": 1150,
+          "y": 870
+        }
+      ]
+    },
+    {
+      "id": "recinto_interior",
+      "name": "Recinto interior",
+      "type": "Conquest",
+      "owner": 1,
+      "polygon": [
+        {
+          "x": 750,
+          "y": 1000
+        },
+        {
+          "x": 1250,
+          "y": 1000
+        },
+        {
+          "x": 1250,
+          "y": 1250
+        },
+        {
+          "x": 750,
+          "y": 1250
+        }
+      ]
+    },
+    {
+      "id": "donjon",
+      "name": "Torre del homenaje",
+      "type": "Deployment",
+      "owner": 1,
+      "polygon": [
+        {
+          "x": 950,
+          "y": 1150
+        },
+        {
+          "x": 1070,
+          "y": 1150
+        },
+        {
+          "x": 1070,
+          "y": 1270
+        },
+        {
+          "x": 950,
+          "y": 1270
+        }
+      ]
+    }
+  ],
+  "objectives": {
+    "nodes": [
+      {
+        "id": "foso",
+        "name": "Rellenar el foso exterior",
+        "type": "Build",
+        "requires": [],
+        "requireMode": "And",
+        "team": 0,
+        "initialOwner": -1,
+        "final": false,
+        "pointOfNoReturn": false,
+        "captureTime": 120,
+        "x": 0,
+        "y": 0
+      },
+      {
+        "id": "mina_torre",
+        "name": "Minar la torre principal",
+        "type": "Build",
+        "requires": [
+          "foso"
+        ],
+        "requireMode": "And",
+        "team": 0,
+        "initialOwner": -1,
+        "final": false,
+        "pointOfNoReturn": true,
+        "captureTime": 180,
+        "x": 0,
+        "y": 0
+      },
+      {
+        "id": "exterior",
+        "name": "Recinto exterior",
+        "type": "Capture",
+        "requires": [
+          "mina_torre"
+        ],
+        "requireMode": "And",
+        "team": 0,
+        "initialOwner": 1,
+        "final": false,
+        "pointOfNoReturn": false,
+        "captureTime": 60,
+        "x": 0,
+        "y": 0,
+        "zone": "recinto_exterior",
+        "effects": [
+          {
+            "type": "MoveReinforcementPoint",
+            "target": "recinto_exterior"
+          }
+        ]
+      },
+      {
+        "id": "capilla",
+        "name": "Infiltrarse por la capilla",
+        "type": "Infiltrate",
+        "requires": [
+          "exterior"
+        ],
+        "requireMode": "And",
+        "team": 0,
+        "initialOwner": -1,
+        "final": false,
+        "pointOfNoReturn": false,
+        "captureTime": 45,
+        "x": 0,
+        "y": 0
+      },
+      {
+        "id": "puerta_central",
+        "name": "Romper la puerta central",
+        "type": "Open",
+        "requires": [
+          "exterior"
+        ],
+        "requireMode": "And",
+        "team": 0,
+        "initialOwner": 1,
+        "final": false,
+        "pointOfNoReturn": true,
+        "captureTime": 90,
+        "x": 0,
+        "y": 0
+      },
+      {
+        "id": "central",
+        "name": "Recinto central",
+        "type": "Capture",
+        "requires": [
+          "capilla",
+          "puerta_central"
+        ],
+        "requireMode": "Or",
+        "team": 0,
+        "initialOwner": 1,
+        "final": false,
+        "pointOfNoReturn": false,
+        "captureTime": 60,
+        "x": 0,
+        "y": 0,
+        "zone": "recinto_central"
+      },
+      {
+        "id": "brecha_interior",
+        "name": "Brecha en el recinto interior",
+        "type": "Destroy",
+        "requires": [
+          "central"
+        ],
+        "requireMode": "And",
+        "team": 0,
+        "initialOwner": 1,
+        "final": false,
+        "pointOfNoReturn": true,
+        "captureTime": 150,
+        "x": 0,
+        "y": 0
+      },
+      {
+        "id": "interior",
+        "name": "Recinto interior",
+        "type": "Capture",
+        "requires": [
+          "brecha_interior"
+        ],
+        "requireMode": "And",
+        "team": 0,
+        "initialOwner": 1,
+        "final": false,
+        "pointOfNoReturn": false,
+        "captureTime": 60,
+        "x": 0,
+        "y": 0,
+        "zone": "recinto_interior"
+      },
+      {
+        "id": "homenaje",
+        "name": "Torre del homenaje",
+        "type": "Capture",
+        "requires": [
+          "interior"
+        ],
+        "requireMode": "And",
+        "team": 0,
+        "initialOwner": 1,
+        "final": true,
+        "pointOfNoReturn": false,
+        "captureTime": 90,
+        "x": 0,
+        "y": 0,
+        "zone": "donjon"
+      }
+    ]
+  },
+  "events": [
+    {
+      "id": "dia2",
+      "mode": "And",
+      "conditions": [
+        {
+          "type": "ObjectiveAchieved",
+          "team": 0,
+          "value": 0,
+          "target": "mina_torre"
+        }
+      ],
+      "actions": [
+        {
+          "type": "Narration",
+          "team": -1,
+          "value": 0,
+          "text": "Al amanecer del segundo día, la torre se derrumba"
+        },
+        {
+          "type": "OpenGate",
+          "team": -1,
+          "value": 0,
+          "target": "brecha_exterior"
+        }
+      ]
+    },
+    {
+      "id": "repliegue_exterior",
+      "mode": "And",
+      "conditions": [
+        {
+          "type": "ObjectiveAchieved",
+          "team": 0,
+          "value": 0,
+          "target": "exterior"
+        }
+      ],
+      "actions": [
+        {
+          "type": "SetPlan",
+          "team": 1,
+          "value": 0,
+          "text": "defense_in_depth"
+        },
+        {
+          "type": "Message",
+          "team": -1,
+          "value": 0,
+          "text": "La guarnición se repliega al recinto central"
+        }
+      ]
+    },
+    {
+      "id": "noche",
+      "mode": "And",
+      "conditions": [
+        {
+          "type": "ObjectiveAchieved",
+          "team": 0,
+          "value": 0,
+          "target": "exterior"
+        }
+      ],
+      "actions": [
+        {
+          "type": "TimeOfDay",
+          "team": -1,
+          "value": 23,
+          "text": "Noche del segundo día"
+        }
+      ]
+    },
+    {
+      "id": "rendicion",
+      "mode": "And",
+      "conditions": [
+        {
+          "type": "ObjectiveAchieved",
+          "team": 0,
+          "value": 0,
+          "target": "interior"
+        },
+        {
+          "type": "MoraleBelow",
+          "team": 1,
+          "value": 30
+        }
+      ],
+      "actions": [
+        {
+          "type": "Message",
+          "team": -1,
+          "value": 0,
+          "text": "La guarnición pide condiciones"
+        }
+      ]
+    }
+  ],
+  "rules": {
+    "victory": [
+      {
+        "type": "Core",
+        "team": 0,
+        "value": 0
+      },
+      {
+        "type": "Annihilation",
+        "team": -1,
+        "value": 0
+      }
+    ],
+    "weather": "Overcast",
+    "timeOfDay": "Morning",
+    "temperature": 3
+  },
+  "phases": [
+    "El foso y la mina",
+    "Brecha y recinto exterior",
+    "La capilla",
+    "El recinto interior"
+  ],
+  "secondaryObjectives": [
+    "Tomar el recinto central por la capilla",
+    "Que no muera ningún zapador en la fase 1",
+    "Capturar vivo a Roger de Lacy"
+  ]
+}

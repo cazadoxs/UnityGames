@@ -1,0 +1,12 @@
+{
+  "id": "estandartes:siege/torre_asedio",
+  "name": "Torre de asedio",
+  "crewMin": 20,
+  "crewMax": 20,
+  "carried": 40,
+  "health": 4000,
+  "rangeMin": 0,
+  "rangeMax": 0,
+  "reload": 0,
+  "targets": "Transporte al adarve"
+}

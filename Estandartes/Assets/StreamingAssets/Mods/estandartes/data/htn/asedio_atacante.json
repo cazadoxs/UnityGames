@@ -1,0 +1,96 @@
+{
+  "id": "estandartes:htn/asedio_atacante",
+  "name": "Asedio — atacante",
+  "root": "TakeFortress",
+  "compound": {
+    "TakeFortress": [
+      {
+        "name": "staged_assault",
+        "tags": [
+          "attack"
+        ],
+        "pre": [
+          "objectiveChain == 1"
+        ],
+        "subtasks": [
+          {
+            "task": "Bombard",
+            "role": "artillery",
+            "target": "objective"
+          },
+          {
+            "task": "Engineer",
+            "role": "infantry",
+            "target": "objective"
+          },
+          {
+            "task": "Harass",
+            "role": "ranged",
+            "target": "objective"
+          },
+          {
+            "task": "Capture",
+            "role": "infantry",
+            "target": "objective",
+            "delay": 30
+          }
+        ]
+      },
+      {
+        "name": "feint_and_assault",
+        "tags": [
+          "deception"
+        ],
+        "pre": [
+          "routesToObjective >= 2"
+        ],
+        "subtasks": [
+          {
+            "task": "Feint",
+            "role": "infantry",
+            "target": "enemyCenter"
+          },
+          {
+            "task": "Harass",
+            "role": "ranged",
+            "target": "objective"
+          },
+          {
+            "task": "Capture",
+            "role": "elite",
+            "target": "objective",
+            "delay": 45
+          }
+        ]
+      },
+      {
+        "name": "breach",
+        "tags": [
+          "attack"
+        ],
+        "pre": [
+          "breachableWall == 1",
+          "artilleryAvailable == 1"
+        ],
+        "subtasks": [
+          {
+            "task": "Bombard",
+            "role": "artillery",
+            "target": "objective"
+          },
+          {
+            "task": "Hold",
+            "role": "infantry",
+            "target": "holdPosition"
+          },
+          {
+            "task": "Capture",
+            "role": "infantry",
+            "target": "objective",
+            "delay": 120
+          }
+        ]
+      }
+    ]
+  }
+}

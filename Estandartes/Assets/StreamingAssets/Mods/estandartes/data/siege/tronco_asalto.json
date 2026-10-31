@@ -1,0 +1,12 @@
+{
+  "id": "estandartes:siege/tronco_asalto",
+  "name": "Tronco de asalto",
+  "crewMin": 6,
+  "crewMax": 10,
+  "carried": 0,
+  "health": 800,
+  "rangeMin": 0,
+  "rangeMax": 0,
+  "reload": 3,
+  "targets": "Puertas"
+}

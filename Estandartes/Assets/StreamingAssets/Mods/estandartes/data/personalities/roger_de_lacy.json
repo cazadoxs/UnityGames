@@ -1,0 +1,12 @@
+{
+  "id": "estandartes:personality/roger_de_lacy",
+  "name": "Roger de Lacy",
+  "casualtyAversion": 1.5,
+  "riskAversion": 1.0,
+  "patience": 0.3,
+  "deceptionBias": 0,
+  "attackBias": -0.2,
+  "doctrineBias": 0.2,
+  "minReserve": 0.3,
+  "temperature": 0.12
+}

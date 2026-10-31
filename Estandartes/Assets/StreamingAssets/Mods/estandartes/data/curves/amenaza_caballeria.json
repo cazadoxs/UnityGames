@@ -1,0 +1,11 @@
+{
+  "id": "estandartes:curve/amenaza_caballeria",
+  "name": "Amenaza de caballería",
+  "type": "Linear",
+  "slope": 1,
+  "exponent": 1,
+  "x0": 0.5,
+  "inputMin": 0,
+  "inputMax": 1,
+  "invert": false
+}

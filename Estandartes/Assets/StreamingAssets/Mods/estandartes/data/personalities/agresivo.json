@@ -1,0 +1,12 @@
+{
+  "id": "estandartes:personality/agresivo",
+  "name": "Agresivo",
+  "casualtyAversion": 0.5,
+  "riskAversion": 0.2,
+  "patience": 0.05,
+  "deceptionBias": 0,
+  "attackBias": 0.3,
+  "doctrineBias": 0,
+  "minReserve": 0.05,
+  "temperature": 0.15
+}

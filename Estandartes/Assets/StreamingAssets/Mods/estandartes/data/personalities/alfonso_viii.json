@@ -1,0 +1,12 @@
+{
+  "id": "estandartes:personality/alfonso_viii",
+  "name": "Alfonso VIII",
+  "casualtyAversion": 1.0,
+  "riskAversion": 0.6,
+  "patience": 0.2,
+  "deceptionBias": 0,
+  "attackBias": 0.1,
+  "doctrineBias": 0.2,
+  "minReserve": 0.2,
+  "temperature": 0.12
+}
