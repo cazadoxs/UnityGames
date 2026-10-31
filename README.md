@@ -21,3 +21,7 @@ Saga de batallas históricas masivas para **PC**, hecha en **Unity 6**. El prime
 ## Estado
 
 Pre-producción: GDD v0.3. El siguiente paso es la fase 0 (proyecto de Unity, Git LFS, integración continua) y después la fase 1, el prototipo técnico de escala.
+
+## Otros proyectos
+
+- [**Hamburguesería 3D**](Hamburgueseria/README.md): mecánicas, controles y sistemas de un juego de cocina de hamburguesería en primera persona (prototipo para Unity 6).
