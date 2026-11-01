@@ -1,0 +1,17 @@
+{
+  "name": "com.cazadoxs.mecanicas.miradanpc",
+  "displayName": "Mecánicas - Mirada NPC",
+  "version": "1.0.0",
+  "unity": "2021.3",
+  "description": "Seguimiento ocular y de cabeza de los NPC hacia el jugador (o cualquier objetivo), respetando los límites del cuello y de los ojos. Para 3D y primera persona.",
+  "author": {
+    "name": "cazadoxs"
+  },
+  "keywords": [
+    "npc",
+    "look at",
+    "mirada",
+    "cabeza",
+    "ojos"
+  ]
+}
