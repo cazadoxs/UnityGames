@@ -66,3 +66,8 @@ Activar la licencia de Unity como indica la documentación de GameCI, guardar `U
 ## 8. Seguir con la guía
 
 Continuar el [Volumen IV](GDD/04_Guia_de_Construccion.md) desde el paso 1.4 (lo hecho hasta aquí cubre parcialmente los pasos 1.2, 1.3, 1.5, 1.7 y 1.10).
+
+## 9. Arte
+
+- Generar el concept art de **Agincourt** con ComfyUI (se agotaron los créditos de Canva). Ver `Docs/Arte/Concept_Art.md`.
+- Revisar los wireframes de Figma y pasar al diseño visual (paso 4.10).
