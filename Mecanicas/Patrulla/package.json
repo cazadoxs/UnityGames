@@ -1,0 +1,17 @@
+{
+  "name": "com.cazadoxs.mecanicas.patrulla",
+  "displayName": "Mecánicas - Tráfico y patrulla por puntos",
+  "version": "1.0.0",
+  "unity": "2022.3",
+  "description": "Rutas de puntos con esquinas suaves (curvas naturales) o en pico, seguidores para patrullas y tráfico, semáforos y generador de vehículos. Para 3D.",
+  "author": {
+    "name": "cazadoxs"
+  },
+  "keywords": [
+    "patrulla",
+    "trafico",
+    "waypoints",
+    "ruta",
+    "ia"
+  ]
+}
