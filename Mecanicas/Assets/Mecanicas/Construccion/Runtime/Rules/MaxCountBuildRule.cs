@@ -16,11 +16,7 @@ namespace Mecanicas.Construccion
         public override bool IsAllowed(in PlacementCandidate candidate)
         {
             if (definition != null && candidate.Definition != definition) return true;
-            int count = 0;
-            foreach (PlacedBuildable p in FindObjectsByType<PlacedBuildable>(FindObjectsSortMode.None))
-            {
-                if (definition == null || p.Definition == definition) count++;
-            }
+            int count = PlacedBuildable.Count(definition);
             return count < maxCount;
         }
     }

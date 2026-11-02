@@ -35,18 +35,39 @@ namespace Mecanicas.Construccion
         /// Caja que envuelve las mallas y colisionadores de un objeto, en el espacio local de su raíz.
         /// Funciona con prefabs y con objetos desactivados.
         /// </summary>
-        public static Bounds CalculateLocalBounds(GameObject root)
+        /// <param name="space">Espacio en el que se mide (por defecto, el de <paramref name="root"/>).</param>
+        public static Bounds CalculateLocalBounds(GameObject root, Transform space = null)
         {
-            Matrix4x4 toRoot = root.transform.worldToLocalMatrix;
+            Matrix4x4 toRoot = (space != null ? space : root.transform).worldToLocalMatrix;
             bool has = false;
             Bounds result = new Bounds(Vector3.zero, Vector3.zero);
 
-            foreach (BoxCollider box in root.GetComponentsInChildren<BoxCollider>(true))
+            // 1) Colisionadores (lo que de verdad choca).
+            foreach (Collider c in root.GetComponentsInChildren<Collider>(true))
             {
-                if (box.isTrigger) continue;
-                Encapsulate(ref result, ref has, toRoot * box.transform.localToWorldMatrix, new Bounds(box.center, box.size));
+                if (c.isTrigger) continue;
+                Matrix4x4 m = toRoot * c.transform.localToWorldMatrix;
+                if (c is BoxCollider box)
+                {
+                    Encapsulate(ref result, ref has, m, new Bounds(box.center, box.size));
+                }
+                else if (c is SphereCollider s)
+                {
+                    Encapsulate(ref result, ref has, m, new Bounds(s.center, Vector3.one * s.radius * 2f));
+                }
+                else if (c is CapsuleCollider cap)
+                {
+                    Vector3 size = Vector3.one * cap.radius * 2f;
+                    size[cap.direction] = Mathf.Max(cap.height, cap.radius * 2f);
+                    Encapsulate(ref result, ref has, m, new Bounds(cap.center, size));
+                }
+                else if (c is MeshCollider mc && mc.sharedMesh != null)
+                {
+                    Encapsulate(ref result, ref has, m, mc.sharedMesh.bounds);
+                }
             }
 
+            // 2) Si no hay colisionadores, las mallas visibles.
             if (!has)
             {
                 foreach (MeshFilter mf in root.GetComponentsInChildren<MeshFilter>(true))
@@ -58,24 +79,6 @@ namespace Mecanicas.Construccion
                 {
                     if (smr.sharedMesh == null) continue;
                     Encapsulate(ref result, ref has, toRoot * smr.transform.localToWorldMatrix, smr.sharedMesh.bounds);
-                }
-            }
-
-            if (!has)
-            {
-                foreach (Collider c in root.GetComponentsInChildren<Collider>(true))
-                {
-                    if (c.isTrigger) continue;
-                    if (c is SphereCollider s)
-                    {
-                        Encapsulate(ref result, ref has, toRoot * s.transform.localToWorldMatrix, new Bounds(s.center, Vector3.one * s.radius * 2f));
-                    }
-                    else if (c is CapsuleCollider cap)
-                    {
-                        Vector3 size = Vector3.one * cap.radius * 2f;
-                        size[cap.direction] = Mathf.Max(cap.height, cap.radius * 2f);
-                        Encapsulate(ref result, ref has, toRoot * cap.transform.localToWorldMatrix, new Bounds(cap.center, size));
-                    }
                 }
             }
 

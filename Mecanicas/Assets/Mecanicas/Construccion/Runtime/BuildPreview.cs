@@ -43,7 +43,7 @@ namespace Mecanicas.Construccion
 
             LocalBounds = definition.overrideBounds
                 ? definition.customBounds
-                : BuildVisualUtility.CalculateLocalBounds(_model);
+                : BuildVisualUtility.CalculateLocalBounds(_model, _root.transform);
 
             BuildVisualUtility.StripToVisuals(_model);
 

@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace Mecanicas.Construccion
@@ -10,6 +11,23 @@ namespace Mecanicas.Construccion
     [AddComponentMenu("Mecánicas/Construcción/Objeto construido")]
     public class PlacedBuildable : MonoBehaviour
     {
+        private static readonly List<PlacedBuildable> ActiveObjects = new List<PlacedBuildable>();
+
+        /// <summary>Todos los objetos construidos que hay activos en la escena.</summary>
+        public static IReadOnlyList<PlacedBuildable> All => ActiveObjects;
+
+        /// <summary>Cuántos objetos construidos de una ficha hay ahora mismo (null = todos).</summary>
+        public static int Count(BuildableDefinition definition)
+        {
+            if (definition == null) return ActiveObjects.Count;
+            int n = 0;
+            for (int i = 0; i < ActiveObjects.Count; i++)
+            {
+                if (ActiveObjects[i].definition == definition) n++;
+            }
+            return n;
+        }
+
         [SerializeField] private BuildableDefinition definition;
         [Tooltip("Si está desactivado, el modo demoler no puede quitar este objeto.")]
         [SerializeField] private bool canBeDemolished = true;
@@ -39,6 +57,16 @@ namespace Mecanicas.Construccion
         {
             Grid = null;
             GridId = 0;
+        }
+
+        private void OnEnable()
+        {
+            if (!ActiveObjects.Contains(this)) ActiveObjects.Add(this);
+        }
+
+        private void OnDisable()
+        {
+            ActiveObjects.Remove(this);
         }
 
         private void OnDestroy()
