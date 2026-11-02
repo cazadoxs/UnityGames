@@ -34,6 +34,8 @@ namespace Mecanicas.Puertas
         [SerializeField] float recorrido = 0.06f;
         [Tooltip("Grados que gira la manilla al levantarla.")]
         [SerializeField] float anguloManilla = 90f;
+        [Tooltip("Metros que hay que subir la mano para levantar la manilla del todo (sensibilidad del arrastre).")]
+        [SerializeField] float recorridoManilla = 0.04f;
 
         [Header("Comportamiento")]
         [SerializeField] ModoPestillo modo = ModoPestillo.Realista;
@@ -65,7 +67,6 @@ namespace Mecanicas.Puertas
         float posicion;  // 0 = retirado, 1 = echado
         bool arrastrando;
         bool secuencia;
-        Vector3 agarreLocal;
         bool estabaEchado;
 
         public float Posicion => posicion;
@@ -139,16 +140,14 @@ namespace Mecanicas.Puertas
         public void EmpezarArrastre(Interactor interactor, RaycastHit impacto)
         {
             arrastrando = true;
-            agarreLocal = pasador.InverseTransformPoint(impacto.point);
         }
 
         public void Arrastrar(Interactor interactor, Vector3 mov)
         {
             Vector3 eje = pasador.TransformDirection(ejeLocal).normalized;
-            Vector3 agarre = pasador.TransformPoint(agarreLocal);
 
-            // 1) Girar la manilla.
-            float dGiro = ArrastreUtil.GradosAlrededorDeEje(pasador.position, eje, agarre, mov) / anguloManilla;
+            // 1) Girar la manilla: subir el ratón la levanta, bajarlo la baja.
+            float dGiro = Vector3.Dot(mov, Vector3.up) / Mathf.Max(0.005f, recorridoManilla);
             float giroAntes = giro;
             giro = Mathf.Clamp01(giro + dGiro);
             if (!EnMuesca) giro = Mathf.Max(giro, giroParaDeslizar); // fuera de las muescas la manilla va por la guía
