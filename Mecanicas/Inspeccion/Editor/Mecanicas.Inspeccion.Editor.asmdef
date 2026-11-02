@@ -1,0 +1,18 @@
+{
+    "name": "Mecanicas.Inspeccion.Editor",
+    "rootNamespace": "Mecanicas.Inspeccion.Editor",
+    "references": [
+        "Mecanicas.Inspeccion"
+    ],
+    "includePlatforms": [
+        "Editor"
+    ],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}
