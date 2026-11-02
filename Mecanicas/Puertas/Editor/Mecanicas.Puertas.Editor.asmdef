@@ -1,0 +1,18 @@
+{
+  "name": "Mecanicas.Puertas.Editor",
+  "rootNamespace": "Mecanicas.Puertas.EditorTools",
+  "references": [
+    "Mecanicas.Puertas"
+  ],
+  "includePlatforms": [
+    "Editor"
+  ],
+  "excludePlatforms": [],
+  "allowUnsafeCode": false,
+  "overrideReferences": false,
+  "precompiledReferences": [],
+  "autoReferenced": true,
+  "defineConstraints": [],
+  "versionDefines": [],
+  "noEngineReferences": false
+}
