@@ -1,0 +1,19 @@
+{
+    "name": "Mecanicas.Eventos.Editor",
+    "rootNamespace": "Mecanicas.Eventos.EditorTools",
+    "references": [
+        "Mecanicas.Eventos",
+        "Mecanicas.Eventos.Demo"
+    ],
+    "includePlatforms": [
+        "Editor"
+    ],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}
