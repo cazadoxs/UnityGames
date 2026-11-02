@@ -1,0 +1,17 @@
+{
+    "name": "Mecanicas.Eventos.Demo",
+    "rootNamespace": "Mecanicas.Eventos.Demo",
+    "references": [
+        "Mecanicas.Eventos",
+        "Unity.InputSystem"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}
