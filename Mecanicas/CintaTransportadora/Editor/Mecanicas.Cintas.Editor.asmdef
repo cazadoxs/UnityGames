@@ -1,0 +1,18 @@
+{
+    "name": "Mecanicas.Cintas.Editor",
+    "rootNamespace": "Mecanicas.Cintas.Editor",
+    "references": [
+        "Mecanicas.Cintas"
+    ],
+    "includePlatforms": [
+        "Editor"
+    ],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": false,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}
