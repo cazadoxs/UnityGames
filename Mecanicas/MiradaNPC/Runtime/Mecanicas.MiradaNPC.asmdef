@@ -1,0 +1,14 @@
+{
+    "name": "Mecanicas.MiradaNPC",
+    "rootNamespace": "Mecanicas.MiradaNPC",
+    "references": [],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}
