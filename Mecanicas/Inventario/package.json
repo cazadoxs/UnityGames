@@ -1,0 +1,12 @@
+{
+  "name": "com.cazadoxs.mecanicas.inventario",
+  "version": "1.0.0",
+  "displayName": "Mecánicas - Inventario",
+  "description": "Sistema de inventario reutilizable para juegos 3D en primera persona: objetos con ScriptableObjects, pilas, peso, barra rápida, recoger/soltar/usar, interfaz con arrastrar y soltar, guardado en JSON y escena demo.",
+  "unity": "2022.3",
+  "dependencies": {
+    "com.unity.ugui": "1.0.0"
+  },
+  "keywords": ["inventario", "inventory", "first person", "mecanicas"],
+  "author": { "name": "cazadoxs" }
+}
