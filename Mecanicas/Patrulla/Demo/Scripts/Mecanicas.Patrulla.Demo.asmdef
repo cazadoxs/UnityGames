@@ -1,0 +1,16 @@
+{
+    "name": "Mecanicas.Patrulla.Demo",
+    "rootNamespace": "Mecanicas.Patrulla.Demo",
+    "references": [
+        "Mecanicas.Patrulla"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}
