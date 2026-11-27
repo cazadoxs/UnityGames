@@ -1,0 +1,19 @@
+{
+    "name": "Mecanicas.Torretas.Editor",
+    "rootNamespace": "Mecanicas.Torretas.Editor",
+    "references": [
+        "Mecanicas.Torretas",
+        "Mecanicas.Torretas.Demo"
+    ],
+    "includePlatforms": [
+        "Editor"
+    ],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

@@ -25,6 +25,7 @@ Saga de batallas históricas masivas para **PC**, hecha en **Unity 6**. El prime
 | `Estandartes/` | Proyecto de Unity 6 (código en `Assets/_Project/Code`, contenido base en `Assets/StreamingAssets/Mods/estandartes`) |
 | `Docs/GDD/` | Documento de diseño en cinco volúmenes |
 | `Docs/` | Decisiones técnicas, lista de pendientes en el PC, biblia de arte, producción y modding |
+| `Mecanicas/` | Sistemas reutilizables para cualquier juego (copiar a `Assets/`). [Torreta](Mecanicas/Torreta/README.md): torretas fijas, de un eje o de todos los ángulos, con balas, animación y sonido |
 | `Tools/DotNet/` | Compilación y pruebas del núcleo fuera de Unity, generador de esquemas JSON y comprobador de sintaxis |
 
 ## Probar el núcleo sin Unity
