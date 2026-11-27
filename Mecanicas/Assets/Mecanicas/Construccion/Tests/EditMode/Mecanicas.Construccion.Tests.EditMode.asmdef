@@ -1,0 +1,24 @@
+{
+  "name": "Mecanicas.Construccion.Tests.EditMode",
+  "rootNamespace": "Mecanicas.Construccion.Tests",
+  "references": [
+    "Mecanicas.Construccion",
+    "UnityEngine.TestRunner",
+    "UnityEditor.TestRunner"
+  ],
+  "includePlatforms": [
+    "Editor"
+  ],
+  "excludePlatforms": [],
+  "allowUnsafeCode": false,
+  "overrideReferences": true,
+  "precompiledReferences": [
+    "nunit.framework.dll"
+  ],
+  "autoReferenced": false,
+  "defineConstraints": [
+    "UNITY_INCLUDE_TESTS"
+  ],
+  "versionDefines": [],
+  "noEngineReferences": false
+}

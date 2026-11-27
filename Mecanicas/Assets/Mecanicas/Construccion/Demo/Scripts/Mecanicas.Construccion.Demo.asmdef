@@ -1,0 +1,17 @@
+{
+  "name": "Mecanicas.Construccion.Demo",
+  "rootNamespace": "Mecanicas.Construccion.Demo",
+  "references": [
+    "Mecanicas.Construccion",
+    "Unity.InputSystem"
+  ],
+  "includePlatforms": [],
+  "excludePlatforms": [],
+  "allowUnsafeCode": false,
+  "overrideReferences": false,
+  "precompiledReferences": [],
+  "autoReferenced": true,
+  "defineConstraints": [],
+  "versionDefines": [],
+  "noEngineReferences": false
+}
