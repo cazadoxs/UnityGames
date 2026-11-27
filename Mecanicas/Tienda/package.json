@@ -1,0 +1,13 @@
+{
+  "name": "com.cazadoxs.mecanicas.tienda",
+  "version": "1.0.0",
+  "displayName": "Mecánicas · Tienda y compras",
+  "description": "Sistema de compra reutilizable para juegos 3D en primera persona: botones de compra en el mundo, tienda en menú, monedero con varias monedas, aparición del objeto comprado y gancho opcional para inventario.",
+  "unity": "6000.0",
+  "dependencies": {
+    "com.unity.ugui": "2.0.0"
+  },
+  "author": {
+    "name": "cazadoxs"
+  }
+}

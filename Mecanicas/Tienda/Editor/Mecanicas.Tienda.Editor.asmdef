@@ -1,0 +1,18 @@
+{
+    "name": "Mecanicas.Tienda.Editor",
+    "rootNamespace": "Mecanicas.Tienda.Editor",
+    "references": [
+        "Mecanicas.Tienda"
+    ],
+    "includePlatforms": [
+        "Editor"
+    ],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

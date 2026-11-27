@@ -1,0 +1,17 @@
+{
+    "name": "Mecanicas.Tienda.Demo",
+    "rootNamespace": "Mecanicas.Tienda.Demo",
+    "references": [
+        "Mecanicas.Tienda",
+        "UnityEngine.UI"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}
